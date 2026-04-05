@@ -1,0 +1,33 @@
+name: Lightning — Detección Rayos Volcánicos
+
+on:
+  schedule:
+    # Cada 30 minutos
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  lightning-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scan for volcanic lightning
+        run: python lightning_scanner.py
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A datos/ docs/ || true
+          git diff --staged --quiet || git commit -m "Lightning scan: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push || true
