@@ -322,7 +322,7 @@ def main() -> int:
     print("[1/3] Scraping tabla WWLLN...")
     table_data = fetch_wwlln_table(session)
 
-    active_ids = [vid for vid, row in table_data.items() if row["inner"] > 0]
+    active_ids = [vid for vid, row in table_data.items() if row["inner"] > 0 or row["outer"] > 0]
     print(f"[2/3] Descargando KMLs ({len(active_ids)} volcán(es) con rayos)...")
     stroke_positions = download_kml_positions(active_ids, session)
 
