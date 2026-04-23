@@ -2,7 +2,6 @@ name: Lightning — WWLLN Volcanic Monitor
 
 on:
   schedule:
-    # Cada 10 minutos (WWLLN actualiza en tiempo casi real, ~1-2 min latencia)
     - cron: '*/10 * * * *'
   workflow_dispatch:
 
@@ -29,29 +28,14 @@ jobs:
         run: |
           git config user.name "LightningBot"
           git config user.email "lightning@georayos.com"
-
-          # Incluir latest.json, JSONs de scan (30 días) y CSV acumulativo
           git add docs/data/latest.json
           git add datos/scan_*.json datos/alert_history.csv 2>/dev/null || true
-
-          # Eliminar del índice git los scan_*.json que el scraper ya purgó
           git ls-files --deleted datos/ | xargs git rm --cached 2>/dev/null || true
-
           if git diff --quiet --staged 2>/dev/null; then
             echo "Sin cambios"
           else
-            REDS=$(python -c "
-import json, pathlib
-p = pathlib.Path('docs/data/latest.json')
-d = json.loads(p.read_text()) if p.exists() else {}
-print(d.get('red_alerts', 0))
-" 2>/dev/null || echo 0)
-            YELLOWS=$(python -c "
-import json, pathlib
-p = pathlib.Path('docs/data/latest.json')
-d = json.loads(p.read_text()) if p.exists() else {}
-print(d.get('yellow_alerts', 0))
-" 2>/dev/null || echo 0)
+            REDS=$(python -c "import json,pathlib; p=pathlib.Path('docs/data/latest.json'); d=json.loads(p.read_text()) if p.exists() else {}; print(d.get('red_alerts',0))" 2>/dev/null || echo 0)
+            YELLOWS=$(python -c "import json,pathlib; p=pathlib.Path('docs/data/latest.json'); d=json.loads(p.read_text()) if p.exists() else {}; print(d.get('yellow_alerts',0))" 2>/dev/null || echo 0)
             git commit -m "wwlln: $(date -u +'%Y-%m-%d %H:%M') | R=$REDS Y=$YELLOWS"
             git pull origin main --rebase -X ours || true
             git push origin main || true
