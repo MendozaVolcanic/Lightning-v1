@@ -21,6 +21,7 @@ Salidas:
 """
 
 import json
+import re
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -153,8 +154,15 @@ def fetch_wwlln_table(session: requests.Session) -> dict[str, dict]:
 # ---------------------------------------------------------------------------
 # Parseo KML — posiciones individuales de rayos
 # ---------------------------------------------------------------------------
+_RE_RESIDUAL = re.compile(r"Residual:\s*([\d.]+)\s*us")
+_RE_STATIONS = re.compile(r"detected at\s+(\d+)\s+WWLLN")
+
+
 def parse_kml_strokes(kml_text: str) -> list[dict]:
-    """Extrae coordenadas de cada rayo desde el KML."""
+    """
+    Extrae cada rayo desde el KML con todos sus metadatos:
+      lat, lon, ring (inner/outer), time, residual_us, stations
+    """
     positions: list[dict] = []
     try:
         root = ET.fromstring(kml_text)
@@ -172,14 +180,42 @@ def parse_kml_strokes(kml_text: str) -> list[dict]:
                 continue
             for pm in folder.findall(f"{{{ns}}}Placemark"):
                 coords_el = pm.find(f".//{{{ns}}}coordinates")
-                if coords_el is not None and coords_el.text:
-                    parts = coords_el.text.strip().split(",")
-                    if len(parts) >= 2:
-                        try:
-                            lon_s, lat_s = float(parts[0]), float(parts[1])
-                            positions.append({"lat": lat_s, "lon": lon_s, "ring": ring})
-                        except ValueError:
-                            pass
+                if coords_el is None or not coords_el.text:
+                    continue
+                parts = coords_el.text.strip().split(",")
+                if len(parts) < 2:
+                    continue
+                try:
+                    lon_s, lat_s = float(parts[0]), float(parts[1])
+                except ValueError:
+                    continue
+
+                # Timestamp está en <name>
+                stroke_time = None
+                pm_name = pm.find(f"{{{ns}}}name")
+                if pm_name is not None and pm_name.text:
+                    stroke_time = pm_name.text.strip()
+
+                # Residual y estaciones están en <description> CDATA
+                residual_us = None
+                stations = None
+                desc_el = pm.find(f"{{{ns}}}description")
+                if desc_el is not None and desc_el.text:
+                    m = _RE_RESIDUAL.search(desc_el.text)
+                    if m:
+                        residual_us = float(m.group(1))
+                    m = _RE_STATIONS.search(desc_el.text)
+                    if m:
+                        stations = int(m.group(1))
+
+                positions.append({
+                    "lat":         lat_s,
+                    "lon":         lon_s,
+                    "ring":        ring,
+                    "time":        stroke_time,
+                    "residual_us": residual_us,
+                    "stations":    stations,
+                })
     except ET.ParseError as e:
         print(f"[WARN] KML parse error: {e}")
     return positions

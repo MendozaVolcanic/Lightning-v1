@@ -152,13 +152,53 @@ function showVolcano(v) {
 
     if (Array.isArray(v.stroke_positions)) {
         for (const s of v.stroke_positions) {
-            overlays.push(L.marker([s.lat, s.lon], {icon: boltIcon(s.ring)}).addTo(map));
+            const bm = L.marker([s.lat, s.lon], {icon: boltIcon(s.ring)}).addTo(map);
+            bm.bindPopup(buildStrokePopup(s));
+            overlays.push(bm);
         }
     }
 
     document.getElementById('ring-hint').style.display = 'block';
     map.setView([v.lat, v.lon], 7, {animate: true});
     if (markers[v.volcano]) markers[v.volcano].openPopup();
+}
+
+// ── Popup de rayo individual ───────────────────────────────────────────────
+function buildStrokePopup(s) {
+    const div = el('div');
+    div.style.fontSize = '0.85em';
+    div.style.minWidth = '160px';
+
+    const ring = el('b');
+    ring.textContent = s.ring === 'inner' ? '\u26a1 Anillo interior (\u226420 km)' : '\u26a1 Anillo exterior (20\u2013100 km)';
+    ring.style.color = s.ring === 'inner' ? '#f85149' : '#d29922';
+    div.appendChild(ring);
+    div.appendChild(el('br'));
+
+    if (s.time) {
+        const timeEl = el('span');
+        timeEl.textContent = 'Hora: ' + s.time.replace('T', ' ');
+        div.appendChild(timeEl);
+        div.appendChild(el('br'));
+    }
+    if (s.residual_us != null) {
+        const res = el('span');
+        res.textContent = 'Residual: ' + s.residual_us + ' \u03bcs';
+        div.appendChild(res);
+        div.appendChild(el('br'));
+    }
+    if (s.stations != null) {
+        const sta = el('span');
+        sta.textContent = 'Estaciones WWLLN: ' + s.stations;
+        div.appendChild(sta);
+        div.appendChild(el('br'));
+    }
+    const coords = el('small');
+    coords.style.color = '#8b949e';
+    coords.textContent = s.lat.toFixed(4) + ', ' + s.lon.toFixed(4);
+    div.appendChild(coords);
+
+    return div;
 }
 
 // ── Popup seguro (DOM, sin innerHTML con datos externos) ───────────────────
