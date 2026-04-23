@@ -1,14 +1,15 @@
-name: Lightning — Detección Rayos Volcánicos
+name: Lightning — WWLLN Volcanic Monitor
 
 on:
   schedule:
-    # Cada 30 minutos
-    - cron: '*/30 * * * *'
+    # Cada 10 minutos (WWLLN actualiza en tiempo casi real, ~1-2 min latencia)
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 jobs:
   lightning-scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v4
@@ -21,13 +22,30 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Scan for volcanic lightning
-        run: python lightning_scanner.py
+      - name: Scan WWLLN
+        run: python wwlln_scraper.py
 
       - name: Commit results
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A datos/ docs/ || true
-          git diff --staged --quiet || git commit -m "Lightning scan: $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push || true
+          git config user.name "LightningBot"
+          git config user.email "lightning@georayos.com"
+          git add docs/data/latest.json datos/ 2>/dev/null || true
+          if git diff --quiet --staged 2>/dev/null; then
+            echo "Sin cambios"
+          else
+            REDS=$(python -c "
+import json, pathlib
+p = pathlib.Path('docs/data/latest.json')
+d = json.loads(p.read_text()) if p.exists() else {}
+print(d.get('red_alerts', 0))
+" 2>/dev/null || echo 0)
+            YELLOWS=$(python -c "
+import json, pathlib
+p = pathlib.Path('docs/data/latest.json')
+d = json.loads(p.read_text()) if p.exists() else {}
+print(d.get('yellow_alerts', 0))
+" 2>/dev/null || echo 0)
+            git commit -m "wwlln: $(date -u +'%Y-%m-%d %H:%M') | R=$REDS Y=$YELLOWS"
+            git pull origin main --rebase -X ours || true
+            git push origin main || true
+          fi

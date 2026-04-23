@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
+    <title>WWLLN Lightning — Chile Volcánico</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0e17; color: #e0e0e0; min-height: 100vh; }
+
+        .header { background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%); border-bottom: 1px solid #30363d; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+        .header-left { display: flex; align-items: center; gap: 10px; }
+        .header h1 { font-size: 1.05em; color: #58a6ff; font-weight: 700; }
+        .badge { padding: 2px 8px; border-radius: 10px; font-size: 0.7em; font-weight: bold; }
+        .badge-wwlln       { background: #1f4f8a; color: #79c0ff; border: 1px solid #388bfd44; }
+        .badge-sernageomin { background: #1a3a1a; color: #56d364; border: 1px solid #3fb95044; font-size: 0.65em; }
+        .header-meta { font-size: 0.78em; color: #8b949e; display: flex; align-items: center; gap: 10px; }
+        .age-ok  { color: #56d364; }
+        .age-old { color: #f0883e; }
+
+        .summary-bar { display: flex; gap: 10px; padding: 8px 18px; background: #161b22; border-bottom: 1px solid #21262d; flex-wrap: wrap; align-items: center; }
+        .stat { display: flex; align-items: center; gap: 7px; padding: 5px 12px; border-radius: 8px; font-size: 0.82em; font-weight: 600; }
+        .stat-red    { background: rgba(248,81,73,0.12);  color: #f85149; border: 1px solid rgba(248,81,73,0.3); }
+        .stat-yellow { background: rgba(210,153,34,0.12); color: #d29922; border: 1px solid rgba(210,153,34,0.3); }
+        .stat-green  { background: rgba(63,185,80,0.1);   color: #3fb950; border: 1px solid rgba(63,185,80,0.25); }
+        .stat-count  { font-size: 1.3em; font-weight: 700; }
+        .disc-note { margin-left: auto; font-size: 0.73em; color: #484f58; font-style: italic; }
+
+        .main { display: flex; height: calc(100vh - 108px); }
+        #map { width: 58%; height: 100%; position: relative; }
+        .tabla-panel { width: 42%; overflow-y: auto; background: #0d1117; border-left: 1px solid #21262d; }
+
+        .volcan-row { display: flex; align-items: center; padding: 8px 14px; border-bottom: 1px solid #161b22; gap: 9px; cursor: pointer; transition: background 0.1s; }
+        .volcan-row:hover { background: #1a1f2e; }
+        .volcan-row.active-row { background: #1c2333; border-left: 2px solid #388bfd; }
+        .dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+        .dot-RED    { background: #f85149; box-shadow: 0 0 7px rgba(248,81,73,0.7); animation: pulse 1.5s infinite; }
+        .dot-YELLOW { background: #d29922; box-shadow: 0 0 5px rgba(210,153,34,0.5); }
+        .dot-GREEN  { background: #3fb950; opacity: 0.6; }
+        @keyframes pulse { 0%,100%{box-shadow:0 0 7px rgba(248,81,73,0.7)} 50%{box-shadow:0 0 14px rgba(248,81,73,1)} }
+        .vname { font-size: 0.86em; font-weight: 600; color: #e6edf3; flex: 1; }
+        .vstrokes { font-size: 0.76em; white-space: nowrap; }
+        .s-inner { color: #f85149; font-weight: 700; }
+        .s-outer { color: #d29922; }
+        .valert { font-size: 0.72em; font-weight: 700; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+        .valert-RED    { background: rgba(248,81,73,0.2); color: #f85149; }
+        .valert-YELLOW { background: rgba(210,153,34,0.2); color: #d29922; }
+        .valert-GREEN  { background: rgba(63,185,80,0.08); color: #3fb950; }
+
+        .zona-hdr { padding: 5px 14px; background: #161b22; font-size: 0.7em; font-weight: 700; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #21262d; position: sticky; top: 0; z-index: 2; }
+
+        .error-box { padding: 40px 20px; color: #f85149; font-size: 0.9em; text-align: center; white-space: pre-wrap; }
+        .metodologia { padding: 10px 14px; font-size: 0.7em; color: #484f58; border-top: 1px solid #21262d; line-height: 1.5; }
+
+        .bolt-inner { font-size: 16px; line-height: 1; text-shadow: 0 0 6px rgba(248,81,73,0.9); }
+        .bolt-outer { font-size: 13px; line-height: 1; opacity: 0.75; text-shadow: 0 0 4px rgba(210,153,34,0.7); }
+
+        .ring-hint { position: absolute; bottom: 8px; left: 8px; z-index: 1000; background: rgba(13,17,23,0.85); border: 1px solid #30363d; border-radius: 6px; padding: 5px 10px; font-size: 0.7em; color: #8b949e; pointer-events: none; display: none; }
+
+        @media (max-width: 800px) {
+            .main { flex-direction: column; height: auto; }
+            #map { width: 100%; height: 52vh; }
+            .tabla-panel { width: 100%; }
+            .disc-note { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-left">
+        <h1>Lightning Monitor — Chile</h1>
+        <span class="badge badge-wwlln">WWLLN</span>
+        <span class="badge badge-sernageomin">SERNAGEOMIN</span>
+    </div>
+    <div class="header-meta">
+        <span id="scan-time">Cargando...</span>
+        <span id="data-age"></span>
+    </div>
+</div>
+
+<div class="summary-bar">
+    <div id="summary-items" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;"></div>
+    <span class="disc-note">Ventana: última hora · Click en volcán para ver anillos · Auto-refresh 5 min</span>
+</div>
+
+<div class="main">
+    <div id="map">
+        <div class="ring-hint" id="ring-hint">
+            <span style="color:#f85149">——</span> ≤20 km
+            &nbsp;
+            <span style="color:#555">- -</span> 100 km
+        </div>
+    </div>
+    <div class="tabla-panel" id="tabla"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── Helpers DOM (sin innerHTML con datos externos) ─────────────────────────
+function el(tag, className) {
+    const e = document.createElement(tag);
+    if (className) e.className = className;
+    return e;
+}
+function txt(str) { return document.createTextNode(str); }
+
+// ── Zonas ──────────────────────────────────────────────────────────────────
+const ZONAS = {
+    'Norte':   ['Taapaca','Parinacota','Guallatiri','Isluga','Irruputuncu','Ollague','San Pedro','Lascar'],
+    'Centro':  ['Tupungatito','San Jose','Tinguiririca','Planchon-Peteroa','Descabezado Grande','Tatara-San Pedro','Laguna del Maule','Nevado de Longavi','Nevados de Chillan'],
+    'Sur':     ['Antuco','Copahue','Callaqui','Lonquimay','Llaima','Sollipulli','Villarrica','Quetrupillan','Lanin','Mocho-Choshuenco','Carran - Los Venados','Puyehue - Cordon Caulle','Antillanca - Casablanca'],
+    'Austral': ['Osorno','Calbuco','Yate','Hornopiren','Huequi','Michinmahuida','Chaiten','Corcovado','Melimoyu','Mentolat','Cay','Maca','Hudson']
+};
+const ZONA_POR = {};
+for (const [z, vs] of Object.entries(ZONAS)) vs.forEach(v => ZONA_POR[v] = z);
+const ORDEN = {RED: 0, YELLOW: 1, GREEN: 2};
+const COL   = {RED: '#f85149', YELLOW: '#d29922', GREEN: '#3fb950'};
+
+// ── Mapa ──────────────────────────────────────────────────────────────────
+const map = L.map('map').setView([-37, -71], 5);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '\u00a9 OpenStreetMap \u00a9 CARTO | WWLLN \u2014 U. Washington',
+    maxZoom: 19
+}).addTo(map);
+
+let markers     = {};
+let overlays    = [];
+let activeRow   = null;
+
+function boltIcon(ring) {
+    const d = el('span', ring === 'inner' ? 'bolt-inner' : 'bolt-outer');
+    d.textContent = '\u26a1';
+    return L.divIcon({ html: d.outerHTML, className: '', iconSize: [20,20], iconAnchor: [10,10] });
+}
+
+function clearOverlays() {
+    overlays.forEach(l => map.removeLayer(l));
+    overlays = [];
+    document.getElementById('ring-hint').style.display = 'none';
+}
+
+function showVolcano(v) {
+    clearOverlays();
+
+    const col20 = v.inner_strokes > 0 ? '#f85149' : 'rgba(255,255,255,0.3)';
+    overlays.push(L.circle([v.lat, v.lon], {radius: 20000,  color: col20,                 weight: 1.5, fill: false, dashArray: '6 4'}).addTo(map));
+    overlays.push(L.circle([v.lat, v.lon], {radius: 100000, color: 'rgba(255,255,255,0.15)', weight: 1,   fill: false, dashArray: '4 6'}).addTo(map));
+
+    if (Array.isArray(v.stroke_positions)) {
+        for (const s of v.stroke_positions) {
+            overlays.push(L.marker([s.lat, s.lon], {icon: boltIcon(s.ring)}).addTo(map));
+        }
+    }
+
+    document.getElementById('ring-hint').style.display = 'block';
+    map.setView([v.lat, v.lon], 7, {animate: true});
+    if (markers[v.volcano]) markers[v.volcano].openPopup();
+}
+
+// ── Popup seguro (DOM, sin innerHTML con datos externos) ───────────────────
+function buildPopup(v) {
+    const div = el('div');
+
+    const title = el('b');
+    title.textContent = v.volcano;
+    div.appendChild(title);
+    div.appendChild(el('br'));
+
+    const estado = el('span');
+    estado.textContent = 'Estado: ';
+    const estadoBold = el('b');
+    estadoBold.textContent = v.alert;
+    estado.appendChild(estadoBold);
+    div.appendChild(estado);
+    div.appendChild(el('br'));
+
+    const inner = el('span');
+    inner.textContent = 'Rayos \u226420 km: ' + v.inner_strokes;
+    div.appendChild(inner);
+    div.appendChild(el('br'));
+
+    const outer = el('span');
+    outer.textContent = 'Rayos 20\u2013100 km: ' + v.outer_strokes;
+    div.appendChild(outer);
+
+    if (v.stroke_positions && v.stroke_positions.length > 0) {
+        div.appendChild(el('br'));
+        const note = el('small');
+        note.style.color = '#8b949e';
+        note.textContent = v.stroke_positions.length + ' posici\u00f3n(es) en KML';
+        div.appendChild(note);
+    }
+    return div;
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function renderizar(data) {
+    const vols = data.volcanoes || [];
+
+    // Tiempo de scan
+    const scanUtc = data.scan_utc ? new Date(data.scan_utc) : null;
+    if (scanUtc) {
+        const ageMin = Math.round((Date.now() - scanUtc.getTime()) / 60000);
+        document.getElementById('scan-time').textContent =
+            'Scan: ' + scanUtc.toISOString().replace('T',' ').slice(0,16) + ' UTC';
+        const ageEl = document.getElementById('data-age');
+        ageEl.textContent = '(hace ' + ageMin + ' min)';
+        ageEl.className = ageMin > 20 ? 'age-old' : 'age-ok';
+    }
+
+    // Summary bar
+    const bar = document.getElementById('summary-items');
+    bar.textContent = '';
+    [
+        [data.red_alerts,    'stat stat-red',    'Rojo'],
+        [data.yellow_alerts, 'stat stat-yellow', 'Amarillo'],
+        [data.green_alerts,  'stat stat-green',  'Verde'],
+    ].forEach(([n, cls, label]) => {
+        const s = el('div', cls);
+        const cnt = el('span', 'stat-count');
+        cnt.textContent = String(n ?? 0);
+        s.appendChild(cnt);
+        s.appendChild(txt(' ' + label));
+        bar.appendChild(s);
+    });
+
+    // Limpiar marcadores
+    Object.values(markers).forEach(m => map.removeLayer(m));
+    markers = {};
+    clearOverlays();
+
+    // Marcadores en mapa
+    for (const v of vols) {
+        if (v.lat == null || v.lon == null) continue;
+        const color = COL[v.alert] || '#8b949e';
+        const r = v.alert === 'RED' ? 11 : v.alert === 'YELLOW' ? 8 : 5;
+        const m = L.circleMarker([v.lat, v.lon], {
+            radius: r, fillColor: color, color: color,
+            weight: 2, opacity: 0.9,
+            fillOpacity: v.alert === 'GREEN' ? 0.25 : 0.65
+        }).addTo(map);
+        m.bindPopup(buildPopup(v));
+        m.on('click', () => seleccionar(v));
+        markers[v.volcano] = m;
+    }
+
+    // Tabla por zona
+    const tabla = document.getElementById('tabla');
+    tabla.textContent = '';
+
+    const porZona = {};
+    for (const v of vols) {
+        const z = ZONA_POR[v.volcano] || 'Otro';
+        (porZona[z] = porZona[z] || []).push(v);
+    }
+
+    for (const zona of ['Norte','Centro','Sur','Austral','Otro']) {
+        const lista = porZona[zona];
+        if (!lista) continue;
+        lista.sort((a, b) => (ORDEN[a.alert] ?? 9) - (ORDEN[b.alert] ?? 9));
+
+        const activos = lista.filter(v => v.alert !== 'GREEN').length;
+        const hdr = el('div', 'zona-hdr');
+        hdr.textContent = zona + (activos ? ' \u26a1 ' + activos : '');
+        tabla.appendChild(hdr);
+
+        for (const v of lista) {
+            const row = el('div', 'volcan-row');
+            row.id = 'row-' + v.volcano.replace(/[^a-zA-Z0-9]/g, '_');
+
+            const dot = el('div', 'dot dot-' + v.alert);
+
+            const name = el('div', 'vname');
+            name.textContent = v.volcano;
+
+            const strokes = el('div', 'vstrokes');
+            if (v.inner_strokes > 0) {
+                const sp = el('span', 's-inner');
+                sp.textContent = '\u26a1' + v.inner_strokes;
+                strokes.appendChild(sp);
+                strokes.appendChild(txt(' '));
+            }
+            if (v.outer_strokes > 0) {
+                const sp = el('span', 's-outer');
+                sp.textContent = String(v.outer_strokes);
+                strokes.appendChild(sp);
+            }
+
+            const badge = el('div', 'valert valert-' + v.alert);
+            badge.textContent = v.alert;
+
+            row.append(dot, name, strokes, badge);
+            row.addEventListener('click', () => seleccionar(v));
+            tabla.appendChild(row);
+        }
+    }
+
+    // Metodología
+    const met = el('div', 'metodologia');
+    [
+        'Discriminaci\u00f3n operacional: VERDE = sin rayos en \u226420 km \u2192 se\u00f1al s\u00edsmica no es de origen el\u00e9ctrico. ' +
+        'ROJO = rayos concentrados cerca del cr\u00e1ter (potencial rayo volc\u00e1nico o tormenta local). AMARILLO = tormenta el\u00e9ctrica regional.',
+        '',
+        'Algoritmo Georayos: ROJO si inner\u22652\u00d7outer \u00f3 outer=0; AMARILLO si 0 < inner < 2\u00d7outer; VERDE si inner=0.',
+        'Fuente: WWLLN \u2014 World Wide Lightning Location Network (U. Washington) \u00b7 Datos: \u00faltima hora.'
+    ].forEach(line => {
+        met.appendChild(txt(line));
+        met.appendChild(el('br'));
+    });
+    tabla.appendChild(met);
+}
+
+function seleccionar(v) {
+    if (activeRow) activeRow.classList.remove('active-row');
+    const rowEl = document.getElementById('row-' + v.volcano.replace(/[^a-zA-Z0-9]/g, '_'));
+    if (rowEl) { rowEl.classList.add('active-row'); activeRow = rowEl; }
+    showVolcano(v);
+}
+
+// ── Carga ─────────────────────────────────────────────────────────────────
+async function cargar() {
+    try {
+        const resp = await fetch('data/latest.json?t=' + Date.now());
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        renderizar(await resp.json());
+    } catch (e) {
+        const t = document.getElementById('tabla');
+        t.textContent = '';
+        const box = el('div', 'error-box');
+        box.textContent = 'Sin datos disponibles.\n\nEjecuta: python wwlln_scraper.py\n\nError: ' + e.message;
+        t.appendChild(box);
+        document.getElementById('scan-time').textContent = 'Error al cargar datos';
+    }
+}
+
+cargar();
+</script>
+</body>
+</html>

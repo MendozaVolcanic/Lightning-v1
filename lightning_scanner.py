@@ -262,6 +262,13 @@ def save_json(results: list[dict], scan_time: datetime, output_dir: Path) -> Pat
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
     print(f"[INFO] JSON saved -> {path}")
+
+    # Also export to docs/data/latest.json for GitHub Pages
+    docs_data = output_dir.parent / "docs" / "data"
+    docs_data.mkdir(parents=True, exist_ok=True)
+    with open(docs_data / "latest.json", "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+
     return path
 
 

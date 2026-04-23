@@ -1,24 +1,47 @@
 # STATUS — Lightning-v1
 
-## Estado actual
-Proyecto nuevo — en fase de planificacion e investigacion.
+## Estado actual (2026-04-23)
 
-## Objetivo
-Deteccion automatizada de rayos volcanicos para 43 volcanes chilenos usando GOES-16 GLM.
-Basado en el algoritmo Georayos-VolcanoAr (Burgos et al., 2021).
+Operativo con fuente WWLLN. Dashboard listo. GitHub Pages pendiente de activar.
 
-## Ultimos cambios
-- 2026-04-05: Creacion del proyecto, literatura recopilada
+## Fuente de datos
 
-## Problemas conocidos
-- GOES GLM es optico, puede perder detecciones con ceniza densa
-- Necesita filtro para rayos meteorologicos (tormentas no volcanicas)
+**WWLLN** — https://wwlln.net/USGS/Global/  
+Latencia: ~1–2 min · Actualización página: tiempo casi real  
+GitHub Actions: cada 10 minutos
 
-## Proximo paso
-- Implementar descarga GLM via goes2go
-- Configurar anillos de 20km/100km para 43 volcanes
-- Probar con datos historicos de Calbuco 2015
+## Completado
 
-## Archivos clave
-- `docs/literatura_lightning.md` — revision de literatura
-- `PLAN.md` — plan de proyecto y arquitectura
+- `wwlln_scraper.py` — scrape tabla HTML + KMLs paralelos + Georayos + JSON
+  - 1 request HTTP para todos los volcanes (tabla completa)
+  - KMLs descargados en paralelo solo para volcanes con rayos activos
+  - Tiempo típico: <5s sin rayos, <15s con tormenta activa
+- `docs/index.html` — dashboard actualizado
+  - Anillos 20km y 100km al hacer click en volcán
+  - Marcadores ⚡ individuales desde KML cuando hay actividad
+  - Indicador de antigüedad del dato
+  - Auto-refresh 5 min
+  - Discriminación operacional sismos/rayos en metodología
+- `.github/workflows/lightning.yml` — cron cada 10 min, usa wwlln_scraper.py
+- `requirements.txt` — reducido a requests + beautifulsoup4 (sin goes2go/xarray)
+- `README.md` — documentación con contexto operacional SERNAGEOMIN
+
+## Pendiente
+
+- **GitHub Pages**: activar en Settings → Pages → main/docs
+- Verificar update frequency exacta de WWLLN con datos reales en producción
+
+## Arquitectura
+
+```
+docs/data/latest.json   ← wwlln_scraper.py → GitHub Pages
+docs/index.html         ← dashboard
+```
+
+## Notas técnicas
+
+- inner = strokes <20km (columna 6 de tabla WWLLN)
+- outer = strokes <100km (col 7) minus inner → anillo 20-100km
+- KML namespace: http://www.opengis.net/kml/2.2
+- Volcanes mapeados: 43/43 con ID GVP (1505, 1507, 1508)
+- `lightning_scanner.py` (GOES-16) se mantiene como fallback alternativo
