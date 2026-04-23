@@ -1,5 +1,9 @@
 # Lightning-v1 — Discriminación Rayos/Sismos · Chile Volcánico
 
+## [Dashboard en vivo](https://mendozavolcanic.github.io/Lightning-v1/)
+
+> **https://mendozavolcanic.github.io/Lightning-v1/**
+
 Sistema de monitoreo de rayos volcánicos para **43 volcanes chilenos**, basado en datos WWLLN (World Wide Lightning Location Network). Diseñado para discriminación operacional de señales sísmicas en SERNAGEOMIN.
 
 ## Uso operacional
