@@ -109,6 +109,7 @@ function txt(str) { return document.createTextNode(str); }
 
 // ── Zonas ──────────────────────────────────────────────────────────────────
 const ZONAS = {
+    'Guatemala':['Acatenango','Fuego','Agua'],
     'Norte':   ['Taapaca','Parinacota','Guallatiri','Isluga','Irruputuncu','Ollague','San Pedro','Lascar'],
     'Centro':  ['Tupungatito','San Jose','Tinguiririca','Planchon-Peteroa','Descabezado Grande','Tatara-San Pedro','Laguna del Maule','Nevado de Longavi','Nevados de Chillan'],
     'Sur':     ['Antuco','Copahue','Callaqui','Lonquimay','Llaima','Sollipulli','Villarrica','Quetrupillan','Lanin','Mocho-Choshuenco','Carran - Los Venados','Puyehue - Cordon Caulle','Antillanca - Casablanca'],
@@ -257,7 +258,7 @@ function renderizar(data) {
         (porZona[z] = porZona[z] || []).push(v);
     }
 
-    for (const zona of ['Norte','Centro','Sur','Austral','Otro']) {
+    for (const zona of ['Guatemala','Norte','Centro','Sur','Austral','Otro']) {
         const lista = porZona[zona];
         if (!lista) continue;
         lista.sort((a, b) => (ORDEN[a.alert] ?? 9) - (ORDEN[b.alert] ?? 9));

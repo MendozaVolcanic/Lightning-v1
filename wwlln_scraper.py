@@ -87,6 +87,10 @@ VOLCANO_MAP: dict[str, str] = {
     "Cay":                     "1508-055",
     "Maca":                    "1508-056",
     "Hudson":                  "1508-057",
+    # Guatemala
+    "Acatenango":              "1402-09-",
+    "Fuego":                   "1402-10-",
+    "Agua":                    "1402-111",
 }
 
 WANTED_IDS = set(VOLCANO_MAP.values())
