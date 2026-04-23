@@ -20,11 +20,12 @@ Salidas:
   datos/scan_YYYY-MM-DD_HHMM.json — archivo histórico
 """
 
+import csv
 import json
 import re
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -284,6 +285,9 @@ def build_results(
 # ---------------------------------------------------------------------------
 # Guardar salidas
 # ---------------------------------------------------------------------------
+RETENTION_DAYS = 30  # días que se mantienen los JSON completos
+
+
 def save_outputs(
     results: list[dict], scan_time: datetime, script_dir: Path
 ) -> None:
@@ -302,20 +306,69 @@ def save_outputs(
         "volcanoes":       results,
     }
 
-    # GitHub Pages
+    # 1. GitHub Pages (siempre)
     docs_data = script_dir / "docs" / "data"
     docs_data.mkdir(parents=True, exist_ok=True)
     with open(docs_data / "latest.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
     print(f"[INFO] latest.json → {docs_data / 'latest.json'}")
 
-    # Archivo histórico
     datos_dir = script_dir / "datos"
     datos_dir.mkdir(parents=True, exist_ok=True)
+
+    # 2. JSON completo con posiciones de rayos (últimos 30 días)
     fname = f"scan_{scan_time:%Y-%m-%d_%H%M}.json"
     with open(datos_dir / fname, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
-    print(f"[INFO] Archivo → {datos_dir / fname}")
+    print(f"[INFO] JSON scan → datos/{fname}")
+
+    # 3. CSV acumulativo permanente (sin stroke_positions, compacto)
+    _append_csv(results, scan_time, datos_dir)
+
+    # 4. Purgar JSONs de escaneo más viejos que RETENTION_DAYS
+    _purge_old_scans(datos_dir, scan_time)
+
+
+def _append_csv(results: list[dict], scan_time: datetime, datos_dir: Path) -> None:
+    """Agrega una fila por volcán al CSV histórico acumulativo."""
+    csv_path = datos_dir / "alert_history.csv"
+    write_header = not csv_path.exists()
+    with open(csv_path, "a", newline="", encoding="utf-8") as fh:
+        writer = csv.writer(fh)
+        if write_header:
+            writer.writerow([
+                "scan_utc", "volcano", "wwlln_id",
+                "inner_strokes", "outer_strokes", "alert", "n_stroke_positions"
+            ])
+        for r in results:
+            writer.writerow([
+                scan_time.isoformat(),
+                r["volcano"],
+                r["wwlln_id"],
+                r["inner_strokes"],
+                r["outer_strokes"],
+                r["alert"],
+                len(r.get("stroke_positions", [])),
+            ])
+    print(f"[INFO] CSV histórico → datos/alert_history.csv")
+
+
+def _purge_old_scans(datos_dir: Path, now: datetime) -> None:
+    """Elimina scan_*.json más viejos que RETENTION_DAYS."""
+    cutoff = now - timedelta(days=RETENTION_DAYS)
+    deleted = 0
+    for f in sorted(datos_dir.glob("scan_*.json")):
+        # nombre: scan_YYYY-MM-DD_HHMM.json
+        try:
+            date_str = f.stem[5:]  # YYYY-MM-DD_HHMM
+            dt = datetime.strptime(date_str, "%Y-%m-%d_%H%M").replace(tzinfo=timezone.utc)
+            if dt < cutoff:
+                f.unlink()
+                deleted += 1
+        except ValueError:
+            pass
+    if deleted:
+        print(f"[INFO] Purgados {deleted} scan(s) de más de {RETENTION_DAYS} días")
 
 
 # ---------------------------------------------------------------------------

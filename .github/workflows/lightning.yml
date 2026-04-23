@@ -29,7 +29,14 @@ jobs:
         run: |
           git config user.name "LightningBot"
           git config user.email "lightning@georayos.com"
-          git add docs/data/latest.json datos/ 2>/dev/null || true
+
+          # Incluir latest.json, JSONs de scan (30 días) y CSV acumulativo
+          git add docs/data/latest.json
+          git add datos/scan_*.json datos/alert_history.csv 2>/dev/null || true
+
+          # Eliminar del índice git los scan_*.json que el scraper ya purgó
+          git ls-files --deleted datos/ | xargs git rm --cached 2>/dev/null || true
+
           if git diff --quiet --staged 2>/dev/null; then
             echo "Sin cambios"
           else
