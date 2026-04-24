@@ -46,6 +46,11 @@
         .btn-win { padding: 3px 9px; border-radius: 5px; font-size: 0.76em; font-weight: 600; cursor: pointer; border: 1px solid #30363d; background: rgba(255,255,255,0.04); color: #8b949e; transition: all 0.15s; }
         .btn-win:hover { color: #e6edf3; border-color: #58a6ff66; }
         .btn-win.active { background: rgba(88,166,255,0.15); color: #58a6ff; border-color: #58a6ff; }
+        .src-toggles { display: flex; gap: 6px; align-items: center; }
+        .btn-src { padding: 3px 10px; border-radius: 5px; font-size: 0.76em; font-weight: 700; cursor: pointer; border: 1px solid; transition: all 0.15s; font-family: inherit; }
+        .btn-src.wwlln.on { background: rgba(255,51,51,0.15);  color: #ff3333; border-color: rgba(255,51,51,0.5); }
+        .btn-src.glm.on   { background: rgba(255,63,224,0.15); color: #ff3fe0; border-color: rgba(255,63,224,0.5); }
+        .btn-src.off { background: rgba(255,255,255,0.02); color: #484f58; border-color: #30363d; text-decoration: line-through; }
         .loading-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #388bfd 0%, #a371f7 100%); z-index: 10000; display: none; transition: width 0.3s ease-out; }
         .loading-bar.visible { display: block; }
         .loading-text { position: fixed; top: 10px; right: 10px; z-index: 10001; background: rgba(13,17,23,0.95); border: 1px solid #58a6ff55; border-radius: 6px; padding: 6px 12px; font-size: 0.8em; color: #79c0ff; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
@@ -141,6 +146,10 @@
 
 <div class="selector-bar">
     <button class="btn-live active" id="btn-live" onclick="setLive()">LIVE</button>
+    <div class="src-toggles">
+        <button class="btn-src wwlln on" id="tgl-wwlln" onclick="toggleSource('wwlln')" title="Mostrar/ocultar rayos WWLLN en el mapa">⚡ WWLLN</button>
+        <button class="btn-src glm on" id="tgl-glm" onclick="toggleSource('glm')" title="Mostrar/ocultar rayos GLM en el mapa">⚡ GLM</button>
+    </div>
     <div class="win-group">
         <span class="sel-label">Últimas:</span>
         <button class="btn-win" data-min="30"   onclick="setWindow(30)">30m</button>
@@ -318,10 +327,13 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     maxZoom: 19
 }).addTo(map);
 
-let markers     = {};
-let overlays    = [];
-let activeRow   = null;
-let isLive      = true;
+let markers       = {};
+let overlays      = [];
+let activeRow     = null;
+let isLive        = true;
+let showWwlln     = true;   // toggle visibilidad ⚡ WWLLN en mapa
+let showGlm       = true;   // toggle visibilidad ⚡ GLM en mapa
+let lastSelected  = null;   // último volcán seleccionado (para re-renderizar al toggle)
 
 // ── Render de anillos + posiciones de rayos ────────────────────────────────
 function clearOverlays() {
@@ -331,6 +343,7 @@ function clearOverlays() {
 }
 
 function showVolcano(v) {
+    lastSelected = v;  // recordamos para re-render al toggle
     clearOverlays();
     const wwlln = (v.sources && v.sources.wwlln) || {};
     const glm   = (v.sources && v.sources.glm)   || {};
@@ -341,14 +354,30 @@ function showVolcano(v) {
     overlays.push(L.circle([v.lat, v.lon], {radius: 20000,  color: col20, weight: 1.5, fill: false, dashArray: '6 4'}).addTo(map));
     overlays.push(L.circle([v.lat, v.lon], {radius: 100000, color: 'rgba(255,255,255,0.15)', weight: 1, fill: false, dashArray: '4 6'}).addTo(map));
 
-    // Posiciones WWLLN (círculos sólidos)
-    (wwlln.positions || []).forEach(s => addStroke(s, 'wwlln', true));
-    // Posiciones GLM (círculos con solo borde, para diferenciar de WWLLN visualmente)
-    (glm.positions || []).forEach(s => addStroke(s, 'glm', false));
+    // Posiciones (respetan los toggles de fuente)
+    if (showWwlln) (wwlln.positions || []).forEach(s => addStroke(s, 'wwlln', true));
+    if (showGlm)   (glm.positions   || []).forEach(s => addStroke(s, 'glm',   false));
 
     document.getElementById('ring-hint').style.display = 'block';
     map.setView([v.lat, v.lon], 7, {animate: true});
     if (markers[v.volcano]) markers[v.volcano].openPopup();
+}
+
+// ── Toggle de fuentes (WWLLN / GLM) ────────────────────────────────────────
+function toggleSource(src) {
+    if (src === 'wwlln') {
+        showWwlln = !showWwlln;
+        const b = document.getElementById('tgl-wwlln');
+        b.classList.toggle('on',  showWwlln);
+        b.classList.toggle('off', !showWwlln);
+    } else if (src === 'glm') {
+        showGlm = !showGlm;
+        const b = document.getElementById('tgl-glm');
+        b.classList.toggle('on',  showGlm);
+        b.classList.toggle('off', !showGlm);
+    }
+    // Re-render del volcán activo (si hay) para aplicar el filtro visual
+    if (lastSelected) showVolcano(lastSelected);
 }
 
 function addStroke(s, sourceKey, _unused) {
