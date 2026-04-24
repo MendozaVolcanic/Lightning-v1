@@ -16,6 +16,12 @@ VOLCANOES: dict[str, tuple[str, float, float]] = {
     "Acatenango":              ("1402-09-",  14.501, -90.876),
     "Fuego":                   ("1402-10-",  14.473, -90.881),
     "Agua":                    ("1402-111",  14.466, -90.743),
+    # Nicaragua — demo GLM (hemisferio oeste, con cobertura GOES-19)
+    "Concepcion (NIC)":        ("1404-12-",  11.538, -85.622),
+    "Maderas (NIC)":           ("1404-13-",  11.446, -85.515),
+    # Costa Rica — demo GLM
+    "Orosi (CRI)":             ("1405-01-",  10.980, -85.473),
+    "Rincon de la Vieja (CRI)":("1405-02-",  10.830, -85.324),
     # Chile — Norte
     "Taapaca":                 ("1505-011", -18.109, -69.506),
     "Parinacota":              ("1505-012", -18.171, -69.145),

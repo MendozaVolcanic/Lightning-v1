@@ -293,8 +293,8 @@ function txt(str) { return document.createTextNode(str); }
 
 // ── Zonas ──────────────────────────────────────────────────────────────────
 const ZONAS = {
-    'Mundo (demo)': ['Wai Sano (IDN)','Ranakah (IDN)','Ambrym (VUT)','Jingbo (CHN)','Kishb Harrat (SAU)'],
-    'Guatemala':['Acatenango','Fuego','Agua'],
+    'Mundo (sin GLM)':           ['Wai Sano (IDN)','Ranakah (IDN)','Ambrym (VUT)','Jingbo (CHN)','Kishb Harrat (SAU)'],
+    'Centroamérica (con GLM)':   ['Acatenango','Fuego','Agua','Concepcion (NIC)','Maderas (NIC)','Orosi (CRI)','Rincon de la Vieja (CRI)'],
     'Norte':   ['Taapaca','Parinacota','Guallatiri','Isluga','Irruputuncu','Ollague','San Pedro','Lascar'],
     'Centro':  ['Tupungatito','San Jose','Tinguiririca','Planchon-Peteroa','Descabezado Grande','Tatara-San Pedro','Laguna del Maule','Nevado de Longavi','Nevados de Chillan'],
     'Sur':     ['Antuco','Copahue','Callaqui','Lonquimay','Llaima','Sollipulli','Villarrica','Quetrupillan','Lanin','Mocho-Choshuenco','Carran - Los Venados','Puyehue - Cordon Caulle','Antillanca - Casablanca'],
@@ -529,7 +529,7 @@ function renderizar(data) {
         (porZona[z] = porZona[z] || []).push(v);
     }
 
-    for (const zona of ['Mundo (demo)','Guatemala','Norte','Centro','Sur','Austral','Otro']) {
+    for (const zona of ['Mundo (sin GLM)','Centroamérica (con GLM)','Norte','Centro','Sur','Austral','Otro']) {
         const lista = porZona[zona];
         if (!lista) continue;
         lista.sort((a, b) => (ORDEN[a.alert] ?? 9) - (ORDEN[b.alert] ?? 9));
