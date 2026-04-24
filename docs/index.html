@@ -42,6 +42,14 @@
         .btn-live:not(.active) { background: rgba(255,255,255,0.04); color: #8b949e; border-color: #30363d; }
         .hist-select { background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 3px 8px; font-size: 0.78em; }
         .sel-label { font-size: 0.74em; color: #8b949e; }
+        .win-group { display: flex; gap: 4px; align-items: center; }
+        .btn-win { padding: 3px 9px; border-radius: 5px; font-size: 0.76em; font-weight: 600; cursor: pointer; border: 1px solid #30363d; background: rgba(255,255,255,0.04); color: #8b949e; transition: all 0.15s; }
+        .btn-win:hover { color: #e6edf3; border-color: #58a6ff66; }
+        .btn-win.active { background: rgba(88,166,255,0.15); color: #58a6ff; border-color: #58a6ff; }
+        .loading-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #388bfd 0%, #a371f7 100%); z-index: 10000; display: none; transition: width 0.3s ease-out; }
+        .loading-bar.visible { display: block; }
+        .loading-text { position: fixed; top: 10px; right: 10px; z-index: 10001; background: rgba(13,17,23,0.95); border: 1px solid #58a6ff55; border-radius: 6px; padding: 6px 12px; font-size: 0.8em; color: #79c0ff; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .loading-text.visible { display: block; }
 
         .main { display: flex; height: calc(100vh - 150px); }
         #map { width: 58%; height: 100%; position: relative; }
@@ -128,16 +136,28 @@
 <div class="summary-bar">
     <div id="summary-items" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;"></div>
     <div class="source-status" id="source-status"></div>
-    <span class="disc-note">Click en volcán para ver anillos y posiciones individuales de rayos</span>
+    <span class="disc-note">WWLLN: rolling 1h · GLM: últimos 15 min · Click en volcán para detalles</span>
 </div>
 
 <div class="selector-bar">
     <button class="btn-live active" id="btn-live" onclick="setLive()">LIVE</button>
-    <span class="sel-label">Historial:</span>
+    <div class="win-group">
+        <span class="sel-label">Acumular:</span>
+        <button class="btn-win" data-min="30"   onclick="setWindow(30)">30m</button>
+        <button class="btn-win" data-min="60"   onclick="setWindow(60)">1h</button>
+        <button class="btn-win" data-min="180"  onclick="setWindow(180)">3h</button>
+        <button class="btn-win" data-min="360"  onclick="setWindow(360)">6h</button>
+        <button class="btn-win" data-min="720"  onclick="setWindow(720)">12h</button>
+        <button class="btn-win" data-min="1440" onclick="setWindow(1440)">24h</button>
+    </div>
+    <span class="sel-label">Histórico:</span>
     <select class="hist-select" id="hist-select">
         <option value="">-- Cargar scan anterior --</option>
     </select>
 </div>
+
+<div class="loading-bar" id="loading-bar"></div>
+<div class="loading-text" id="loading-text"></div>
 
 <div class="main">
     <div id="map">
@@ -398,12 +418,18 @@ function appendSourceLine(div, label, src, color) {
 function renderizar(data) {
     const vols = data.volcanoes || [];
 
-    // Tiempo de scan
+    // Tiempo de scan (o vista acumulada)
     const scanUtc = data.scan_utc ? new Date(data.scan_utc) : null;
     if (scanUtc) {
         const ageMin = Math.round((Date.now() - scanUtc.getTime()) / 60000);
-        document.getElementById('scan-time').textContent =
-            'Scan: ' + scanUtc.toISOString().replace('T',' ').slice(0,16) + ' UTC';
+        const stLabel = scanUtc.toISOString().replace('T',' ').slice(0,16) + ' UTC';
+        const scanEl = document.getElementById('scan-time');
+        if (data.accumulated && data.window_minutes_accumulated) {
+            scanEl.textContent = 'Acumulado ' + formatWin(data.window_minutes_accumulated) +
+                ' · ' + (data.n_scans_accumulated || 0) + ' scans · hasta ' + stLabel;
+        } else {
+            scanEl.textContent = 'Scan: ' + stLabel;
+        }
         const ageEl = document.getElementById('data-age');
         ageEl.textContent = '(hace ' + ageMin + ' min)';
         ageEl.className = ageMin > 20 ? 'age-old' : 'age-ok';
@@ -573,12 +599,171 @@ async function cargar() {
     }
 }
 
-// ── Selector LIVE / histórico ───────────────────────────────────────────────
+// ── Selector LIVE / ventana acumulada / histórico ──────────────────────────
+function resetWinButtons() {
+    document.querySelectorAll('.btn-win').forEach(b => b.classList.remove('active'));
+}
+
 function setLive() {
     isLive = true;
     document.getElementById('btn-live').classList.add('active');
     document.getElementById('hist-select').value = '';
+    resetWinButtons();
     cargar();
+}
+
+async function setWindow(minutes) {
+    isLive = false;
+    document.getElementById('btn-live').classList.remove('active');
+    document.getElementById('hist-select').value = '';
+    resetWinButtons();
+    document.querySelectorAll('.btn-win').forEach(b => {
+        if (parseInt(b.dataset.min, 10) === minutes) b.classList.add('active');
+    });
+    await accumulateWindow(minutes);
+}
+
+// ── Loading indicator ──────────────────────────────────────────────────────
+function showLoading(msg, pct) {
+    const bar = document.getElementById('loading-bar');
+    bar.classList.add('visible');
+    if (pct != null) bar.style.width = Math.max(4, Math.min(100, pct)) + '%';
+    const t = document.getElementById('loading-text');
+    t.textContent = msg;
+    t.classList.add('visible');
+}
+function hideLoading() {
+    document.getElementById('loading-bar').classList.remove('visible');
+    document.getElementById('loading-text').classList.remove('visible');
+}
+
+// ── Acumulación de ventana retrospectiva ───────────────────────────────────
+function classifyLocal(inner, outer) {
+    if (!inner) return 'GREEN';
+    if (!outer || inner >= 2 * outer) return 'RED';
+    return 'YELLOW';
+}
+function combinedAlertLocal(w, g) {
+    if (w === 'RED' && g === 'RED') return 'RED';
+    if (w === 'RED' || g === 'RED' || w === 'YELLOW' || g === 'YELLOW') return 'YELLOW';
+    return 'GREEN';
+}
+
+async function parallelFetch(urls, maxParallel, onProgress) {
+    const results = [];
+    for (let i = 0; i < urls.length; i += maxParallel) {
+        const batch = urls.slice(i, i + maxParallel);
+        const resolved = await Promise.all(batch.map(u =>
+            fetch(u + '?t=' + Date.now())
+                .then(r => r.ok ? r.json() : null)
+                .catch(() => null)
+        ));
+        results.push(...resolved.filter(r => r !== null));
+        if (onProgress) onProgress(Math.min(i + maxParallel, urls.length), urls.length);
+    }
+    return results;
+}
+
+function accumulatePayloads(payloads, minutes) {
+    if (!payloads.length) throw new Error('Sin datos en la ventana');
+    payloads.sort((a, b) => new Date(b.scan_utc).getTime() - new Date(a.scan_utc).getTime());
+
+    // Usar el scan más reciente como plantilla y resetear conteos/posiciones
+    const acc = JSON.parse(JSON.stringify(payloads[0]));
+    acc.accumulated = true;
+    acc.window_minutes_accumulated = minutes;
+    acc.n_scans_accumulated = payloads.length;
+
+    const volMap = {};
+    for (const v of acc.volcanoes) {
+        volMap[v.volcano] = v;
+        if (v.sources) {
+            if (v.sources.wwlln) { v.sources.wwlln.positions = []; v.sources.wwlln.inner = 0; v.sources.wwlln.outer = 0; }
+            if (v.sources.glm)   { v.sources.glm.positions   = []; v.sources.glm.inner   = 0; v.sources.glm.outer   = 0; }
+        }
+    }
+
+    // Filtro por timestamp de cada posición + dedup por (source, volcán, time, lat/lon redondeadas)
+    const cutoff = Date.now() - minutes * 60 * 1000;
+    const seen = new Set();
+
+    for (const payload of payloads) {
+        for (const v of (payload.volcanoes || [])) {
+            const target = volMap[v.volcano];
+            if (!target || !target.sources) continue;
+            for (const srcKey of ['wwlln', 'glm']) {
+                const src = (v.sources && v.sources[srcKey]) || {};
+                if (!Array.isArray(src.positions)) continue;
+                for (const p of src.positions) {
+                    // filtro temporal: si hay time, descartamos posiciones fuera de la ventana
+                    if (p.time) {
+                        const ts = new Date(p.time).getTime();
+                        if (!isNaN(ts) && ts < cutoff) continue;
+                    }
+                    const timeK = p.time || '';
+                    const latK = (typeof p.lat === 'number') ? p.lat.toFixed(3) : '?';
+                    const lonK = (typeof p.lon === 'number') ? p.lon.toFixed(3) : '?';
+                    const k = srcKey + '|' + v.volcano + '|' + (p.ring || '?') + '|' + timeK + '|' + latK + '|' + lonK;
+                    if (seen.has(k)) continue;
+                    seen.add(k);
+                    target.sources[srcKey].positions.push(p);
+                    if (p.ring === 'inner') target.sources[srcKey].inner += 1;
+                    else target.sources[srcKey].outer += 1;
+                }
+            }
+        }
+    }
+
+    // Re-clasificar por fuente + combinado
+    for (const v of acc.volcanoes) {
+        const w = (v.sources || {}).wwlln || {};
+        const g = (v.sources || {}).glm   || {};
+        if (v.sources && v.sources.wwlln) w.alert = classifyLocal(w.inner, w.outer);
+        if (v.sources && v.sources.glm)   g.alert = classifyLocal(g.inner, g.outer);
+        v.alert = combinedAlertLocal(w.alert, g.alert);
+    }
+    acc.red_alerts    = acc.volcanoes.filter(v => v.alert === 'RED').length;
+    acc.yellow_alerts = acc.volcanoes.filter(v => v.alert === 'YELLOW').length;
+    acc.green_alerts  = acc.volcanoes.filter(v => v.alert === 'GREEN').length;
+    return acc;
+}
+
+async function accumulateWindow(minutes) {
+    showLoading('Leyendo índice histórico...', 5);
+    try {
+        const idxResp = await fetch('datos/index.json?t=' + Date.now());
+        if (!idxResp.ok) throw new Error('HTTP ' + idxResp.status + ' en index.json');
+        const idx = await idxResp.json();
+
+        // Cargamos scans con scan_utc >= now - minutes (los positions traen timestamp propio,
+        // así que no hace falta buffer extra — el filtro definitivo es por p.time).
+        const cutoffMs = Date.now() - minutes * 60 * 1000;
+        const scans = (idx.scans || []).filter(s => new Date(s.scan_utc).getTime() >= cutoffMs);
+
+        if (scans.length === 0) {
+            throw new Error('No hay scans en las últimas ' + formatWin(minutes));
+        }
+
+        showLoading('Descargando 0/' + scans.length + ' scans...', 10);
+        const urls = scans.map(s => 'datos/' + s.file);
+        const payloads = await parallelFetch(urls, 10, (done, total) => {
+            showLoading('Descargando ' + done + '/' + total + ' scans...', 10 + (done / total) * 80);
+        });
+
+        showLoading('Fusionando ' + payloads.length + ' scans...', 95);
+        const acc = accumulatePayloads(payloads, minutes);
+        renderizar(acc);
+    } catch (e) {
+        document.getElementById('scan-time').textContent = 'Error: ' + e.message;
+    } finally {
+        hideLoading();
+    }
+}
+
+function formatWin(min) {
+    if (min < 60) return min + ' min';
+    if (min % 60 === 0) return (min / 60) + 'h';
+    return (min / 60).toFixed(1) + 'h';
 }
 
 async function cargarIndex() {
@@ -605,6 +790,7 @@ document.getElementById('hist-select').addEventListener('change', async function
     if (!val) return;
     isLive = false;
     document.getElementById('btn-live').classList.remove('active');
+    resetWinButtons();
     try {
         const resp = await fetch(val + '?t=' + Date.now());
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
