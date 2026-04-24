@@ -142,7 +142,7 @@
 <div class="selector-bar">
     <button class="btn-live active" id="btn-live" onclick="setLive()">LIVE</button>
     <div class="win-group">
-        <span class="sel-label">Acumular:</span>
+        <span class="sel-label">Últimas:</span>
         <button class="btn-win" data-min="30"   onclick="setWindow(30)">30m</button>
         <button class="btn-win" data-min="60"   onclick="setWindow(60)">1h</button>
         <button class="btn-win" data-min="180"  onclick="setWindow(180)">3h</button>
@@ -418,20 +418,22 @@ function appendSourceLine(div, label, src, color) {
 function renderizar(data) {
     const vols = data.volcanoes || [];
 
-    // Tiempo de scan (o vista acumulada)
+    // Tiempo de scan (o vista acumulada) — UTC + hora local del navegador
     const scanUtc = data.scan_utc ? new Date(data.scan_utc) : null;
     if (scanUtc) {
         const ageMin = Math.round((Date.now() - scanUtc.getTime()) / 60000);
-        const stLabel = scanUtc.toISOString().replace('T',' ').slice(0,16) + ' UTC';
+        const utcLabel   = scanUtc.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        const localLabel = fmtLocal(scanUtc) + ' ' + tzAbbr();
         const scanEl = document.getElementById('scan-time');
         if (data.accumulated && data.window_minutes_accumulated) {
-            scanEl.textContent = 'Acumulado ' + formatWin(data.window_minutes_accumulated) +
-                ' · ' + (data.n_scans_accumulated || 0) + ' scans · hasta ' + stLabel;
+            scanEl.textContent = 'Últimas ' + formatWin(data.window_minutes_accumulated) +
+                ' · ' + (data.n_scans_accumulated || 0) + ' scans · hasta ' +
+                utcLabel + ' (' + localLabel + ')';
         } else {
-            scanEl.textContent = 'Scan: ' + stLabel;
+            scanEl.textContent = 'Scan: ' + utcLabel + ' (' + localLabel + ')';
         }
         const ageEl = document.getElementById('data-age');
-        ageEl.textContent = '(hace ' + ageMin + ' min)';
+        ageEl.textContent = '· hace ' + ageMin + ' min';
         ageEl.className = ageMin > 20 ? 'age-old' : 'age-ok';
     }
 
@@ -766,6 +768,17 @@ function formatWin(min) {
     return (min / 60).toFixed(1) + 'h';
 }
 
+// Hora local del navegador (sin segundos) y abreviatura de zona horaria
+function fmtLocal(d) {
+    const pad = n => String(n).padStart(2, '0');
+    return pad(d.getHours()) + ':' + pad(d.getMinutes());
+}
+function tzAbbr() {
+    // Extrae 'GMT-3' / 'GMT+1' / etc. del string localizado
+    const m = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).match(/GMT[+-]\d+/);
+    return m ? m[0] : '';
+}
+
 async function cargarIndex() {
     try {
         const resp = await fetch('datos/index.json?t=' + Date.now());
@@ -777,9 +790,10 @@ async function cargarIndex() {
             const opt = document.createElement('option');
             opt.value = 'datos/' + s.file;
             const dt = new Date(s.scan_utc);
-            const label = dt.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+            const utcStr = dt.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+            const localStr = fmtLocal(dt) + ' ' + tzAbbr();
             const tag = s.red > 0 ? ' [R:' + s.red + ']' : s.yellow > 0 ? ' [Y:' + s.yellow + ']' : '';
-            opt.textContent = label + tag;
+            opt.textContent = utcStr + ' · ' + localStr + tag;
             sel.appendChild(opt);
         }
     } catch (e) { /* silent */ }
