@@ -154,9 +154,15 @@ def _download_and_parse(session: requests.Session, key: str) -> list[dict]:
 
     flashes: list[dict] = []
     try:
-        # xarray soporta archivos en memoria via io.BytesIO
+        # xarray soporta archivos en memoria via io.BytesIO.
+        # decode_cf=False evita overflow de int en tiempos/atributos CF.
         import io
-        ds = xr.open_dataset(io.BytesIO(r.content), engine="h5netcdf")
+        ds = xr.open_dataset(
+            io.BytesIO(r.content),
+            engine="h5netcdf",
+            decode_cf=False,
+            decode_times=False,
+        )
     except Exception as exc:
         print(f"[WARN] open {key}: {exc}")
         return []
@@ -169,15 +175,30 @@ def _download_and_parse(session: requests.Session, key: str) -> list[dict]:
         energies = ds["flash_energy"].values if "flash_energy" in ds else [None] * len(lats)
         areas    = ds["flash_area"].values   if "flash_area"   in ds else [None] * len(lats)
 
-        # Timestamp: product_time (escalar) + flash_time_offset_of_first_event (por flash, seg)
+        # product_time: segundos desde 2000-01-01 12:00:00 UTC (J2000)
         try:
-            product_time = ds["product_time"].values
-            # product_time en epoch J2000 nanoseconds → convertir a datetime UTC
             base = _decode_glm_time(ds["product_time"])
         except Exception:
             base = datetime.now(timezone.utc)
 
         offsets = ds["flash_time_offset_of_first_event"].values if "flash_time_offset_of_first_event" in ds else [0] * len(lats)
+
+        # Si las variables tienen scale_factor/add_offset (decode_cf=False los dejó sin aplicar)
+        def _scaled(var_name: str, arr):
+            if var_name not in ds:
+                return arr
+            attrs = ds[var_name].attrs
+            sf = attrs.get("scale_factor", 1.0)
+            ao = attrs.get("add_offset",  0.0)
+            try:
+                return arr * float(sf) + float(ao)
+            except Exception:
+                return arr
+
+        lats     = _scaled("flash_lat", lats)
+        lons     = _scaled("flash_lon", lons)
+        energies = _scaled("flash_energy", energies) if "flash_energy" in ds else energies
+        areas    = _scaled("flash_area",   areas)    if "flash_area"   in ds else areas
 
         for i in range(len(lats)):
             try:
@@ -195,12 +216,27 @@ def _download_and_parse(session: requests.Session, key: str) -> list[dict]:
                 "lat":      lat,
                 "lon":      lon,
                 "time":     t_iso,
-                "energy_j": None if energies[i] is None or (isinstance(energies[i], float) and math.isnan(energies[i])) else float(energies[i]),
-                "area_m2":  None if areas[i]    is None or (isinstance(areas[i], float) and math.isnan(areas[i]))       else float(areas[i]),
+                "energy_j": _safe_float(energies[i] if i < len(energies) else None),
+                "area_m2":  _safe_float(areas[i]    if i < len(areas)    else None),
             })
+    except Exception as exc:
+        print(f"[WARN] parse {key}: {exc}")
     finally:
-        ds.close()
+        try:
+            ds.close()
+        except Exception:
+            pass
     return flashes
+
+
+def _safe_float(v):
+    if v is None:
+        return None
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return None
+    return None if math.isnan(f) else f
 
 
 def _decode_glm_time(var) -> datetime:
