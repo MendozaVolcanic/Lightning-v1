@@ -62,6 +62,12 @@ VOLCANOES: dict[str, tuple[str, float, float]] = {
     "Cay":                     ("1508-055", -45.059, -72.984),
     "Maca":                    ("1508-056", -45.100, -73.174),
     "Hudson":                  ("1508-057", -45.900, -72.970),
+    # Mundo — volcanes con actividad alta WWLLN (demo / validación dashboard)
+    "Wai Sano (IDN)":          ("0604-06-",  -8.720, 120.020),
+    "Ranakah (IDN)":           ("0604-071",  -8.620, 120.520),
+    "Ambrym (VUT)":            ("0507-04-", -16.250, 168.120),
+    "Jingbo (CHN)":            ("1005-04-",  44.080, 128.830),
+    "Kishb Harrat (SAU)":      ("0301-071",  22.800,  41.380),
 }
 
 # Mapeos derivados
