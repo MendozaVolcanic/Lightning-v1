@@ -77,6 +77,13 @@
 
         .ring-hint { position: absolute; bottom: 8px; left: 8px; z-index: 1000; background: rgba(13,17,23,0.9); border: 1px solid #30363d; border-radius: 6px; padding: 6px 10px; font-size: 0.7em; color: #8b949e; pointer-events: none; display: none; line-height: 1.6; }
 
+        /* Rayos individuales: ⚡ coloreado por fuente + anillo */
+        .bolt { line-height: 1; font-weight: 900; text-align: center; pointer-events: auto; }
+        .bolt-w-inner { color: #ff3333; font-size: 22px; text-shadow: 0 0 10px rgba(255,51,51,1), 0 0 3px #000; }
+        .bolt-w-outer { color: #ffd700; font-size: 17px; text-shadow: 0 0 8px rgba(255,215,0,0.95), 0 0 3px #000; }
+        .bolt-g-inner { color: #ff3fe0; font-size: 20px; text-shadow: 0 0 10px rgba(255,63,224,1), 0 0 3px #000; }
+        .bolt-g-outer { color: #56d4ff; font-size: 16px; text-shadow: 0 0 8px rgba(86,212,255,0.95), 0 0 3px #000; }
+
         /* Modal de ayuda */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
         .modal-overlay.open { display: flex; }
@@ -137,10 +144,10 @@
         <div class="ring-hint" id="ring-hint">
             <span style="color:#f85149">——</span> ≤20 km &nbsp;
             <span style="color:#555">- -</span> 100 km<br>
-            <span style="color:#ff3333;font-size:1.1em">●</span> WWLLN interior &nbsp;
-            <span style="color:#ffd700;font-size:1.1em">●</span> WWLLN exterior<br>
-            <span style="color:#ff3fe0;font-size:1.1em">○</span> GLM interior &nbsp;
-            <span style="color:#56d4ff;font-size:1.1em">○</span> GLM exterior
+            <span style="color:#ff3333;font-weight:900">⚡</span> WWLLN int. &nbsp;
+            <span style="color:#ffd700;font-weight:900">⚡</span> WWLLN ext.<br>
+            <span style="color:#ff3fe0;font-weight:900">⚡</span> GLM int. &nbsp;
+            <span style="color:#56d4ff;font-weight:900">⚡</span> GLM ext.
         </div>
     </div>
     <div class="tabla-panel" id="tabla"></div>
@@ -291,16 +298,20 @@ function showVolcano(v) {
     if (markers[v.volcano]) markers[v.volcano].openPopup();
 }
 
-function addStroke(s, sourceKey, filled) {
-    const clr = MARKER[sourceKey][s.ring] || '#888';
-    const bm = L.circleMarker([s.lat, s.lon], {
-        radius:      s.ring === 'inner' ? (filled ? 7 : 9) : (filled ? 5 : 7),
-        fillColor:   filled ? clr : 'transparent',
-        color:       filled ? '#000' : clr,
-        weight:      filled ? 1 : 2,
-        opacity:     0.95,
-        fillOpacity: filled ? 0.85 : 0
-    }).addTo(map);
+function addStroke(s, sourceKey, _unused) {
+    // sourceKey: 'wwlln' | 'glm'  |  s.ring: 'inner' | 'outer'
+    // CSS class: bolt-{w|g}-{inner|outer}
+    const tag = sourceKey === 'glm' ? 'g' : 'w';
+    const cls = 'bolt bolt-' + tag + '-' + (s.ring === 'inner' ? 'inner' : 'outer');
+    // Contenido estático (⚡ + clase) — no incluye datos externos, DOM-safe.
+    const size = s.ring === 'inner' ? 24 : 18;
+    const icon = L.divIcon({
+        html: '<span class="' + cls + '">\u26a1</span>',
+        className: '',
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2],
+    });
+    const bm = L.marker([s.lat, s.lon], { icon: icon }).addTo(map);
     bm.bindPopup(buildStrokePopup(s, sourceKey));
     overlays.push(bm);
 }
