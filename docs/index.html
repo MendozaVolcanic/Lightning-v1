@@ -193,11 +193,13 @@
             <tr><th></th><th>WWLLN</th><th>GLM (GOES-19)</th></tr>
             <tr><td>Qué detecta</td><td>Señal de radio VLF</td><td>Destello óptico desde el espacio</td></tr>
             <tr><td>Dónde</td><td>~80 antenas terrestres</td><td>Satélite geoestacionario NOAA</td></tr>
-            <tr><td>Ventana</td><td>Última 1 hora (rolling)</td><td>Últimos 15 minutos</td></tr>
+            <tr><td>Cobertura</td><td><strong>Global</strong></td><td><strong>Solo hemisferio oeste</strong> (~128°W a 14°W)</td></tr>
+            <tr><td>Ventana nativa</td><td>Última 1 hora (rolling)</td><td>Últimos 15 minutos</td></tr>
             <tr><td>Latencia</td><td>~1–2 min</td><td>~20–60 seg</td></tr>
             <tr><td>Fortaleza</td><td>Rayos fuertes globalmente</td><td>Rayos débiles + forma 2D</td></tr>
         </table>
         <p>Son <strong>complementarias</strong>. Un flash débil en radio puede ser brillante ópticamente y viceversa.</p>
+        <p>⚠️ <strong>Limitación GLM:</strong> GOES-19 está parado sobre 75°W y solo ve el hemisferio oeste. Volcanes fuera de América (Indonesia, Vanuatu, Arabia, etc.) aparecen siempre con GLM=0 aunque tengan tormentas activas — no es un bug, el satélite simplemente no los mira. Para cubrirlos harían falta datos de Himawari-9 LMI (Asia/Pacífico) o MTG-I1 LI (Europa/África).</p>
 
         <h3>Anillos (iguales en ambas fuentes)</h3>
         <ul>
@@ -234,10 +236,40 @@
             <li><strong>Una fuente fuera</strong> → confiar en la que está viva; revisar el indicador en la barra superior.</li>
         </ul>
 
+        <h3>Modos de visualización (barra superior)</h3>
+        <p>El dashboard tiene tres formas de mostrar los datos. Saber qué hace cada una es clave:</p>
+
+        <table class="modal-table">
+            <tr><th>Modo</th><th>Qué muestra</th><th>Cuándo usarlo</th></tr>
+            <tr>
+                <td><strong>LIVE</strong></td>
+                <td>Scan más reciente tal cual. WWLLN = 1h rolling, GLM = 15 min. Cada fuente con su ventana nativa.</td>
+                <td>Monitoreo en vivo durante una guardia.</td>
+            </tr>
+            <tr>
+                <td><strong>Últimas 30m…24h</strong></td>
+                <td>Fusiona N scans históricos, deduplica rayos repetidos y filtra por timestamp. <strong>Unifica ambas fuentes en la misma ventana</strong> (ej. "Últimas 3h" = todos los rayos WWLLN <em>y</em> GLM entre hace 3h y ahora).</td>
+                <td>Reconstruir un evento (sismo con tormenta simultánea). Extiende GLM más allá de sus 15 min nativos.</td>
+            </tr>
+            <tr>
+                <td><strong>Histórico</strong></td>
+                <td>Un snapshot único de un momento pasado. Mantiene las ventanas nativas de cada fuente (WWLLN 1h + GLM 15 min) tal cual estaban en ese instante.</td>
+                <td>Verificar "¿qué mostraba el dashboard cuando hubo la señal sísmica a las X?".</td>
+            </tr>
+        </table>
+
+        <p><strong>Ejemplo concreto a las 15:00 UTC:</strong></p>
+        <ul>
+            <li><strong>LIVE</strong> → WWLLN [14:00–15:00], GLM [14:45–15:00]</li>
+            <li><strong>Histórico "13:11"</strong> → WWLLN [12:11–13:11], GLM [12:56–13:11]</li>
+            <li><strong>Últimas 3h</strong> → WWLLN y GLM unificados [12:00–15:00], ambas fuentes cubren las 3 horas completas</li>
+        </ul>
+
         <h3>Selector histórico</h3>
         <p>
-            Hasta <code>30 días</code> de scans previos están disponibles en el dropdown "Historial".
+            Hasta <code>30 días</code> de scans previos están disponibles en el dropdown "Histórico".
             Cada scan es un snapshot combinado WWLLN+GLM del momento en que se ejecutó el workflow.
+            La etiqueta <code>[R:3]</code> / <code>[Y:5]</code> al final de cada opción indica cuántos volcanes estaban en ROJO o AMARILLO al momento de la captura — así identificás rápido los scans con actividad.
         </p>
 
         <h3>Fuente y código</h3>
