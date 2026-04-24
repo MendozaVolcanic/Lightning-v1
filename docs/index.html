@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="300">
     <title>Lightning Monitor — Chile Volcánico (WWLLN + GLM)</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -580,6 +579,14 @@ function renderizar(data) {
         'Alerta combinada ROJA solo cuando ambas coinciden.'
     ].forEach(line => met.appendChild(txt(line)));
     tabla.appendChild(met);
+
+    // Preservar volcán seleccionado tras auto-refresh (si sigue existiendo)
+    if (lastSelected) {
+        const updated = vols.find(v => v.volcano === lastSelected.volcano);
+        if (updated) {
+            seleccionar(updated);
+        }
+    }
 }
 
 function buildRow(v) {
@@ -877,6 +884,26 @@ document.getElementById('hist-select').addEventListener('change', async function
 
 cargar();
 cargarIndex();
+
+// ── Auto-refresh inteligente ───────────────────────────────────────────────
+// Sin full page reload. Solo refresca el JSON. Respeta el modo actual:
+//  - LIVE      → re-fetch latest.json  + index.json
+//  - Últimas X → NO interrumpe la vista acumulada
+//  - Histórico → NO interrumpe el snapshot seleccionado
+// El índice SI se refresca siempre para que los scans nuevos aparezcan en el dropdown.
+const AUTO_REFRESH_MS = 60000; // 60s
+setInterval(() => {
+    cargarIndex();            // siempre: actualiza dropdown histórico
+    if (isLive) cargar();     // solo en LIVE: refresca datos del mapa/tabla
+}, AUTO_REFRESH_MS);
+
+// Refresh inmediato al volver a la pestaña (evita datos viejos tras inactividad)
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        cargarIndex();
+        if (isLive) cargar();
+    }
+});
 </script>
 </body>
 </html>
