@@ -16,8 +16,11 @@ Algoritmo Georayos:
   VERDE   = inner == 0
 
 Salidas:
-  docs/data/latest.json         — dashboard GitHub Pages
-  datos/scan_YYYY-MM-DD_HHMM.json — archivo histórico
+  docs/data/wwlln_latest.json — feed WWLLN puro (consumido por merger.py)
+  datos/alert_history.csv     — CSV acumulativo permanente (WWLLN)
+
+El historial de scans y el índice los escribe merger.py con datos
+combinados WWLLN+GLM.
 """
 
 import csv
@@ -36,6 +39,8 @@ except ImportError:
     print("ERROR: pip install requests beautifulsoup4")
     sys.exit(1)
 
+from volcanoes import VOLCANOES
+
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
@@ -44,57 +49,8 @@ KML_BASE  = "https://wwlln.net/USGS/Global/{}.kml"
 KML_NS    = "http://www.opengis.net/kml/2.2"
 TIMEOUT   = 15  # segundos por request
 
-# Mapping: nombre interno → ID WWLLN (GVP)
-VOLCANO_MAP: dict[str, str] = {
-    "Taapaca":                 "1505-011",
-    "Parinacota":              "1505-012",
-    "Guallatiri":              "1505-02-",
-    "Isluga":                  "1505-03-",
-    "Irruputuncu":             "1505-04-",
-    "Ollague":                 "1505-06-",
-    "San Pedro":               "1505-07-",
-    "Lascar":                  "1505-10-",
-    "Tupungatito":             "1507-01-",
-    "San Jose":                "1507-02-",
-    "Tinguiririca":            "1507-03-",
-    "Planchon-Peteroa":        "1507-04-",
-    "Descabezado Grande":      "1507-05-",
-    "Tatara-San Pedro":        "1507-062",
-    "Laguna del Maule":        "1507-061",
-    "Nevado de Longavi":       "1507-063",
-    "Nevados de Chillan":      "1507-07-",
-    "Antuco":                  "1507-08-",
-    "Copahue":                 "1507-09-",
-    "Callaqui":                "1507-091",
-    "Lonquimay":               "1507-10-",
-    "Llaima":                  "1507-11-",
-    "Sollipulli":              "1507-111",
-    "Villarrica":              "1507-12-",
-    "Quetrupillan":            "1507-121",
-    "Lanin":                   "1507-122",
-    "Mocho-Choshuenco":        "1507-13-",
-    "Carran - Los Venados":    "1507-14-",
-    "Puyehue - Cordon Caulle": "1507-15-",
-    "Antillanca - Casablanca": "1507-153",
-    "Osorno":                  "1508-01-",
-    "Calbuco":                 "1508-02-",
-    "Yate":                    "1508-022",
-    "Hornopiren":              "1508-023",
-    "Huequi":                  "1508-03-",
-    "Michinmahuida":           "1508-04-",
-    "Chaiten":                 "1508-041",
-    "Corcovado":               "1508-05-",
-    "Melimoyu":                "1508-052",
-    "Mentolat":                "1508-054",
-    "Cay":                     "1508-055",
-    "Maca":                    "1508-056",
-    "Hudson":                  "1508-057",
-    # Guatemala
-    "Acatenango":              "1402-09-",
-    "Fuego":                   "1402-10-",
-    "Agua":                    "1402-111",
-}
-
+# Mapping: nombre interno → ID WWLLN (GVP), derivado de volcanoes.py
+VOLCANO_MAP: dict[str, str] = {name: info[0] for name, info in VOLCANOES.items()}
 WANTED_IDS = set(VOLCANO_MAP.values())
 
 
@@ -285,9 +241,6 @@ def build_results(
 # ---------------------------------------------------------------------------
 # Guardar salidas
 # ---------------------------------------------------------------------------
-RETENTION_DAYS = 30  # días que se mantienen los JSON completos
-
-
 def save_outputs(
     results: list[dict], scan_time: datetime, script_dir: Path
 ) -> None:
@@ -306,27 +259,17 @@ def save_outputs(
         "volcanoes":       results,
     }
 
-    # 1. GitHub Pages (siempre)
+    # 1. Feed WWLLN puro → merger.py lo lee y combina con GLM
     docs_data = script_dir / "docs" / "data"
     docs_data.mkdir(parents=True, exist_ok=True)
-    with open(docs_data / "latest.json", "w", encoding="utf-8") as f:
+    with open(docs_data / "wwlln_latest.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
-    print(f"[INFO] latest.json → {docs_data / 'latest.json'}")
+    print(f"[INFO] wwlln_latest.json → {docs_data / 'wwlln_latest.json'}")
 
+    # 2. CSV acumulativo permanente (histórico solo de WWLLN)
     datos_dir = script_dir / "datos"
     datos_dir.mkdir(parents=True, exist_ok=True)
-
-    # 2. JSON completo con posiciones de rayos (últimos 30 días)
-    fname = f"scan_{scan_time:%Y-%m-%d_%H%M}.json"
-    with open(datos_dir / fname, "w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2, ensure_ascii=False)
-    print(f"[INFO] JSON scan → datos/{fname}")
-
-    # 3. CSV acumulativo permanente (sin stroke_positions, compacto)
     _append_csv(results, scan_time, datos_dir)
-
-    # 4. Purgar JSONs de escaneo más viejos que RETENTION_DAYS
-    _purge_old_scans(datos_dir, scan_time)
 
 
 def _append_csv(results: list[dict], scan_time: datetime, datos_dir: Path) -> None:
@@ -351,24 +294,6 @@ def _append_csv(results: list[dict], scan_time: datetime, datos_dir: Path) -> No
                 len(r.get("stroke_positions", [])),
             ])
     print(f"[INFO] CSV histórico → datos/alert_history.csv")
-
-
-def _purge_old_scans(datos_dir: Path, now: datetime) -> None:
-    """Elimina scan_*.json más viejos que RETENTION_DAYS."""
-    cutoff = now - timedelta(days=RETENTION_DAYS)
-    deleted = 0
-    for f in sorted(datos_dir.glob("scan_*.json")):
-        # nombre: scan_YYYY-MM-DD_HHMM.json
-        try:
-            date_str = f.stem[5:]  # YYYY-MM-DD_HHMM
-            dt = datetime.strptime(date_str, "%Y-%m-%d_%H%M").replace(tzinfo=timezone.utc)
-            if dt < cutoff:
-                f.unlink()
-                deleted += 1
-        except ValueError:
-            pass
-    if deleted:
-        print(f"[INFO] Purgados {deleted} scan(s) de más de {RETENTION_DAYS} días")
 
 
 # ---------------------------------------------------------------------------

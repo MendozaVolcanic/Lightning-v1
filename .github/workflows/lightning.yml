@@ -1,4 +1,4 @@
-name: Lightning — WWLLN Volcanic Monitor
+name: Lightning — WWLLN + GLM Volcanic Monitor
 
 on:
   schedule:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   lightning-scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
 
     steps:
       - uses: actions/checkout@v4
@@ -26,20 +26,29 @@ jobs:
 
       - name: Scan WWLLN
         run: python wwlln_scraper.py
+        continue-on-error: true
+
+      - name: Scan GLM (GOES-19)
+        run: python glm_scraper.py
+        continue-on-error: true
+
+      - name: Merge sources
+        run: python merger.py
 
       - name: Commit results
         run: |
           git config user.name "LightningBot"
           git config user.email "lightning@georayos.com"
-          git add docs/data/latest.json
-          git add datos/scan_*.json datos/alert_history.csv 2>/dev/null || true
-          git ls-files --deleted datos/ | xargs git rm --cached 2>/dev/null || true
+          git add docs/data/latest.json docs/data/wwlln_latest.json docs/data/glm_latest.json
+          git add docs/datos/ 2>/dev/null || true
+          git add datos/alert_history.csv 2>/dev/null || true
+          git ls-files --deleted docs/datos/ datos/ | xargs git rm --cached 2>/dev/null || true
           if git diff --quiet --staged 2>/dev/null; then
             echo "Sin cambios"
           else
             REDS=$(python -c "import json,pathlib; p=pathlib.Path('docs/data/latest.json'); d=json.loads(p.read_text()) if p.exists() else {}; print(d.get('red_alerts',0))" 2>/dev/null || echo 0)
             YELLOWS=$(python -c "import json,pathlib; p=pathlib.Path('docs/data/latest.json'); d=json.loads(p.read_text()) if p.exists() else {}; print(d.get('yellow_alerts',0))" 2>/dev/null || echo 0)
-            git commit -m "wwlln: $(date -u +'%Y-%m-%d %H:%M') | R=$REDS Y=$YELLOWS"
+            git commit -m "scan: $(date -u +'%Y-%m-%d %H:%M') | R=$REDS Y=$YELLOWS"
             git pull origin main --rebase -X ours || true
             git push origin main || true
           fi

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="300">
-    <title>WWLLN Lightning — Chile Volcánico</title>
+    <title>Lightning Monitor — Chile Volcánico (WWLLN + GLM)</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,10 +15,18 @@
         .header h1 { font-size: 1.05em; color: #58a6ff; font-weight: 700; }
         .badge { padding: 2px 8px; border-radius: 10px; font-size: 0.7em; font-weight: bold; }
         .badge-wwlln       { background: #1f4f8a; color: #79c0ff; border: 1px solid #388bfd44; }
+        .badge-glm         { background: #4a2c5e; color: #d2a8ff; border: 1px solid #a371f744; }
         .badge-sernageomin { background: #1a3a1a; color: #56d364; border: 1px solid #3fb95044; font-size: 0.65em; }
         .header-meta { font-size: 0.78em; color: #8b949e; display: flex; align-items: center; gap: 10px; }
         .age-ok  { color: #56d364; }
         .age-old { color: #f0883e; }
+        .btn-help { background: #21262d; color: #58a6ff; border: 1px solid #30363d; border-radius: 6px; padding: 3px 10px; font-size: 0.8em; cursor: pointer; font-weight: 700; transition: all 0.15s; }
+        .btn-help:hover { background: #30363d; color: #79c0ff; }
+
+        .source-status { display: flex; gap: 12px; align-items: center; font-size: 0.72em; }
+        .src-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+        .src-on  { background: #3fb950; box-shadow: 0 0 4px rgba(63,185,80,0.6); }
+        .src-off { background: #f85149; box-shadow: 0 0 4px rgba(248,81,73,0.6); }
 
         .summary-bar { display: flex; gap: 10px; padding: 8px 18px; background: #161b22; border-bottom: 1px solid #21262d; flex-wrap: wrap; align-items: center; }
         .stat { display: flex; align-items: center; gap: 7px; padding: 5px 12px; border-radius: 8px; font-size: 0.82em; font-weight: 600; }
@@ -28,42 +36,69 @@
         .stat-count  { font-size: 1.3em; font-weight: 700; }
         .disc-note { margin-left: auto; font-size: 0.73em; color: #484f58; font-style: italic; }
 
-        .main { display: flex; height: calc(100vh - 108px); }
+        .selector-bar { display: flex; gap: 10px; padding: 6px 18px; background: #0d1117; border-bottom: 1px solid #21262d; align-items: center; flex-wrap: wrap; }
+        .btn-live { padding: 3px 14px; border-radius: 6px; font-size: 0.78em; font-weight: 700; cursor: pointer; border: 1px solid; transition: all 0.15s; }
+        .btn-live.active { background: rgba(63,185,80,0.15); color: #3fb950; border-color: rgba(63,185,80,0.4); }
+        .btn-live:not(.active) { background: rgba(255,255,255,0.04); color: #8b949e; border-color: #30363d; }
+        .hist-select { background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 3px 8px; font-size: 0.78em; }
+        .sel-label { font-size: 0.74em; color: #8b949e; }
+
+        .main { display: flex; height: calc(100vh - 150px); }
         #map { width: 58%; height: 100%; position: relative; }
         .tabla-panel { width: 42%; overflow-y: auto; background: #0d1117; border-left: 1px solid #21262d; }
 
-        .volcan-row { display: flex; align-items: center; padding: 8px 14px; border-bottom: 1px solid #161b22; gap: 9px; cursor: pointer; transition: background 0.1s; }
+        .volcan-row { display: grid; grid-template-columns: 12px 1fr auto auto auto; align-items: center; padding: 7px 12px; border-bottom: 1px solid #161b22; gap: 8px; cursor: pointer; transition: background 0.1s; }
         .volcan-row:hover { background: #1a1f2e; }
-        .volcan-row.active-row { background: #1c2333; border-left: 2px solid #388bfd; }
-        .dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+        .volcan-row.active-row { background: #1c2333; border-left: 2px solid #388bfd; padding-left: 10px; }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
         .dot-RED    { background: #f85149; box-shadow: 0 0 7px rgba(248,81,73,0.7); animation: pulse 1.5s infinite; }
         .dot-YELLOW { background: #d29922; box-shadow: 0 0 5px rgba(210,153,34,0.5); }
         .dot-GREEN  { background: #3fb950; opacity: 0.6; }
+        .dot-UNKNOWN{ background: #6e7681; }
         @keyframes pulse { 0%,100%{box-shadow:0 0 7px rgba(248,81,73,0.7)} 50%{box-shadow:0 0 14px rgba(248,81,73,1)} }
-        .vname { font-size: 0.86em; font-weight: 600; color: #e6edf3; flex: 1; }
-        .vstrokes { font-size: 0.76em; white-space: nowrap; }
+        .vname { font-size: 0.86em; font-weight: 600; color: #e6edf3; }
+        .src-cell { font-size: 0.7em; line-height: 1.25; min-width: 66px; text-align: right; }
+        .src-cell .lbl { font-size: 0.85em; color: #6e7681; letter-spacing: 0.5px; }
+        .src-cell.glm .lbl  { color: #a371f7; }
+        .src-cell.wwlln .lbl { color: #58a6ff; }
         .s-inner { color: #f85149; font-weight: 700; }
         .s-outer { color: #d29922; }
-        .valert { font-size: 0.72em; font-weight: 700; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+        .s-muted { color: #484f58; }
+        .valert { font-size: 0.7em; font-weight: 700; padding: 1px 6px; border-radius: 8px; white-space: nowrap; }
         .valert-RED    { background: rgba(248,81,73,0.2); color: #f85149; }
         .valert-YELLOW { background: rgba(210,153,34,0.2); color: #d29922; }
         .valert-GREEN  { background: rgba(63,185,80,0.08); color: #3fb950; }
+        .valert-UNKNOWN{ background: rgba(110,118,129,0.15); color: #8b949e; }
 
         .zona-hdr { padding: 5px 14px; background: #161b22; font-size: 0.7em; font-weight: 700; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #21262d; position: sticky; top: 0; z-index: 2; }
 
         .error-box { padding: 40px 20px; color: #f85149; font-size: 0.9em; text-align: center; white-space: pre-wrap; }
         .metodologia { padding: 10px 14px; font-size: 0.7em; color: #484f58; border-top: 1px solid #21262d; line-height: 1.5; }
 
-        .bolt-inner { font-size: 16px; line-height: 1; text-shadow: 0 0 6px rgba(248,81,73,0.9); }
-        .bolt-outer { font-size: 13px; line-height: 1; opacity: 0.75; text-shadow: 0 0 4px rgba(210,153,34,0.7); }
+        .ring-hint { position: absolute; bottom: 8px; left: 8px; z-index: 1000; background: rgba(13,17,23,0.9); border: 1px solid #30363d; border-radius: 6px; padding: 6px 10px; font-size: 0.7em; color: #8b949e; pointer-events: none; display: none; line-height: 1.6; }
 
-        .ring-hint { position: absolute; bottom: 8px; left: 8px; z-index: 1000; background: rgba(13,17,23,0.85); border: 1px solid #30363d; border-radius: 6px; padding: 5px 10px; font-size: 0.7em; color: #8b949e; pointer-events: none; display: none; }
+        /* Modal de ayuda */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+        .modal-overlay.open { display: flex; }
+        .modal { background: #0d1117; border: 1px solid #30363d; border-radius: 12px; max-width: 760px; width: 100%; color: #e6edf3; padding: 24px 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+        .modal h2 { color: #58a6ff; font-size: 1.2em; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+        .modal h3 { color: #d2a8ff; font-size: 0.95em; margin: 16px 0 6px; border-bottom: 1px solid #21262d; padding-bottom: 4px; }
+        .modal p, .modal li { font-size: 0.85em; line-height: 1.55; color: #c9d1d9; }
+        .modal ul { margin-left: 20px; margin-bottom: 8px; }
+        .modal code { background: #161b22; border: 1px solid #21262d; border-radius: 4px; padding: 1px 5px; font-size: 0.85em; color: #ffa657; }
+        .modal .close-btn { background: transparent; border: 1px solid #30363d; color: #8b949e; border-radius: 6px; padding: 3px 10px; cursor: pointer; font-size: 0.85em; }
+        .modal .close-btn:hover { color: #f85149; border-color: #f85149; }
+        .modal-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.82em; }
+        .modal-table th, .modal-table td { border: 1px solid #21262d; padding: 5px 9px; text-align: left; }
+        .modal-table th { background: #161b22; color: #58a6ff; font-weight: 600; }
+        .color-pill { display: inline-block; width: 50px; font-weight: 700; text-align: center; padding: 1px 6px; border-radius: 6px; font-size: 0.78em; }
 
         @media (max-width: 800px) {
             .main { flex-direction: column; height: auto; }
             #map { width: 100%; height: 52vh; }
             .tabla-panel { width: 100%; }
             .disc-note { display: none; }
+            .source-status { flex-direction: column; align-items: flex-start; gap: 2px; }
         }
     </style>
 </head>
@@ -73,28 +108,118 @@
     <div class="header-left">
         <h1>Lightning Monitor — Chile</h1>
         <span class="badge badge-wwlln">WWLLN</span>
+        <span class="badge badge-glm">GLM G19</span>
         <span class="badge badge-sernageomin">SERNAGEOMIN</span>
     </div>
     <div class="header-meta">
         <span id="scan-time">Cargando...</span>
         <span id="data-age"></span>
+        <button class="btn-help" onclick="openHelp()">ⓘ Ayuda</button>
     </div>
 </div>
 
 <div class="summary-bar">
     <div id="summary-items" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;"></div>
-    <span class="disc-note">Ventana: última hora · Click en volcán para ver anillos · Auto-refresh 5 min</span>
+    <div class="source-status" id="source-status"></div>
+    <span class="disc-note">Click en volcán para ver anillos y posiciones individuales de rayos</span>
+</div>
+
+<div class="selector-bar">
+    <button class="btn-live active" id="btn-live" onclick="setLive()">LIVE</button>
+    <span class="sel-label">Historial:</span>
+    <select class="hist-select" id="hist-select">
+        <option value="">-- Cargar scan anterior --</option>
+    </select>
 </div>
 
 <div class="main">
     <div id="map">
         <div class="ring-hint" id="ring-hint">
-            <span style="color:#f85149">——</span> ≤20 km
-            &nbsp;
-            <span style="color:#555">- -</span> 100 km
+            <span style="color:#f85149">——</span> ≤20 km &nbsp;
+            <span style="color:#555">- -</span> 100 km<br>
+            <span style="color:#ff3333;font-size:1.1em">●</span> WWLLN interior &nbsp;
+            <span style="color:#ffd700;font-size:1.1em">●</span> WWLLN exterior<br>
+            <span style="color:#ff3fe0;font-size:1.1em">○</span> GLM interior &nbsp;
+            <span style="color:#56d4ff;font-size:1.1em">○</span> GLM exterior
         </div>
     </div>
     <div class="tabla-panel" id="tabla"></div>
+</div>
+
+<!-- Modal de ayuda -->
+<div class="modal-overlay" id="help-modal" onclick="if(event.target===this)closeHelp()">
+    <div class="modal">
+        <h2>
+            Guía del Lightning Monitor
+            <button class="close-btn" onclick="closeHelp()">Cerrar ✕</button>
+        </h2>
+
+        <h3>¿Qué monitorea?</h3>
+        <p>
+            Rayos cercanos a <strong>46 volcanes</strong> (43 Chilenos + 3 Guatemaltecos: Acatenango, Fuego, Agua).
+            El objetivo operacional es <strong>discriminar</strong> si una señal sísmica puede provenir de un rayo
+            eléctrico (ruido) o de un evento volcánico real.
+        </p>
+
+        <h3>Fuentes de datos (se usan en paralelo)</h3>
+        <table class="modal-table">
+            <tr><th></th><th>WWLLN</th><th>GLM (GOES-19)</th></tr>
+            <tr><td>Qué detecta</td><td>Señal de radio VLF</td><td>Destello óptico desde el espacio</td></tr>
+            <tr><td>Dónde</td><td>~80 antenas terrestres</td><td>Satélite geoestacionario NOAA</td></tr>
+            <tr><td>Ventana</td><td>Última 1 hora (rolling)</td><td>Últimos 15 minutos</td></tr>
+            <tr><td>Latencia</td><td>~1–2 min</td><td>~20–60 seg</td></tr>
+            <tr><td>Fortaleza</td><td>Rayos fuertes globalmente</td><td>Rayos débiles + forma 2D</td></tr>
+        </table>
+        <p>Son <strong>complementarias</strong>. Un flash débil en radio puede ser brillante ópticamente y viceversa.</p>
+
+        <h3>Anillos (iguales en ambas fuentes)</h3>
+        <ul>
+            <li><strong>Interior</strong>: ≤ 20 km del cráter — rayo potencialmente volcánico o tormenta local</li>
+            <li><strong>Exterior</strong>: 20–100 km — tormenta regional</li>
+        </ul>
+
+        <h3>Algoritmo Georayos (por fuente)</h3>
+        <ul>
+            <li><span class="color-pill valert-RED">ROJO</span> interior ≥ 2 × exterior, o exterior = 0 con interior &gt; 0</li>
+            <li><span class="color-pill valert-YELLOW">AMAR.</span> interior &gt; 0 pero interior &lt; 2 × exterior</li>
+            <li><span class="color-pill valert-GREEN">VERDE</span> interior = 0</li>
+        </ul>
+
+        <h3>Alerta combinada (lo que ves en la tabla)</h3>
+        <ul>
+            <li><span class="color-pill valert-RED">ROJO</span> <strong>ambas fuentes</strong> reportan ROJO → alta confianza de actividad en la zona del cráter</li>
+            <li><span class="color-pill valert-YELLOW">AMAR.</span> al menos una fuente reporta ROJO o AMARILLO → revisar</li>
+            <li><span class="color-pill valert-GREEN">VERDE</span> ambas VERDE → no hay actividad, señal sísmica <em>no</em> es eléctrica</li>
+        </ul>
+
+        <h3>Cadencia</h3>
+        <p>
+            El workflow de GitHub Actions corre cada <code>10 minutos</code> y actualiza este dashboard.
+            El mínimo soportado por GitHub es 5 min; con un trigger externo (p. ej. cron-job.org vía webhook
+            <code>workflow_dispatch</code>) se puede bajar a 1–2 min.
+        </p>
+
+        <h3>Cómo usarlo en terreno</h3>
+        <ul>
+            <li><strong>Verde en ambas fuentes</strong> → descartar origen eléctrico de la señal sísmica.</li>
+            <li><strong>Amarillo</strong> → posible tormenta regional; revisar mapa para ver si los rayos están lejos del cráter.</li>
+            <li><strong>Rojo combinado</strong> → dos sistemas independientes confirmaron actividad cerca del cráter. Cruzar con cámara y estación sísmica.</li>
+            <li><strong>Una fuente fuera</strong> → confiar en la que está viva; revisar el indicador en la barra superior.</li>
+        </ul>
+
+        <h3>Selector histórico</h3>
+        <p>
+            Hasta <code>30 días</code> de scans previos están disponibles en el dropdown "Historial".
+            Cada scan es un snapshot combinado WWLLN+GLM del momento en que se ejecutó el workflow.
+        </p>
+
+        <h3>Fuente y código</h3>
+        <p>
+            WWLLN: <code>https://wwlln.net/USGS/Global/</code> (U. Washington).<br>
+            GLM: <code>s3://noaa-goes19/GLM-L2-LCFA/</code> (NOAA, acceso público).<br>
+            Código: <code>github.com/MendozaVolcanic/Lightning-v1</code>.
+        </p>
+    </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -117,26 +242,28 @@ const ZONAS = {
 };
 const ZONA_POR = {};
 for (const [z, vs] of Object.entries(ZONAS)) vs.forEach(v => ZONA_POR[v] = z);
-const ORDEN = {RED: 0, YELLOW: 1, GREEN: 2};
-const COL   = {RED: '#f85149', YELLOW: '#d29922', GREEN: '#3fb950'};
+const ORDEN = {RED: 0, YELLOW: 1, GREEN: 2, UNKNOWN: 3};
+const COL   = {RED: '#f85149', YELLOW: '#d29922', GREEN: '#3fb950', UNKNOWN: '#6e7681'};
+
+// Colores de marcadores por fuente y anillo
+const MARKER = {
+    wwlln: { inner: '#ff3333', outer: '#ffd700' },
+    glm:   { inner: '#ff3fe0', outer: '#56d4ff' }
+};
 
 // ── Mapa ──────────────────────────────────────────────────────────────────
 const map = L.map('map').setView([-37, -71], 5);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '\u00a9 OpenStreetMap \u00a9 CARTO | WWLLN \u2014 U. Washington',
+    attribution: '\u00a9 OpenStreetMap \u00a9 CARTO | WWLLN U. Washington | GLM NOAA GOES-19',
     maxZoom: 19
 }).addTo(map);
 
 let markers     = {};
 let overlays    = [];
 let activeRow   = null;
+let isLive      = true;
 
-function boltIcon(ring) {
-    const d = el('span', ring === 'inner' ? 'bolt-inner' : 'bolt-outer');
-    d.textContent = '\u26a1';
-    return L.divIcon({ html: d.outerHTML, className: '', iconSize: [20,20], iconAnchor: [10,10] });
-}
-
+// ── Render de anillos + posiciones de rayos ────────────────────────────────
 function clearOverlays() {
     overlays.forEach(l => map.removeLayer(l));
     overlays = [];
@@ -145,64 +272,81 @@ function clearOverlays() {
 
 function showVolcano(v) {
     clearOverlays();
+    const wwlln = (v.sources && v.sources.wwlln) || {};
+    const glm   = (v.sources && v.sources.glm)   || {};
+    const anyInner = (wwlln.inner || 0) + (glm.inner || 0);
 
-    const col20 = v.inner_strokes > 0 ? '#f85149' : 'rgba(255,255,255,0.3)';
-    overlays.push(L.circle([v.lat, v.lon], {radius: 20000,  color: col20,                 weight: 1.5, fill: false, dashArray: '6 4'}).addTo(map));
-    overlays.push(L.circle([v.lat, v.lon], {radius: 100000, color: 'rgba(255,255,255,0.15)', weight: 1,   fill: false, dashArray: '4 6'}).addTo(map));
+    // Anillos
+    const col20 = anyInner > 0 ? '#f85149' : 'rgba(255,255,255,0.3)';
+    overlays.push(L.circle([v.lat, v.lon], {radius: 20000,  color: col20, weight: 1.5, fill: false, dashArray: '6 4'}).addTo(map));
+    overlays.push(L.circle([v.lat, v.lon], {radius: 100000, color: 'rgba(255,255,255,0.15)', weight: 1, fill: false, dashArray: '4 6'}).addTo(map));
 
-    if (Array.isArray(v.stroke_positions)) {
-        for (const s of v.stroke_positions) {
-            const bm = L.marker([s.lat, s.lon], {icon: boltIcon(s.ring)}).addTo(map);
-            bm.bindPopup(buildStrokePopup(s));
-            overlays.push(bm);
-        }
-    }
+    // Posiciones WWLLN (círculos sólidos)
+    (wwlln.positions || []).forEach(s => addStroke(s, 'wwlln', true));
+    // Posiciones GLM (círculos con solo borde, para diferenciar de WWLLN visualmente)
+    (glm.positions || []).forEach(s => addStroke(s, 'glm', false));
 
     document.getElementById('ring-hint').style.display = 'block';
     map.setView([v.lat, v.lon], 7, {animate: true});
     if (markers[v.volcano]) markers[v.volcano].openPopup();
 }
 
+function addStroke(s, sourceKey, filled) {
+    const clr = MARKER[sourceKey][s.ring] || '#888';
+    const bm = L.circleMarker([s.lat, s.lon], {
+        radius:      s.ring === 'inner' ? (filled ? 7 : 9) : (filled ? 5 : 7),
+        fillColor:   filled ? clr : 'transparent',
+        color:       filled ? '#000' : clr,
+        weight:      filled ? 1 : 2,
+        opacity:     0.95,
+        fillOpacity: filled ? 0.85 : 0
+    }).addTo(map);
+    bm.bindPopup(buildStrokePopup(s, sourceKey));
+    overlays.push(bm);
+}
+
 // ── Popup de rayo individual ───────────────────────────────────────────────
-function buildStrokePopup(s) {
+function buildStrokePopup(s, sourceKey) {
     const div = el('div');
     div.style.fontSize = '0.85em';
-    div.style.minWidth = '160px';
+    div.style.minWidth = '180px';
 
-    const ring = el('b');
-    ring.textContent = s.ring === 'inner' ? '\u26a1 Anillo interior (\u226420 km)' : '\u26a1 Anillo exterior (20\u2013100 km)';
-    ring.style.color = s.ring === 'inner' ? '#f85149' : '#d29922';
-    div.appendChild(ring);
+    const title = el('b');
+    const srcName = sourceKey === 'glm' ? 'GLM (satélite)' : 'WWLLN (tierra)';
+    const ringName = s.ring === 'inner' ? 'interior (\u226420 km)' : 'exterior (20\u2013100 km)';
+    title.textContent = '\u26a1 ' + srcName + ' — ' + ringName;
+    title.style.color = MARKER[sourceKey][s.ring];
+    div.appendChild(title);
     div.appendChild(el('br'));
 
     if (s.time) {
-        const timeEl = el('span');
-        timeEl.textContent = 'Hora: ' + s.time.replace('T', ' ');
-        div.appendChild(timeEl);
-        div.appendChild(el('br'));
+        div.appendChild(txt('Hora: ' + s.time.replace('T', ' ').slice(0, 19))); div.appendChild(el('br'));
     }
     if (s.residual_us != null) {
-        const res = el('span');
-        res.textContent = 'Residual: ' + s.residual_us + ' \u03bcs';
-        div.appendChild(res);
-        div.appendChild(el('br'));
+        div.appendChild(txt('Residual: ' + s.residual_us + ' \u03bcs')); div.appendChild(el('br'));
     }
     if (s.stations != null) {
-        const sta = el('span');
-        sta.textContent = 'Estaciones WWLLN: ' + s.stations;
-        div.appendChild(sta);
-        div.appendChild(el('br'));
+        div.appendChild(txt('Estaciones WWLLN: ' + s.stations)); div.appendChild(el('br'));
+    }
+    if (s.energy_j != null) {
+        const ej = typeof s.energy_j === 'number' ? s.energy_j.toExponential(2) : s.energy_j;
+        div.appendChild(txt('Energía: ' + ej + ' J')); div.appendChild(el('br'));
+    }
+    if (s.area_m2 != null) {
+        const am = typeof s.area_m2 === 'number' ? (s.area_m2/1e6).toFixed(2) : s.area_m2;
+        div.appendChild(txt('Área: ' + am + ' km²')); div.appendChild(el('br'));
     }
     const coords = el('small');
     coords.style.color = '#8b949e';
     coords.textContent = s.lat.toFixed(4) + ', ' + s.lon.toFixed(4);
     div.appendChild(coords);
-
     return div;
 }
 
-// ── Popup seguro (DOM, sin innerHTML con datos externos) ───────────────────
+// ── Popup del volcán (marcador principal) ─────────────────────────────────
 function buildPopup(v) {
+    const w = (v.sources && v.sources.wwlln) || {};
+    const g = (v.sources && v.sources.glm)   || {};
     const div = el('div');
 
     const title = el('b');
@@ -211,33 +355,34 @@ function buildPopup(v) {
     div.appendChild(el('br'));
 
     const estado = el('span');
-    estado.textContent = 'Estado: ';
+    estado.textContent = 'Alerta combinada: ';
     const estadoBold = el('b');
     estadoBold.textContent = v.alert;
+    estadoBold.style.color = COL[v.alert] || '#8b949e';
     estado.appendChild(estadoBold);
     div.appendChild(estado);
     div.appendChild(el('br'));
 
-    const inner = el('span');
-    inner.textContent = 'Rayos \u226420 km: ' + v.inner_strokes;
-    div.appendChild(inner);
-    div.appendChild(el('br'));
-
-    const outer = el('span');
-    outer.textContent = 'Rayos 20\u2013100 km: ' + v.outer_strokes;
-    div.appendChild(outer);
-
-    if (v.stroke_positions && v.stroke_positions.length > 0) {
-        div.appendChild(el('br'));
-        const note = el('small');
-        note.style.color = '#8b949e';
-        note.textContent = v.stroke_positions.length + ' posici\u00f3n(es) en KML';
-        div.appendChild(note);
-    }
+    appendSourceLine(div, 'WWLLN', w, '#58a6ff');
+    appendSourceLine(div, 'GLM',   g, '#a371f7');
     return div;
 }
 
-// ── Render ─────────────────────────────────────────────────────────────────
+function appendSourceLine(div, label, src, color) {
+    const row = el('div');
+    row.style.marginTop = '3px';
+    const l = el('b'); l.textContent = label + ': '; l.style.color = color;
+    row.appendChild(l);
+    if (!src || src.available === false) {
+        const na = el('span'); na.textContent = 'no disponible'; na.style.color = '#6e7681';
+        row.appendChild(na);
+    } else {
+        row.appendChild(txt('\u226420km=' + (src.inner || 0) + '  20\u2013100km=' + (src.outer || 0) + '  [' + (src.alert || 'GREEN') + ']'));
+    }
+    div.appendChild(row);
+}
+
+// ── Render principal ───────────────────────────────────────────────────────
 function renderizar(data) {
     const vols = data.volcanoes || [];
 
@@ -250,6 +395,21 @@ function renderizar(data) {
         const ageEl = document.getElementById('data-age');
         ageEl.textContent = '(hace ' + ageMin + ' min)';
         ageEl.className = ageMin > 20 ? 'age-old' : 'age-ok';
+    }
+
+    // Estado de cada fuente
+    const srcBar = document.getElementById('source-status');
+    srcBar.textContent = '';
+    const srcMeta = data.sources || {};
+    for (const [key, label] of [['wwlln','WWLLN'], ['glm','GLM']]) {
+        const info = srcMeta[key] || {};
+        const wrap = el('span');
+        const dot = el('span', 'src-dot ' + (info.available ? 'src-on' : 'src-off'));
+        wrap.appendChild(dot);
+        const lbl = el('span');
+        lbl.textContent = label + (info.available ? ' activo' : ' caído');
+        wrap.appendChild(lbl);
+        srcBar.appendChild(wrap);
     }
 
     // Summary bar
@@ -273,7 +433,7 @@ function renderizar(data) {
     markers = {};
     clearOverlays();
 
-    // Marcadores en mapa
+    // Marcadores del mapa
     for (const v of vols) {
         if (v.lat == null || v.lon == null) continue;
         const color = COL[v.alert] || '#8b949e';
@@ -291,7 +451,6 @@ function renderizar(data) {
     // Tabla por zona
     const tabla = document.getElementById('tabla');
     tabla.textContent = '';
-
     const porZona = {};
     for (const v of vols) {
         const z = ZONA_POR[v.volcano] || 'Otro';
@@ -302,56 +461,76 @@ function renderizar(data) {
         const lista = porZona[zona];
         if (!lista) continue;
         lista.sort((a, b) => (ORDEN[a.alert] ?? 9) - (ORDEN[b.alert] ?? 9));
-
         const activos = lista.filter(v => v.alert !== 'GREEN').length;
         const hdr = el('div', 'zona-hdr');
         hdr.textContent = zona + (activos ? ' \u26a1 ' + activos : '');
         tabla.appendChild(hdr);
 
         for (const v of lista) {
-            const row = el('div', 'volcan-row');
-            row.id = 'row-' + v.volcano.replace(/[^a-zA-Z0-9]/g, '_');
-
-            const dot = el('div', 'dot dot-' + v.alert);
-
-            const name = el('div', 'vname');
-            name.textContent = v.volcano;
-
-            const strokes = el('div', 'vstrokes');
-            if (v.inner_strokes > 0) {
-                const sp = el('span', 's-inner');
-                sp.textContent = '\u26a1' + v.inner_strokes;
-                strokes.appendChild(sp);
-                strokes.appendChild(txt(' '));
-            }
-            if (v.outer_strokes > 0) {
-                const sp = el('span', 's-outer');
-                sp.textContent = String(v.outer_strokes);
-                strokes.appendChild(sp);
-            }
-
-            const badge = el('div', 'valert valert-' + v.alert);
-            badge.textContent = v.alert;
-
-            row.append(dot, name, strokes, badge);
-            row.addEventListener('click', () => seleccionar(v));
-            tabla.appendChild(row);
+            tabla.appendChild(buildRow(v));
         }
     }
 
-    // Metodología
+    // Metodología pie
     const met = el('div', 'metodologia');
     [
-        'Discriminaci\u00f3n operacional: VERDE = sin rayos en \u226420 km \u2192 se\u00f1al s\u00edsmica no es de origen el\u00e9ctrico. ' +
-        'ROJO = rayos concentrados cerca del cr\u00e1ter (potencial rayo volc\u00e1nico o tormenta local). AMARILLO = tormenta el\u00e9ctrica regional.',
-        '',
-        'Algoritmo Georayos: ROJO si inner\u22652\u00d7outer \u00f3 outer=0; AMARILLO si 0 < inner < 2\u00d7outer; VERDE si inner=0.',
-        'Fuente: WWLLN \u2014 World Wide Lightning Location Network (U. Washington) \u00b7 Datos: \u00faltima hora.'
-    ].forEach(line => {
-        met.appendChild(txt(line));
-        met.appendChild(el('br'));
-    });
+        'Dos fuentes independientes: ',
+        'WWLLN (radio VLF, última hora)  \u00b7  GLM GOES-19 (óptico, últimos 15 min). ',
+        'Alerta combinada ROJA solo cuando ambas coinciden.'
+    ].forEach(line => met.appendChild(txt(line)));
     tabla.appendChild(met);
+}
+
+function buildRow(v) {
+    const row = el('div', 'volcan-row');
+    row.id = 'row-' + v.volcano.replace(/[^a-zA-Z0-9]/g, '_');
+
+    const dot = el('div', 'dot dot-' + (v.alert || 'UNKNOWN'));
+    const name = el('div', 'vname'); name.textContent = v.volcano;
+
+    const w = (v.sources && v.sources.wwlln) || {};
+    const g = (v.sources && v.sources.glm)   || {};
+
+    row.appendChild(dot);
+    row.appendChild(name);
+    row.appendChild(buildSrcCell('WWLLN', w, 'wwlln'));
+    row.appendChild(buildSrcCell('GLM',   g, 'glm'));
+
+    const badge = el('div', 'valert valert-' + (v.alert || 'UNKNOWN'));
+    badge.textContent = v.alert || '—';
+    row.appendChild(badge);
+
+    row.addEventListener('click', () => seleccionar(v));
+    return row;
+}
+
+function buildSrcCell(label, src, cssKey) {
+    const cell = el('div', 'src-cell ' + cssKey);
+    const lbl = el('div', 'lbl'); lbl.textContent = label;
+    cell.appendChild(lbl);
+
+    if (!src || src.available === false) {
+        const na = el('span', 's-muted'); na.textContent = '—';
+        cell.appendChild(na);
+        return cell;
+    }
+
+    const inner = src.inner || 0;
+    const outer = src.outer || 0;
+    if (inner === 0 && outer === 0) {
+        const z = el('span', 's-muted'); z.textContent = '0';
+        cell.appendChild(z);
+    } else {
+        if (inner > 0) {
+            const sp = el('span', 's-inner'); sp.textContent = '\u26a1' + inner;
+            cell.appendChild(sp); cell.appendChild(txt(' '));
+        }
+        if (outer > 0) {
+            const sp = el('span', 's-outer'); sp.textContent = String(outer);
+            cell.appendChild(sp);
+        }
+    }
+    return cell;
 }
 
 function seleccionar(v) {
@@ -361,7 +540,12 @@ function seleccionar(v) {
     showVolcano(v);
 }
 
-// ── Carga ─────────────────────────────────────────────────────────────────
+// ── Modal de ayuda ─────────────────────────────────────────────────────────
+function openHelp()  { document.getElementById('help-modal').classList.add('open'); }
+function closeHelp() { document.getElementById('help-modal').classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHelp(); });
+
+// ── Carga live ─────────────────────────────────────────────────────────────
 async function cargar() {
     try {
         const resp = await fetch('data/latest.json?t=' + Date.now());
@@ -371,13 +555,55 @@ async function cargar() {
         const t = document.getElementById('tabla');
         t.textContent = '';
         const box = el('div', 'error-box');
-        box.textContent = 'Sin datos disponibles.\n\nEjecuta: python wwlln_scraper.py\n\nError: ' + e.message;
+        box.textContent = 'Sin datos disponibles.\n\nEjecuta: python wwlln_scraper.py && python glm_scraper.py && python merger.py\n\nError: ' + e.message;
         t.appendChild(box);
         document.getElementById('scan-time').textContent = 'Error al cargar datos';
     }
 }
 
+// ── Selector LIVE / histórico ───────────────────────────────────────────────
+function setLive() {
+    isLive = true;
+    document.getElementById('btn-live').classList.add('active');
+    document.getElementById('hist-select').value = '';
+    cargar();
+}
+
+async function cargarIndex() {
+    try {
+        const resp = await fetch('datos/index.json?t=' + Date.now());
+        if (!resp.ok) return;
+        const idx = await resp.json();
+        const sel = document.getElementById('hist-select');
+        while (sel.options.length > 1) sel.remove(1);
+        for (const s of (idx.scans || [])) {
+            const opt = document.createElement('option');
+            opt.value = 'datos/' + s.file;
+            const dt = new Date(s.scan_utc);
+            const label = dt.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+            const tag = s.red > 0 ? ' [R:' + s.red + ']' : s.yellow > 0 ? ' [Y:' + s.yellow + ']' : '';
+            opt.textContent = label + tag;
+            sel.appendChild(opt);
+        }
+    } catch (e) { /* silent */ }
+}
+
+document.getElementById('hist-select').addEventListener('change', async function () {
+    const val = this.value;
+    if (!val) return;
+    isLive = false;
+    document.getElementById('btn-live').classList.remove('active');
+    try {
+        const resp = await fetch(val + '?t=' + Date.now());
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        renderizar(await resp.json());
+    } catch (e) {
+        document.getElementById('scan-time').textContent = 'Error al cargar scan histórico';
+    }
+});
+
 cargar();
+cargarIndex();
 </script>
 </body>
 </html>
