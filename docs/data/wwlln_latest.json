@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-04-25T11:30:21.112856+00:00",
+  "scan_utc": "2026-04-25T11:35:20.083919+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 55,
@@ -552,9 +552,18 @@
       "lat": 44.08,
       "lon": 128.83,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 43.8111,
+          "lon": 127.6863,
+          "ring": "outer",
+          "time": "2026-04-25T11:32:39Z",
+          "residual_us": 4.8,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Kishb Harrat (SAU)",
@@ -562,25 +571,9 @@
       "lat": 22.8,
       "lon": 41.38,
       "inner_strokes": 0,
-      "outer_strokes": 8,
+      "outer_strokes": 7,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 22.3552,
-          "lon": 40.9516,
-          "ring": "outer",
-          "time": "2026-04-25T10:30:47Z",
-          "residual_us": 11.0,
-          "stations": 7
-        },
-        {
-          "lat": 23.503,
-          "lon": 40.8709,
-          "ring": "outer",
-          "time": "2026-04-25T10:33:54Z",
-          "residual_us": 3.5,
-          "stations": 7
-        },
         {
           "lat": 22.9158,
           "lon": 41.1765,
@@ -628,6 +621,14 @@
           "time": "2026-04-25T11:24:08Z",
           "residual_us": 12.8,
           "stations": 8
+        },
+        {
+          "lat": 23.4698,
+          "lon": 40.7386,
+          "ring": "outer",
+          "time": "2026-04-25T11:30:19Z",
+          "residual_us": 5.9,
+          "stations": 6
         }
       ]
     }
