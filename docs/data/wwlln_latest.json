@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-04-25T16:50:20.200874+00:00",
+  "scan_utc": "2026-04-25T16:55:17.917065+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 55,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 1,
-  "green_alerts": 54,
+  "green_alerts": 53,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -83,9 +83,18 @@
       "lat": -18.1,
       "lon": -69.5,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -18.3947,
+          "lon": -69.0024,
+          "ring": "outer",
+          "time": "2026-04-25T16:50:43Z",
+          "residual_us": 4.5,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Parinacota",
@@ -93,19 +102,37 @@
       "lat": -18.17,
       "lon": -69.15,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -18.3947,
+          "lon": -69.0024,
+          "ring": "outer",
+          "time": "2026-04-25T16:50:43Z",
+          "residual_us": 4.5,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Guallatiri",
       "wwlln_id": "1505-02-",
       "lat": -18.42,
       "lon": -69.092,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -18.3947,
+          "lon": -69.0024,
+          "ring": "inner",
+          "time": "2026-04-25T16:50:43Z",
+          "residual_us": 4.5,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Isluga",
@@ -113,9 +140,18 @@
       "lat": -19.15,
       "lon": -68.83,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -18.3947,
+          "lon": -69.0024,
+          "ring": "outer",
+          "time": "2026-04-25T16:50:43Z",
+          "residual_us": 4.5,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Irruputuncu",
@@ -565,14 +601,6 @@
           "stations": 5
         },
         {
-          "lat": 23.5561,
-          "lon": 40.8467,
-          "ring": "outer",
-          "time": "2026-04-25T15:49:59Z",
-          "residual_us": 6.4,
-          "stations": 7
-        },
-        {
           "lat": 23.0905,
           "lon": 41.3381,
           "ring": "outer",
@@ -666,6 +694,14 @@
           "ring": "outer",
           "time": "2026-04-25T16:47:28Z",
           "residual_us": 11.1,
+          "stations": 5
+        },
+        {
+          "lat": 23.4176,
+          "lon": 40.6827,
+          "ring": "outer",
+          "time": "2026-04-25T16:51:44Z",
+          "residual_us": 6.2,
           "stations": 5
         }
       ]
