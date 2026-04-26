@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-04-26T11:00:23.144531+00:00",
+  "scan_utc": "2026-04-26T11:03:41.718909+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 55,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 55,
+  "yellow_alerts": 1,
+  "green_alerts": 54,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -556,7 +556,7 @@
       "lat": -8.62,
       "lon": 120.52,
       "inner_strokes": 0,
-      "outer_strokes": 50,
+      "outer_strokes": 51,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -958,6 +958,14 @@
           "time": "2026-04-26T10:58:21Z",
           "residual_us": 11.3,
           "stations": 5
+        },
+        {
+          "lat": -8.5399,
+          "lon": 121.2042,
+          "ring": "outer",
+          "time": "2026-04-26T11:00:36Z",
+          "residual_us": 13.0,
+          "stations": 6
         }
       ]
     },
@@ -986,25 +994,17 @@
       "wwlln_id": "0301-071",
       "lat": 22.8,
       "lon": 41.38,
-      "inner_strokes": 0,
-      "outer_strokes": 29,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 28,
+      "alert": "YELLOW",
       "stroke_positions": [
         {
-          "lat": 23.053,
-          "lon": 40.6553,
-          "ring": "outer",
-          "time": "2026-04-26T09:59:09Z",
-          "residual_us": 11.0,
-          "stations": 6
-        },
-        {
-          "lat": 23.0161,
-          "lon": 40.6531,
-          "ring": "outer",
-          "time": "2026-04-26T10:01:24Z",
-          "residual_us": 9.6,
-          "stations": 6
+          "lat": 22.9587,
+          "lon": 41.3191,
+          "ring": "inner",
+          "time": "2026-04-26T10:59:17Z",
+          "residual_us": 9.8,
+          "stations": 7
         },
         {
           "lat": 23.3191,
@@ -1220,6 +1220,22 @@
           "ring": "outer",
           "time": "2026-04-26T10:57:48Z",
           "residual_us": 10.2,
+          "stations": 6
+        },
+        {
+          "lat": 22.9235,
+          "lon": 40.8307,
+          "ring": "outer",
+          "time": "2026-04-26T11:00:37Z",
+          "residual_us": 6.9,
+          "stations": 5
+        },
+        {
+          "lat": 22.8625,
+          "lon": 40.6825,
+          "ring": "outer",
+          "time": "2026-04-26T11:01:54Z",
+          "residual_us": 3.7,
           "stations": 6
         }
       ]
