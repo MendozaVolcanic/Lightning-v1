@@ -170,8 +170,8 @@
 <div class="main">
     <div id="map">
         <div class="ring-hint" id="ring-hint">
-            <span style="color:#f85149">——</span> ≤20 km &nbsp;
-            <span style="color:#555">- -</span> 100 km<br>
+            <span style="color:#f85149">— —</span> ≤20 km &nbsp;
+            <span style="color:#ffd700">— —</span> 100 km<br>
             <span style="color:#ff3333;font-weight:900">⚡</span> WWLLN int. &nbsp;
             <span style="color:#ffd700;font-weight:900">⚡</span> WWLLN ext.<br>
             <span style="color:#ff3fe0;font-weight:900">⚡</span> GLM int. &nbsp;
@@ -349,9 +349,15 @@ function showVolcano(v) {
     const anyInner = (wwlln.inner || 0) + (glm.inner || 0);
 
     // Anillos
-    const col20 = anyInner > 0 ? '#f85149' : 'rgba(255,255,255,0.3)';
-    overlays.push(L.circle([v.lat, v.lon], {radius: 20000,  color: col20, weight: 1.5, fill: false, dashArray: '6 4'}).addTo(map));
-    overlays.push(L.circle([v.lat, v.lon], {radius: 100000, color: 'rgba(255,255,255,0.15)', weight: 1, fill: false, dashArray: '4 6'}).addTo(map));
+    const anyOuter = (wwlln.outer || 0) + (glm.outer || 0);
+    const col20 = anyInner > 0 ? '#f85149' : 'rgba(220,220,230,0.55)';
+    const col100 = anyOuter > 0 ? 'rgba(255,215,0,0.65)' : 'rgba(180,180,200,0.45)';
+    overlays.push(L.circle([v.lat, v.lon], {
+        radius: 20000,  color: col20,  weight: 2,   fill: false, dashArray: '6 4'
+    }).addTo(map));
+    overlays.push(L.circle([v.lat, v.lon], {
+        radius: 100000, color: col100, weight: 1.6, fill: false, dashArray: '6 6'
+    }).addTo(map));
 
     // Posiciones (respetan los toggles de fuente)
     if (showWwlln) (wwlln.positions || []).forEach(s => addStroke(s, 'wwlln', true));
