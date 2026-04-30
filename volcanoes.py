@@ -74,6 +74,8 @@ VOLCANOES: dict[str, tuple[str, float, float]] = {
     "Ambrym (VUT)":            ("0507-04-", -16.250, 168.120),
     "Jingbo (CHN)":            ("1005-04-",  44.080, 128.830),
     "Kishb Harrat (SAU)":      ("0301-071",  22.800,  41.380),
+    "Semeru (IDN)":            ("0603-30-",  -8.108, 112.920),
+    "Kavachi (SLB)":           ("0505-06-",  -9.020, 157.950),
 }
 
 # Mapeos derivados
