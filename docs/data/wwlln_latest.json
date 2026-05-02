@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-05-02T13:50:24.824374+00:00",
+  "scan_utc": "2026-05-02T13:55:24.307686+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -580,10 +580,27 @@
       "wwlln_id": "0603-30-",
       "lat": -8.108,
       "lon": 112.92,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -8.2549,
+          "lon": 112.8767,
+          "ring": "inner",
+          "time": "2026-05-02T13:53:12Z",
+          "residual_us": 15.0,
+          "stations": 6
+        },
+        {
+          "lat": -8.2564,
+          "lon": 112.7944,
+          "ring": "outer",
+          "time": "2026-05-02T13:53:12Z",
+          "residual_us": 24.3,
+          "stations": 10
+        }
+      ]
     },
     {
       "volcano": "Kavachi (SLB)",
