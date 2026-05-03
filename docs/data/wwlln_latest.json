@@ -1,21 +1,38 @@
 {
-  "scan_utc": "2026-05-03T17:40:22.833274+00:00",
+  "scan_utc": "2026-05-03T17:45:27.421181+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 1,
-  "yellow_alerts": 0,
-  "green_alerts": 56,
+  "red_alerts": 2,
+  "yellow_alerts": 1,
+  "green_alerts": 54,
   "volcanoes": [
     {
       "volcano": "Acatenango",
       "wwlln_id": "1402-09-",
       "lat": 14.473,
       "lon": -90.88,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 14.5976,
+          "lon": -90.9079,
+          "ring": "inner",
+          "time": "2026-05-03T17:40:46Z",
+          "residual_us": 10.4,
+          "stations": 6
+        },
+        {
+          "lat": 14.4176,
+          "lon": -90.4714,
+          "ring": "outer",
+          "time": "2026-05-03T17:43:60Z",
+          "residual_us": 5.2,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,19 +40,44 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 2,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.5976,
+          "lon": -90.9079,
+          "ring": "outer",
+          "time": "2026-05-03T17:40:46Z",
+          "residual_us": 10.4,
+          "stations": 6
+        },
+        {
+          "lat": 14.4176,
+          "lon": -90.4714,
+          "ring": "outer",
+          "time": "2026-05-03T17:43:60Z",
+          "residual_us": 5.2,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Agua",
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "inner_strokes": 0,
-      "outer_strokes": 1,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 3,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 14.4176,
+          "lon": -90.4714,
+          "ring": "inner",
+          "time": "2026-05-03T17:43:60Z",
+          "residual_us": 5.2,
+          "stations": 5
+        },
         {
           "lat": 15.0446,
           "lon": -89.9271,
@@ -43,6 +85,30 @@
           "time": "2026-05-03T17:36:01Z",
           "residual_us": 8.6,
           "stations": 7
+        },
+        {
+          "lat": 14.5976,
+          "lon": -90.9079,
+          "ring": "outer",
+          "time": "2026-05-03T17:40:46Z",
+          "residual_us": 10.4,
+          "stations": 6
+        },
+        {
+          "lat": 15.0312,
+          "lon": -89.9461,
+          "ring": "outer",
+          "time": "2026-05-03T17:41:11Z",
+          "residual_us": 7.7,
+          "stations": 7
+        },
+        {
+          "lat": 15.0248,
+          "lon": -89.9479,
+          "ring": "outer",
+          "time": "2026-05-03T17:42:39Z",
+          "residual_us": 7.9,
+          "stations": 5
         }
       ]
     },
