@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-05-05T12:10:38.689941+00:00",
+  "scan_utc": "2026-05-05T12:15:27.030362+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,9 +13,18 @@
       "lat": 14.501,
       "lon": -90.876,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 14.682092666625977,
+          "lon": -90.24816131591797,
+          "ring": "outer",
+          "time": "2026-05-05T07:06:56+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 71112466.46875
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,9 +32,18 @@
       "lat": 14.473,
       "lon": -90.881,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 14.682092666625977,
+          "lon": -90.24816131591797,
+          "ring": "outer",
+          "time": "2026-05-05T07:06:56+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 71112466.46875
+        }
+      ]
     },
     {
       "volcano": "Agua",
@@ -33,9 +51,18 @@
       "lat": 14.466,
       "lon": -90.743,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 14.682092666625977,
+          "lon": -90.24816131591797,
+          "ring": "outer",
+          "time": "2026-05-05T07:06:56+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 71112466.46875
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -163,19 +190,37 @@
       "lat": -33.408,
       "lon": -69.822,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -33.69570541381836,
+          "lon": -69.88257598876953,
+          "ring": "outer",
+          "time": "2026-05-05T16:49:09+00:00",
+          "energy_j": 2.5285049494388432e-14,
+          "area_m2": 206165112.015625
+        }
+      ]
     },
     {
       "volcano": "San Jose",
       "wwlln_id": "1507-02-",
       "lat": -33.787,
       "lon": -69.897,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -33.69570541381836,
+          "lon": -69.88257598876953,
+          "ring": "inner",
+          "time": "2026-05-05T16:49:09+00:00",
+          "energy_j": 2.5285049494388432e-14,
+          "area_m2": 206165112.015625
+        }
+      ]
     },
     {
       "volcano": "Tinguiririca",
