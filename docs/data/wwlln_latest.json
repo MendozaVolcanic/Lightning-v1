@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-05-12T02:50:32.938284+00:00",
+  "scan_utc": "2026-05-12T02:55:30.829691+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
@@ -136,9 +136,18 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.2505,
+          "lon": -85.4582,
+          "ring": "outer",
+          "time": "2026-05-12T02:50:11Z",
+          "residual_us": 6.6,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -146,17 +155,9 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_strokes": 0,
-      "outer_strokes": 3,
+      "outer_strokes": 4,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 10.1226,
-          "lon": -84.9608,
-          "ring": "outer",
-          "time": "2026-05-12T01:49:05Z",
-          "residual_us": 3.9,
-          "stations": 5
-        },
         {
           "lat": 10.0199,
           "lon": -85.4475,
@@ -172,6 +173,22 @@
           "time": "2026-05-12T02:15:09Z",
           "residual_us": 12.8,
           "stations": 6
+        },
+        {
+          "lat": 10.2505,
+          "lon": -85.4582,
+          "ring": "outer",
+          "time": "2026-05-12T02:50:11Z",
+          "residual_us": 6.6,
+          "stations": 5
+        },
+        {
+          "lat": 10.0709,
+          "lon": -85.5859,
+          "ring": "outer",
+          "time": "2026-05-12T02:50:12Z",
+          "residual_us": 3.9,
+          "stations": 8
         }
       ]
     },
