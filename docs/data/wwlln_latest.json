@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-05-15T04:30:30.764042+00:00",
+  "scan_utc": "2026-05-15T04:35:30.567157+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -513,7 +513,7 @@
       "lat": -8.72,
       "lon": 120.02,
       "inner_strokes": 0,
-      "outer_strokes": 1,
+      "outer_strokes": 3,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -523,6 +523,22 @@
           "time": "2026-05-15T04:17:42Z",
           "residual_us": 8.5,
           "stations": 10
+        },
+        {
+          "lat": -8.4484,
+          "lon": 120.2129,
+          "ring": "outer",
+          "time": "2026-05-15T04:29:05Z",
+          "residual_us": 13.6,
+          "stations": 5
+        },
+        {
+          "lat": -8.5655,
+          "lon": 120.3759,
+          "ring": "outer",
+          "time": "2026-05-15T04:33:59Z",
+          "residual_us": 22.5,
+          "stations": 5
         }
       ]
     },
@@ -531,10 +547,18 @@
       "wwlln_id": "0604-071",
       "lat": -8.62,
       "lon": 120.52,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 1,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": -8.5655,
+          "lon": 120.3759,
+          "ring": "inner",
+          "time": "2026-05-15T04:33:59Z",
+          "residual_us": 22.5,
+          "stations": 5
+        },
         {
           "lat": -8.5207,
           "lon": 120.2595,
@@ -542,6 +566,14 @@
           "time": "2026-05-15T04:17:42Z",
           "residual_us": 8.5,
           "stations": 10
+        },
+        {
+          "lat": -8.4484,
+          "lon": 120.2129,
+          "ring": "outer",
+          "time": "2026-05-15T04:29:05Z",
+          "residual_us": 13.6,
+          "stations": 5
         }
       ]
     },
