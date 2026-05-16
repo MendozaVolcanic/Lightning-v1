@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-05-16T05:50:30.597662+00:00",
+  "scan_utc": "2026-05-16T05:55:25.658723+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -512,10 +512,18 @@
       "wwlln_id": "0604-06-",
       "lat": -8.72,
       "lon": 120.02,
-      "inner_strokes": 0,
-      "outer_strokes": 1,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 4,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": -8.5578,
+          "lon": 119.9524,
+          "ring": "inner",
+          "time": "2026-05-16T05:49:12Z",
+          "residual_us": 12.2,
+          "stations": 6
+        },
         {
           "lat": -8.5195,
           "lon": 120.1174,
@@ -523,6 +531,38 @@
           "time": "2026-05-16T05:03:41Z",
           "residual_us": 9.1,
           "stations": 6
+        },
+        {
+          "lat": -8.5501,
+          "lon": 119.8815,
+          "ring": "outer",
+          "time": "2026-05-16T05:49:12Z",
+          "residual_us": 9.9,
+          "stations": 6
+        },
+        {
+          "lat": -8.5777,
+          "lon": 119.8918,
+          "ring": "outer",
+          "time": "2026-05-16T05:50:56Z",
+          "residual_us": 11.0,
+          "stations": 8
+        },
+        {
+          "lat": -8.5467,
+          "lon": 119.9055,
+          "ring": "outer",
+          "time": "2026-05-16T05:52:30Z",
+          "residual_us": 20.5,
+          "stations": 9
+        },
+        {
+          "lat": -8.5411,
+          "lon": 119.8653,
+          "ring": "outer",
+          "time": "2026-05-16T05:53:37Z",
+          "residual_us": 15.1,
+          "stations": 13
         }
       ]
     },
@@ -532,7 +572,7 @@
       "lat": -8.62,
       "lon": 120.52,
       "inner_strokes": 0,
-      "outer_strokes": 1,
+      "outer_strokes": 6,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -542,6 +582,46 @@
           "time": "2026-05-16T05:03:41Z",
           "residual_us": 9.1,
           "stations": 6
+        },
+        {
+          "lat": -8.5501,
+          "lon": 119.8815,
+          "ring": "outer",
+          "time": "2026-05-16T05:49:12Z",
+          "residual_us": 9.9,
+          "stations": 6
+        },
+        {
+          "lat": -8.5578,
+          "lon": 119.9524,
+          "ring": "outer",
+          "time": "2026-05-16T05:49:12Z",
+          "residual_us": 12.2,
+          "stations": 6
+        },
+        {
+          "lat": -8.5777,
+          "lon": 119.8918,
+          "ring": "outer",
+          "time": "2026-05-16T05:50:56Z",
+          "residual_us": 11.0,
+          "stations": 8
+        },
+        {
+          "lat": -8.5467,
+          "lon": 119.9055,
+          "ring": "outer",
+          "time": "2026-05-16T05:52:30Z",
+          "residual_us": 20.5,
+          "stations": 9
+        },
+        {
+          "lat": -8.5411,
+          "lon": 119.8653,
+          "ring": "outer",
+          "time": "2026-05-16T05:53:37Z",
+          "residual_us": 15.1,
+          "stations": 13
         }
       ]
     },
