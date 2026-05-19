@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-05-19T23:35:31.013487+00:00",
+  "scan_utc": "2026-05-19T23:40:25.403780+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
@@ -33,9 +33,18 @@
       "lat": 14.33,
       "lon": -90.4,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.2006,
+          "lon": -89.676,
+          "ring": "outer",
+          "time": "2026-05-19T23:38:10Z",
+          "residual_us": 9.7,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -513,17 +522,9 @@
       "lat": -8.72,
       "lon": 120.02,
       "inner_strokes": 0,
-      "outer_strokes": 9,
+      "outer_strokes": 8,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": -8.3299,
-          "lon": 119.3964,
-          "ring": "outer",
-          "time": "2026-05-19T22:36:33Z",
-          "residual_us": 6.3,
-          "stations": 5
-        },
         {
           "lat": -8.3905,
           "lon": 119.3701,
