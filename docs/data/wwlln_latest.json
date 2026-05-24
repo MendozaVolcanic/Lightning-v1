@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-05-24T18:53:07.501629+00:00",
+  "scan_utc": "2026-05-24T18:55:31.809158+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,7 +13,7 @@
       "lat": 14.473,
       "lon": -90.88,
       "inner_strokes": 0,
-      "outer_strokes": 2,
+      "outer_strokes": 4,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -31,6 +31,22 @@
           "time": "2026-05-24T18:46:50Z",
           "residual_us": 11.1,
           "stations": 5
+        },
+        {
+          "lat": 14.4102,
+          "lon": -90.2608,
+          "ring": "outer",
+          "time": "2026-05-24T18:51:25Z",
+          "residual_us": 25.1,
+          "stations": 8
+        },
+        {
+          "lat": 14.4592,
+          "lon": -90.2534,
+          "ring": "outer",
+          "time": "2026-05-24T18:53:36Z",
+          "residual_us": 18.0,
+          "stations": 6
         }
       ]
     },
@@ -40,7 +56,7 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 2,
+      "outer_strokes": 4,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -58,6 +74,22 @@
           "time": "2026-05-24T18:46:50Z",
           "residual_us": 11.1,
           "stations": 5
+        },
+        {
+          "lat": 14.4102,
+          "lon": -90.2608,
+          "ring": "outer",
+          "time": "2026-05-24T18:51:25Z",
+          "residual_us": 25.1,
+          "stations": 8
+        },
+        {
+          "lat": 14.4592,
+          "lon": -90.2534,
+          "ring": "outer",
+          "time": "2026-05-24T18:53:36Z",
+          "residual_us": 18.0,
+          "stations": 6
         }
       ]
     },
@@ -66,10 +98,18 @@
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 2,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 14.4102,
+          "lon": -90.2608,
+          "ring": "inner",
+          "time": "2026-05-24T18:51:25Z",
+          "residual_us": 25.1,
+          "stations": 8
+        },
         {
           "lat": 15.1149,
           "lon": -90.3105,
@@ -85,6 +125,14 @@
           "time": "2026-05-24T18:46:50Z",
           "residual_us": 11.1,
           "stations": 5
+        },
+        {
+          "lat": 14.4592,
+          "lon": -90.2534,
+          "ring": "outer",
+          "time": "2026-05-24T18:53:36Z",
+          "residual_us": 18.0,
+          "stations": 6
         }
       ]
     },
