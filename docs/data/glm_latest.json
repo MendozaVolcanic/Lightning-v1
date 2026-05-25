@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-05-25T14:25:34.612525+00:00",
+  "scan_utc": "2026-05-25T14:30:37.464706+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,25 +13,9 @@
       "lat": 14.501,
       "lon": -90.876,
       "inner_flashes": 0,
-      "outer_flashes": 4,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": 14.690176963806152,
-          "lon": -91.677734375,
-          "ring": "outer",
-          "time": "2026-05-25T05:54:38+00:00",
-          "energy_j": 2.2851419493055637e-15,
-          "area_m2": 71875475.765625
-        },
-        {
-          "lat": 14.688970565795898,
-          "lon": -91.61933898925781,
-          "ring": "outer",
-          "time": "2026-05-25T08:16:09+00:00",
-          "energy_j": 4.285133909747552e-15,
-          "area_m2": 143750951.53125
-        },
         {
           "lat": 14.676755905151367,
           "lon": -91.03694152832031,
@@ -56,25 +40,9 @@
       "lat": 14.473,
       "lon": -90.881,
       "inner_flashes": 0,
-      "outer_flashes": 4,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": 14.690176963806152,
-          "lon": -91.677734375,
-          "ring": "outer",
-          "time": "2026-05-25T05:54:38+00:00",
-          "energy_j": 2.2851419493055637e-15,
-          "area_m2": 71875475.765625
-        },
-        {
-          "lat": 14.688970565795898,
-          "lon": -91.61933898925781,
-          "ring": "outer",
-          "time": "2026-05-25T08:16:09+00:00",
-          "energy_j": 4.285133909747552e-15,
-          "area_m2": 143750951.53125
-        },
         {
           "lat": 14.676755905151367,
           "lon": -91.03694152832031,
@@ -99,17 +67,9 @@
       "lat": 14.466,
       "lon": -90.743,
       "inner_flashes": 0,
-      "outer_flashes": 3,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": 14.688970565795898,
-          "lon": -91.61933898925781,
-          "ring": "outer",
-          "time": "2026-05-25T08:16:09+00:00",
-          "energy_j": 4.285133909747552e-15,
-          "area_m2": 143750951.53125
-        },
         {
           "lat": 14.676755905151367,
           "lon": -91.03694152832031,
@@ -174,19 +134,37 @@
       "lat": -18.109,
       "lon": -69.506,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -18.098957061767578,
+          "lon": -68.98493194580078,
+          "ring": "outer",
+          "time": "2026-05-25T09:53:53+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 70196855.3125
+        }
+      ]
     },
     {
       "volcano": "Parinacota",
       "wwlln_id": "1505-012",
       "lat": -18.171,
       "lon": -69.145,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -18.098957061767578,
+          "lon": -68.98493194580078,
+          "ring": "inner",
+          "time": "2026-05-25T09:53:53+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 70196855.3125
+        }
+      ]
     },
     {
       "volcano": "Guallatiri",
@@ -194,9 +172,18 @@
       "lat": -18.428,
       "lon": -69.085,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -18.098957061767578,
+          "lon": -68.98493194580078,
+          "ring": "outer",
+          "time": "2026-05-25T09:53:53+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 70196855.3125
+        }
+      ]
     },
     {
       "volcano": "Isluga",
