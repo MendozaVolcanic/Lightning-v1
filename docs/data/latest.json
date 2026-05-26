@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-05-26T07:31:12.644910+00:00",
+  "scan_utc": "2026-05-26T07:36:05.679221+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-05-26T07:30:41.893777+00:00",
+      "scan_utc": "2026-05-26T07:35:37.285631+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-05-26T07:30:44.082917+00:00",
+      "scan_utc": "2026-05-26T07:35:39.349371+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -29,9 +29,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 14.6091,
+              "lon": -90.6622,
+              "ring": "outer",
+              "time": "2026-05-26T07:33:00Z",
+              "residual_us": 11.1,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -47,14 +56,23 @@
       "wwlln_id": "1402-10-",
       "lat": 14.465,
       "lon": -90.743,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "sources": {
         "wwlln": {
           "available": true,
-          "inner": 0,
+          "inner": 1,
           "outer": 0,
-          "alert": "GREEN",
-          "positions": []
+          "alert": "RED",
+          "positions": [
+            {
+              "lat": 14.6091,
+              "lon": -90.6622,
+              "ring": "inner",
+              "time": "2026-05-26T07:33:00Z",
+              "residual_us": 11.1,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -75,9 +93,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 14.6091,
+              "lon": -90.6622,
+              "ring": "outer",
+              "time": "2026-05-26T07:33:00Z",
+              "residual_us": 11.1,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
