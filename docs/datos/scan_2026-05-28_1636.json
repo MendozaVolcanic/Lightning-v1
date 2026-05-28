@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-04-28T16:35:51.658530+00:00",
-  "total_volcanoes": 55,
+  "scan_utc": "2026-05-28T16:36:03.676361+00:00",
+  "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
-  "green_alerts": 55,
+  "green_alerts": 57,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-04-28T16:35:23.801471+00:00",
+      "scan_utc": "2026-05-28T16:35:34.146903+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-04-28T16:35:25.896834+00:00",
+      "scan_utc": "2026-05-28T16:35:36.137699+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -29,9 +29,26 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.6355,
+              "lon": -91.1972,
+              "ring": "outer",
+              "time": "2026-05-28T15:35:28Z",
+              "residual_us": 15.0,
+              "stations": 6
+            },
+            {
+              "lat": 13.6266,
+              "lon": -91.1962,
+              "ring": "outer",
+              "time": "2026-05-28T15:39:13Z",
+              "residual_us": 11.1,
+              "stations": 11
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -1266,6 +1283,52 @@
       "wwlln_id": "0301-071",
       "lat": 22.8,
       "lon": 41.38,
+      "alert": "GREEN",
+      "sources": {
+        "wwlln": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        },
+        "glm": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        }
+      }
+    },
+    {
+      "volcano": "Semeru (IDN)",
+      "wwlln_id": "0603-30-",
+      "lat": -8.108,
+      "lon": 112.92,
+      "alert": "GREEN",
+      "sources": {
+        "wwlln": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        },
+        "glm": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        }
+      }
+    },
+    {
+      "volcano": "Kavachi (SLB)",
+      "wwlln_id": "0505-06-",
+      "lat": -9.02,
+      "lon": 157.95,
       "alert": "GREEN",
       "sources": {
         "wwlln": {
