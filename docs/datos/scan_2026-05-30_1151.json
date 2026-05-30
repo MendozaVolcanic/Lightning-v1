@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-04-30T11:50:56.859832+00:00",
-  "total_volcanoes": 55,
+  "scan_utc": "2026-05-30T11:51:00.858664+00:00",
+  "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
-  "green_alerts": 55,
+  "green_alerts": 57,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-04-30T11:50:27.388475+00:00",
+      "scan_utc": "2026-05-30T11:50:34.592392+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-04-30T11:50:28.877263+00:00",
+      "scan_utc": "2026-05-30T11:50:37.122759+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -29,9 +29,26 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.6715,
+              "lon": -90.6323,
+              "ring": "outer",
+              "time": "2026-05-30T11:23:42Z",
+              "residual_us": 17.8,
+              "stations": 7
+            },
+            {
+              "lat": 13.6643,
+              "lon": -90.6806,
+              "ring": "outer",
+              "time": "2026-05-30T11:23:42Z",
+              "residual_us": 3.9,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -52,9 +69,26 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.6715,
+              "lon": -90.6323,
+              "ring": "outer",
+              "time": "2026-05-30T11:23:42Z",
+              "residual_us": 17.8,
+              "stations": 7
+            },
+            {
+              "lat": 13.6643,
+              "lon": -90.6806,
+              "ring": "outer",
+              "time": "2026-05-30T11:23:42Z",
+              "residual_us": 3.9,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -75,9 +109,26 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.6715,
+              "lon": -90.6323,
+              "ring": "outer",
+              "time": "2026-05-30T11:23:42Z",
+              "residual_us": 17.8,
+              "stations": 7
+            },
+            {
+              "lat": 13.6643,
+              "lon": -90.6806,
+              "ring": "outer",
+              "time": "2026-05-30T11:23:42Z",
+              "residual_us": 3.9,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -1266,6 +1317,52 @@
       "wwlln_id": "0301-071",
       "lat": 22.8,
       "lon": 41.38,
+      "alert": "GREEN",
+      "sources": {
+        "wwlln": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        },
+        "glm": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        }
+      }
+    },
+    {
+      "volcano": "Semeru (IDN)",
+      "wwlln_id": "0603-30-",
+      "lat": -8.108,
+      "lon": 112.92,
+      "alert": "GREEN",
+      "sources": {
+        "wwlln": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        },
+        "glm": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
+        }
+      }
+    },
+    {
+      "volcano": "Kavachi (SLB)",
+      "wwlln_id": "0505-06-",
+      "lat": -9.02,
+      "lon": 157.95,
       "alert": "GREEN",
       "sources": {
         "wwlln": {
