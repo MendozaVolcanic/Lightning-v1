@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-06-02T04:40:36.780953+00:00",
+  "scan_utc": "2026-06-02T04:45:39.274302+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,9 +13,18 @@
       "lat": 14.473,
       "lon": -90.88,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.3776,
+          "lon": -90.3704,
+          "ring": "outer",
+          "time": "2026-06-02T04:42:49Z",
+          "residual_us": 29.2,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,7 +32,7 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 2,
+      "outer_strokes": 3,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -41,6 +50,14 @@
           "time": "2026-06-02T04:36:49Z",
           "residual_us": 8.9,
           "stations": 5
+        },
+        {
+          "lat": 14.3776,
+          "lon": -90.3704,
+          "ring": "outer",
+          "time": "2026-06-02T04:42:49Z",
+          "residual_us": 29.2,
+          "stations": 5
         }
       ]
     },
@@ -49,10 +66,18 @@
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "inner_strokes": 0,
-      "outer_strokes": 28,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 31,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 14.3776,
+          "lon": -90.3704,
+          "ring": "inner",
+          "time": "2026-06-02T04:42:49Z",
+          "residual_us": 29.2,
+          "stations": 5
+        },
         {
           "lat": 14.4286,
           "lon": -89.5486,
@@ -276,6 +301,38 @@
           "time": "2026-06-02T04:36:49Z",
           "residual_us": 8.9,
           "stations": 5
+        },
+        {
+          "lat": 14.0019,
+          "lon": -89.5628,
+          "ring": "outer",
+          "time": "2026-06-02T04:40:20Z",
+          "residual_us": 27.7,
+          "stations": 7
+        },
+        {
+          "lat": 14.0259,
+          "lon": -89.5519,
+          "ring": "outer",
+          "time": "2026-06-02T04:40:20Z",
+          "residual_us": 18.5,
+          "stations": 5
+        },
+        {
+          "lat": 14.0149,
+          "lon": -89.5633,
+          "ring": "outer",
+          "time": "2026-06-02T04:43:13Z",
+          "residual_us": 14.0,
+          "stations": 14
+        },
+        {
+          "lat": 14.0191,
+          "lon": -89.5526,
+          "ring": "outer",
+          "time": "2026-06-02T04:43:13Z",
+          "residual_us": 11.7,
+          "stations": 7
         }
       ]
     },
