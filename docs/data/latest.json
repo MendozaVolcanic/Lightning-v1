@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-06-03T10:56:01.886181+00:00",
+  "scan_utc": "2026-06-03T11:01:15.279647+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-06-03T10:55:36.917635+00:00",
+      "scan_utc": "2026-06-03T11:00:44.489427+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-06-03T10:55:38.566238+00:00",
+      "scan_utc": "2026-06-03T11:00:46.186869+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -176,7 +176,7 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 3,
+          "outer": 4,
           "alert": "GREEN",
           "positions": [
             {
@@ -202,31 +202,23 @@
               "time": "2026-06-03T10:42:28Z",
               "residual_us": 23.3,
               "stations": 8
+            },
+            {
+              "lat": 10.1055,
+              "lon": -84.8021,
+              "ring": "outer",
+              "time": "2026-06-03T10:58:27Z",
+              "residual_us": 21.8,
+              "stations": 5
             }
           ]
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 5,
+          "outer": 3,
           "alert": "GREEN",
           "positions": [
-            {
-              "lat": 10.897075653076172,
-              "lon": -84.46379852294922,
-              "ring": "outer",
-              "time": "2026-06-03T09:43:31+00:00",
-              "energy_j": 4.0284989197703346e-14,
-              "area_m2": 674042412.859375
-            },
-            {
-              "lat": 10.869656562805176,
-              "lon": -84.43428802490234,
-              "ring": "outer",
-              "time": "2026-06-03T08:04:58+00:00",
-              "energy_j": 1.5728451888355968e-13,
-              "area_m2": 538989767.3125
-            },
             {
               "lat": 10.876880645751953,
               "lon": -84.44580078125,
