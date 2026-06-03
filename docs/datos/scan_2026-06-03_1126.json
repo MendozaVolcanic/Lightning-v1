@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-05-04T11:25:52.495876+00:00",
+  "scan_utc": "2026-06-03T11:26:07.819370+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-05-04T11:25:23.804242+00:00",
+      "scan_utc": "2026-06-03T11:25:38.688172+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-05-04T11:25:25.972116+00:00",
+      "scan_utc": "2026-06-03T11:25:40.319773+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -167,16 +167,50 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.0322,
+              "lon": -85.7505,
+              "ring": "outer",
+              "time": "2026-06-03T10:42:28Z",
+              "residual_us": 23.3,
+              "stations": 8
+            },
+            {
+              "lat": 10.1055,
+              "lon": -84.8021,
+              "ring": "outer",
+              "time": "2026-06-03T10:58:27Z",
+              "residual_us": 21.8,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.879830360412598,
+              "lon": -84.42513275146484,
+              "ring": "outer",
+              "time": "2026-06-03T07:34:12+00:00",
+              "energy_j": 4.628496507902931e-14,
+              "area_m2": 269647485.515625
+            },
+            {
+              "lat": 10.859796524047852,
+              "lon": -84.42975616455078,
+              "ring": "outer",
+              "time": "2026-06-03T04:45:02+00:00",
+              "energy_j": 2.032843339737254e-13,
+              "area_m2": 673584607.28125
+            }
+          ]
         }
       }
     },
