@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-06-06T20:35:37.985186+00:00",
+  "scan_utc": "2026-06-06T20:40:39.022330+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 2,
-  "green_alerts": 55,
+  "green_alerts": 54,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -16,14 +16,6 @@
       "outer_strokes": 3,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 14.9172,
-          "lon": -91.5355,
-          "ring": "outer",
-          "time": "2026-06-06T19:34:40Z",
-          "residual_us": 5.6,
-          "stations": 6
-        },
         {
           "lat": 14.6636,
           "lon": -91.7327,
@@ -39,6 +31,14 @@
           "time": "2026-06-06T20:02:54Z",
           "residual_us": 8.9,
           "stations": 6
+        },
+        {
+          "lat": 14.4391,
+          "lon": -90.4422,
+          "ring": "outer",
+          "time": "2026-06-06T20:38:46Z",
+          "residual_us": 8.9,
+          "stations": 11
         }
       ]
     },
@@ -52,12 +52,12 @@
       "alert": "GREEN",
       "stroke_positions": [
         {
-          "lat": 14.9172,
-          "lon": -91.5355,
+          "lat": 14.4391,
+          "lon": -90.4422,
           "ring": "outer",
-          "time": "2026-06-06T19:34:40Z",
-          "residual_us": 5.6,
-          "stations": 6
+          "time": "2026-06-06T20:38:46Z",
+          "residual_us": 8.9,
+          "stations": 11
         }
       ]
     },
@@ -66,10 +66,19 @@
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 14.4391,
+          "lon": -90.4422,
+          "ring": "inner",
+          "time": "2026-06-06T20:38:46Z",
+          "residual_us": 8.9,
+          "stations": 11
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -77,17 +86,9 @@
       "lat": 11.538,
       "lon": -85.622,
       "inner_strokes": 0,
-      "outer_strokes": 13,
+      "outer_strokes": 12,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 11.8051,
-          "lon": -85.1005,
-          "ring": "outer",
-          "time": "2026-06-06T19:35:52Z",
-          "residual_us": 26.5,
-          "stations": 10
-        },
         {
           "lat": 11.4145,
           "lon": -84.7885,
@@ -192,17 +193,9 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_strokes": 0,
-      "outer_strokes": 13,
+      "outer_strokes": 12,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 11.8051,
-          "lon": -85.1005,
-          "ring": "outer",
-          "time": "2026-06-06T19:35:52Z",
-          "residual_us": 26.5,
-          "stations": 10
-        },
         {
           "lat": 11.4145,
           "lon": -84.7885,
@@ -307,7 +300,7 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_strokes": 1,
-      "outer_strokes": 10,
+      "outer_strokes": 9,
       "alert": "YELLOW",
       "stroke_positions": [
         {
@@ -317,14 +310,6 @@
           "time": "2026-06-06T20:25:26Z",
           "residual_us": 16.4,
           "stations": 6
-        },
-        {
-          "lat": 11.8051,
-          "lon": -85.1005,
-          "ring": "outer",
-          "time": "2026-06-06T19:35:52Z",
-          "residual_us": 26.5,
-          "stations": 10
         },
         {
           "lat": 11.4145,
