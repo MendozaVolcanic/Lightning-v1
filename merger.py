@@ -29,7 +29,9 @@ from volcanoes import VOLCANOES
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-RETENTION_DAYS = 30
+RETENTION_DAYS = 14  # 14 días: ~4 000 scans, ~500 MB en docs/datos/ saturado.
+                     # Antes era 30 (proyectado >1 GB) — más allá del óptimo para
+                     # un repo git con servido por GitHub Pages.
 
 
 # ---------------------------------------------------------------------------

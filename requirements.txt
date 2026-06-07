@@ -1,6 +1,8 @@
-requests
-beautifulsoup4
-xarray
-h5netcdf
-h5py
-numpy
+# Pinned versions probadas en producción (2026-06-07).
+# Major version pinned para evitar breaking changes silenciosos en CI.
+requests>=2.33,<3.0
+beautifulsoup4>=4.14,<5.0
+xarray>=2026.2,<2027.0
+h5netcdf>=1.8,<2.0
+h5py>=3.16,<4.0
+numpy>=2.0,<3.0
