@@ -21,6 +21,12 @@ concurrency:
   group: lightning-scan
   cancel-in-progress: false
 
+# Fuerza actions/checkout@v4 + actions/setup-python@v5 sobre Node 24
+# antes del cutover automático de GitHub (16-jun-2026). Removible
+# después de esa fecha cuando Node 24 sea el default.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
 
