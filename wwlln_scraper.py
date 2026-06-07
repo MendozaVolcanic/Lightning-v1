@@ -273,8 +273,16 @@ def save_outputs(
 
 
 def _append_csv(results: list[dict], scan_time: datetime, datos_dir: Path) -> None:
-    """Agrega una fila por volcán al CSV histórico acumulativo."""
-    csv_path = datos_dir / "alert_history.csv"
+    """
+    Agrega una fila por volcán al CSV histórico acumulativo, rotando mensual:
+      datos/alert_history_YYYY-MM.csv
+
+    Antes era un único archivo `alert_history.csv` que crecía indefinidamente
+    (~5.8K filas/día). Con rotación mensual cada archivo queda en ~170K filas /
+    ~12 MB, manejable para abrir en pandas/Excel sin loadear años de historia.
+    """
+    fname = f"alert_history_{scan_time:%Y-%m}.csv"
+    csv_path = datos_dir / fname
     write_header = not csv_path.exists()
     with open(csv_path, "a", newline="", encoding="utf-8") as fh:
         writer = csv.writer(fh)
@@ -293,7 +301,7 @@ def _append_csv(results: list[dict], scan_time: datetime, datos_dir: Path) -> No
                 r["alert"],
                 len(r.get("stroke_positions", [])),
             ])
-    print(f"[INFO] CSV histórico → datos/alert_history.csv")
+    print(f"[INFO] CSV histórico → datos/{fname}")
 
 
 # ---------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 # Lightning-v1 — Discriminación Rayos/Sismos · Chile Volcánico
 
+[![Workflow](https://github.com/MendozaVolcanic/Lightning-v1/actions/workflows/lightning.yml/badge.svg)](https://github.com/MendozaVolcanic/Lightning-v1/actions/workflows/lightning.yml)
+
 ## [Dashboard en vivo](https://mendozavolcanic.github.io/Lightning-v1/)
 
 > **https://mendozavolcanic.github.io/Lightning-v1/**

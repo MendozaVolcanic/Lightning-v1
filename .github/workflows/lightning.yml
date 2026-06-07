@@ -2,8 +2,24 @@ name: Lightning — WWLLN + GLM Volcanic Monitor
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/10 * * * *'   # fallback; el cron real es cron-job.org cada 5 min
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'wwlln_scraper.py'
+      - 'glm_scraper.py'
+      - 'merger.py'
+      - 'volcanoes.py'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/lightning.yml'
+
+# Evita que dos runs concurrentes interfieran en el git commit/push.
+# `cancel-in-progress: false` para no perder datos a medio escribir.
+concurrency:
+  group: lightning-scan
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -22,7 +38,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt && pip install pytest
+
+      - name: Smoke tests (lógica pura)
+        run: python -m pytest tests/test_smoke.py -q
 
       - name: Scan WWLLN
         run: python wwlln_scraper.py
@@ -41,7 +60,7 @@ jobs:
           git config user.email "lightning@georayos.com"
           git add docs/data/latest.json docs/data/wwlln_latest.json docs/data/glm_latest.json
           git add docs/datos/ 2>/dev/null || true
-          git add datos/alert_history.csv 2>/dev/null || true
+          git add datos/alert_history_*.csv 2>/dev/null || true
           git ls-files --deleted docs/datos/ datos/ | xargs git rm --cached 2>/dev/null || true
           if git diff --quiet --staged 2>/dev/null; then
             echo "Sin cambios"
