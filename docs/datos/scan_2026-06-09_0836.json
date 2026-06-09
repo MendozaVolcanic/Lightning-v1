@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-05-26T08:36:11.346111+00:00",
+  "scan_utc": "2026-06-09T08:36:04.268708+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-05-26T08:35:41.349533+00:00",
+      "scan_utc": "2026-06-09T08:35:38.948813+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-05-26T08:35:43.006628+00:00",
+      "scan_utc": "2026-06-09T08:35:41.344178+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -1248,9 +1248,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 44.852,
+              "lon": 128.5752,
+              "ring": "outer",
+              "time": "2026-06-09T08:09:35Z",
+              "residual_us": 12.0,
+              "stations": 8
+            }
+          ]
         },
         "glm": {
           "available": true,
