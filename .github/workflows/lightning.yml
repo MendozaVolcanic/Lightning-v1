@@ -28,12 +28,23 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
-  contents: write
+  contents: write   # commit/push de datos al repo
+  pages: write      # deploy a GitHub Pages
+  id-token: write   # OIDC requerido por actions/deploy-pages
 
 jobs:
   lightning-scan:
     runs-on: ubuntu-latest
     timeout-minutes: 8
+
+    # Despliega el contenido de docs/ a GitHub Pages al final del job.
+    # Reemplaza al builder legacy "Deploy from a branch", que fallaba con
+    # 401 intermitente por falta de control de concurrencia bajo pushes
+    # cada 5 min. Aquí el deploy va dentro del workflow serializado
+    # (concurrency: lightning-scan, cancel-in-progress: false) → sin solape.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
@@ -77,3 +88,18 @@ jobs:
             git pull origin main --rebase -X ours || true
             git push origin main || true
           fi
+
+      # ── Deploy a GitHub Pages (reemplaza al builder legacy) ───────────────
+      # Usa el docs/ recién generado en disco (no re-checkout) → siempre
+      # despliega los datos más frescos del scrape actual.
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload docs/ artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
