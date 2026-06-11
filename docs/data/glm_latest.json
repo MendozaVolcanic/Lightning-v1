@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-06-11T19:20:42.637460+00:00",
+  "scan_utc": "2026-06-11T19:25:44.546822+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,17 +13,9 @@
       "lat": 14.501,
       "lon": -90.876,
       "inner_flashes": 0,
-      "outer_flashes": 2,
+      "outer_flashes": 1,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": 15.107965469360352,
-          "lon": -91.38702392578125,
-          "ring": "outer",
-          "time": "2026-06-11T15:03:16+00:00",
-          "energy_j": 1.3028462741759283e-13,
-          "area_m2": 287807106.78125
-        },
         {
           "lat": 15.132226943969727,
           "lon": -91.39156341552734,
@@ -40,17 +32,9 @@
       "lat": 14.473,
       "lon": -90.881,
       "inner_flashes": 0,
-      "outer_flashes": 2,
+      "outer_flashes": 1,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": 15.107965469360352,
-          "lon": -91.38702392578125,
-          "ring": "outer",
-          "time": "2026-06-11T15:03:16+00:00",
-          "energy_j": 1.3028462741759283e-13,
-          "area_m2": 287807106.78125
-        },
         {
           "lat": 15.132226943969727,
           "lon": -91.39156341552734,
@@ -67,18 +51,9 @@
       "lat": 14.466,
       "lon": -90.743,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 15.107965469360352,
-          "lon": -91.38702392578125,
-          "ring": "outer",
-          "time": "2026-06-11T15:03:16+00:00",
-          "energy_j": 1.3028462741759283e-13,
-          "area_m2": 287807106.78125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -86,9 +61,34 @@
       "lat": 11.538,
       "lon": -85.622,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 3,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 12.065705299377441,
+          "lon": -86.34292602539062,
+          "ring": "outer",
+          "time": "2026-06-12T00:04:52+00:00",
+          "energy_j": 1.528508969217849e-14,
+          "area_m2": 136883867.859375
+        },
+        {
+          "lat": 10.897529602050781,
+          "lon": -85.53462982177734,
+          "ring": "outer",
+          "time": "2026-06-11T15:57:28+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 67755225.5625
+        },
+        {
+          "lat": 12.075145721435547,
+          "lon": -86.34393310546875,
+          "ring": "outer",
+          "time": "2026-06-11T14:04:41+00:00",
+          "energy_j": 1.1285105771294512e-14,
+          "area_m2": 136883867.859375
+        }
+      ]
     },
     {
       "volcano": "Maderas (NIC)",
@@ -96,19 +96,37 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 10.897529602050781,
+          "lon": -85.53462982177734,
+          "ring": "outer",
+          "time": "2026-06-11T15:57:28+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 67755225.5625
+        }
+      ]
     },
     {
       "volcano": "Orosi (CRI)",
       "wwlln_id": "1405-01-",
       "lat": 10.98,
       "lon": -85.473,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": 10.897529602050781,
+          "lon": -85.53462982177734,
+          "ring": "inner",
+          "time": "2026-06-11T15:57:28+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 67755225.5625
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -116,9 +134,18 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 10.897529602050781,
+          "lon": -85.53462982177734,
+          "ring": "outer",
+          "time": "2026-06-11T15:57:28+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 67755225.5625
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
