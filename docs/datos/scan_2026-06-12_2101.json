@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-05-29T21:01:08.669026+00:00",
+  "scan_utc": "2026-06-12T21:01:23.444408+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 2,
+  "green_alerts": 55,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-05-29T21:00:40.695044+00:00",
+      "scan_utc": "2026-06-12T21:00:51.744941+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-05-29T21:00:44.223092+00:00",
+      "scan_utc": "2026-06-12T21:00:53.736148+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -24,78 +24,78 @@
       "wwlln_id": "1402-09-",
       "lat": 14.473,
       "lon": -90.88,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "sources": {
         "wwlln": {
-          "available": true,
-          "inner": 0,
-          "outer": 7,
-          "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 15.3238,
-              "lon": -90.5969,
-              "ring": "outer",
-              "time": "2026-05-29T20:01:02Z",
-              "residual_us": 7.4,
-              "stations": 7
-            },
-            {
-              "lat": 15.3222,
-              "lon": -90.5757,
-              "ring": "outer",
-              "time": "2026-05-29T20:01:02Z",
-              "residual_us": 11.0,
-              "stations": 8
-            },
-            {
-              "lat": 15.3079,
-              "lon": -90.5948,
-              "ring": "outer",
-              "time": "2026-05-29T20:05:29Z",
-              "residual_us": 10.8,
-              "stations": 8
-            },
-            {
-              "lat": 15.3183,
-              "lon": -90.6155,
-              "ring": "outer",
-              "time": "2026-05-29T20:06:44Z",
-              "residual_us": 13.1,
-              "stations": 13
-            },
-            {
-              "lat": 15.3163,
-              "lon": -90.6241,
-              "ring": "outer",
-              "time": "2026-05-29T20:06:44Z",
-              "residual_us": 18.0,
-              "stations": 10
-            },
-            {
-              "lat": 15.3482,
-              "lon": -90.7337,
-              "ring": "outer",
-              "time": "2026-05-29T20:08:53Z",
-              "residual_us": 14.1,
-              "stations": 6
-            },
-            {
-              "lat": 15.3338,
-              "lon": -90.6354,
-              "ring": "outer",
-              "time": "2026-05-29T20:08:53Z",
-              "residual_us": 9.4,
-              "stations": 6
-            }
-          ]
-        },
-        "glm": {
           "available": true,
           "inner": 0,
           "outer": 0,
           "alert": "GREEN",
           "positions": []
+        },
+        "glm": {
+          "available": true,
+          "inner": 1,
+          "outer": 6,
+          "alert": "YELLOW",
+          "positions": [
+            {
+              "lat": 14.444559097290039,
+              "lon": -90.67449951171875,
+              "ring": "outer",
+              "time": "2026-06-13T03:03:50+00:00",
+              "energy_j": 2.3328421338035524e-13,
+              "area_m2": 498855478.296875
+            },
+            {
+              "lat": 14.596821784973145,
+              "lon": -91.02247619628906,
+              "ring": "inner",
+              "time": "2026-06-12T17:54:13+00:00",
+              "energy_j": 3.628500527681937e-14,
+              "area_m2": 142987942.234375
+            },
+            {
+              "lat": 14.388227462768555,
+              "lon": -90.66168975830078,
+              "ring": "outer",
+              "time": "2026-06-12T14:43:55+00:00",
+              "energy_j": 1.2285101751515506e-14,
+              "area_m2": 213795204.984375
+            },
+            {
+              "lat": 14.429669380187988,
+              "lon": -90.68280029296875,
+              "ring": "outer",
+              "time": "2026-06-13T02:20:42+00:00",
+              "energy_j": 7.028486860433317e-14,
+              "area_m2": 356172739.78125
+            },
+            {
+              "lat": 14.43880844116211,
+              "lon": -90.65101623535156,
+              "ring": "outer",
+              "time": "2026-06-13T02:28:13+00:00",
+              "energy_j": 8.28511783063153e-15,
+              "area_m2": 213795204.984375
+            },
+            {
+              "lat": 14.447220802307129,
+              "lon": -90.69091796875,
+              "ring": "outer",
+              "time": "2026-06-13T02:22:10+00:00",
+              "energy_j": 1.7285081652620478e-14,
+              "area_m2": 142530136.65625
+            },
+            {
+              "lat": 14.61392879486084,
+              "lon": -91.02346801757812,
+              "ring": "outer",
+              "time": "2026-06-13T05:11:51+00:00",
+              "energy_j": 2.4285053514167438e-14,
+              "area_m2": 71570272.046875
+            }
+          ]
         }
       }
     },
@@ -109,137 +109,73 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 15,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 15.3464,
-              "lon": -90.6043,
-              "ring": "outer",
-              "time": "2026-05-29T20:01:02Z",
-              "residual_us": 16.4,
-              "stations": 9
-            },
-            {
-              "lat": 15.3238,
-              "lon": -90.5969,
-              "ring": "outer",
-              "time": "2026-05-29T20:01:02Z",
-              "residual_us": 7.4,
-              "stations": 7
-            },
-            {
-              "lat": 15.3402,
-              "lon": -90.583,
-              "ring": "outer",
-              "time": "2026-05-29T20:01:02Z",
-              "residual_us": 9.3,
-              "stations": 6
-            },
-            {
-              "lat": 15.3222,
-              "lon": -90.5757,
-              "ring": "outer",
-              "time": "2026-05-29T20:01:02Z",
-              "residual_us": 11.0,
-              "stations": 8
-            },
-            {
-              "lat": 15.3404,
-              "lon": -90.6124,
-              "ring": "outer",
-              "time": "2026-05-29T20:02:55Z",
-              "residual_us": 7.1,
-              "stations": 5
-            },
-            {
-              "lat": 15.3409,
-              "lon": -90.6089,
-              "ring": "outer",
-              "time": "2026-05-29T20:03:32Z",
-              "residual_us": 13.2,
-              "stations": 9
-            },
-            {
-              "lat": 15.3079,
-              "lon": -90.5948,
-              "ring": "outer",
-              "time": "2026-05-29T20:05:29Z",
-              "residual_us": 10.8,
-              "stations": 8
-            },
-            {
-              "lat": 15.3183,
-              "lon": -90.6155,
-              "ring": "outer",
-              "time": "2026-05-29T20:06:44Z",
-              "residual_us": 13.1,
-              "stations": 13
-            },
-            {
-              "lat": 15.3163,
-              "lon": -90.6241,
-              "ring": "outer",
-              "time": "2026-05-29T20:06:44Z",
-              "residual_us": 18.0,
-              "stations": 10
-            },
-            {
-              "lat": 15.3565,
-              "lon": -90.5971,
-              "ring": "outer",
-              "time": "2026-05-29T20:08:53Z",
-              "residual_us": 11.5,
-              "stations": 14
-            },
-            {
-              "lat": 15.3482,
-              "lon": -90.7337,
-              "ring": "outer",
-              "time": "2026-05-29T20:08:53Z",
-              "residual_us": 14.1,
-              "stations": 6
-            },
-            {
-              "lat": 15.3338,
-              "lon": -90.6354,
-              "ring": "outer",
-              "time": "2026-05-29T20:08:53Z",
-              "residual_us": 9.4,
-              "stations": 6
-            },
-            {
-              "lat": 15.3457,
-              "lon": -90.6062,
-              "ring": "outer",
-              "time": "2026-05-29T20:14:29Z",
-              "residual_us": 15.2,
-              "stations": 9
-            },
-            {
-              "lat": 15.3473,
-              "lon": -90.6139,
-              "ring": "outer",
-              "time": "2026-05-29T20:14:29Z",
-              "residual_us": 20.9,
-              "stations": 8
-            },
-            {
-              "lat": 15.3427,
-              "lon": -90.595,
-              "ring": "outer",
-              "time": "2026-05-29T20:16:04Z",
-              "residual_us": 17.5,
-              "stations": 13
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 7,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 14.444559097290039,
+              "lon": -90.67449951171875,
+              "ring": "outer",
+              "time": "2026-06-13T03:03:50+00:00",
+              "energy_j": 2.3328421338035524e-13,
+              "area_m2": 498855478.296875
+            },
+            {
+              "lat": 14.596821784973145,
+              "lon": -91.02247619628906,
+              "ring": "outer",
+              "time": "2026-06-12T17:54:13+00:00",
+              "energy_j": 3.628500527681937e-14,
+              "area_m2": 142987942.234375
+            },
+            {
+              "lat": 14.388227462768555,
+              "lon": -90.66168975830078,
+              "ring": "outer",
+              "time": "2026-06-12T14:43:55+00:00",
+              "energy_j": 1.2285101751515506e-14,
+              "area_m2": 213795204.984375
+            },
+            {
+              "lat": 14.429669380187988,
+              "lon": -90.68280029296875,
+              "ring": "outer",
+              "time": "2026-06-13T02:20:42+00:00",
+              "energy_j": 7.028486860433317e-14,
+              "area_m2": 356172739.78125
+            },
+            {
+              "lat": 14.43880844116211,
+              "lon": -90.65101623535156,
+              "ring": "outer",
+              "time": "2026-06-13T02:28:13+00:00",
+              "energy_j": 8.28511783063153e-15,
+              "area_m2": 213795204.984375
+            },
+            {
+              "lat": 14.447220802307129,
+              "lon": -90.69091796875,
+              "ring": "outer",
+              "time": "2026-06-13T02:22:10+00:00",
+              "energy_j": 1.7285081652620478e-14,
+              "area_m2": 142530136.65625
+            },
+            {
+              "lat": 14.61392879486084,
+              "lon": -91.02346801757812,
+              "ring": "outer",
+              "time": "2026-06-13T05:11:51+00:00",
+              "energy_j": 2.4285053514167438e-14,
+              "area_m2": 71570272.046875
+            }
+          ]
         }
       }
     },
@@ -248,30 +184,78 @@
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "sources": {
         "wwlln": {
-          "available": true,
-          "inner": 0,
-          "outer": 1,
-          "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 15.1592,
-              "lon": -90.1438,
-              "ring": "outer",
-              "time": "2026-05-29T20:14:15Z",
-              "residual_us": 17.7,
-              "stations": 11
-            }
-          ]
-        },
-        "glm": {
           "available": true,
           "inner": 0,
           "outer": 0,
           "alert": "GREEN",
           "positions": []
+        },
+        "glm": {
+          "available": true,
+          "inner": 5,
+          "outer": 2,
+          "alert": "RED",
+          "positions": [
+            {
+              "lat": 14.444559097290039,
+              "lon": -90.67449951171875,
+              "ring": "inner",
+              "time": "2026-06-13T03:03:50+00:00",
+              "energy_j": 2.3328421338035524e-13,
+              "area_m2": 498855478.296875
+            },
+            {
+              "lat": 14.596821784973145,
+              "lon": -91.02247619628906,
+              "ring": "outer",
+              "time": "2026-06-12T17:54:13+00:00",
+              "energy_j": 3.628500527681937e-14,
+              "area_m2": 142987942.234375
+            },
+            {
+              "lat": 14.388227462768555,
+              "lon": -90.66168975830078,
+              "ring": "inner",
+              "time": "2026-06-12T14:43:55+00:00",
+              "energy_j": 1.2285101751515506e-14,
+              "area_m2": 213795204.984375
+            },
+            {
+              "lat": 14.429669380187988,
+              "lon": -90.68280029296875,
+              "ring": "inner",
+              "time": "2026-06-13T02:20:42+00:00",
+              "energy_j": 7.028486860433317e-14,
+              "area_m2": 356172739.78125
+            },
+            {
+              "lat": 14.43880844116211,
+              "lon": -90.65101623535156,
+              "ring": "inner",
+              "time": "2026-06-13T02:28:13+00:00",
+              "energy_j": 8.28511783063153e-15,
+              "area_m2": 213795204.984375
+            },
+            {
+              "lat": 14.447220802307129,
+              "lon": -90.69091796875,
+              "ring": "inner",
+              "time": "2026-06-13T02:22:10+00:00",
+              "energy_j": 1.7285081652620478e-14,
+              "area_m2": 142530136.65625
+            },
+            {
+              "lat": 14.61392879486084,
+              "lon": -91.02346801757812,
+              "ring": "outer",
+              "time": "2026-06-13T05:11:51+00:00",
+              "energy_j": 2.4285053514167438e-14,
+              "area_m2": 71570272.046875
+            }
+          ]
         }
       }
     },
@@ -285,18 +269,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.8412,
-              "lon": -85.658,
-              "ring": "outer",
-              "time": "2026-05-29T20:12:42Z",
-              "residual_us": 8.2,
-              "stations": 6
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
@@ -317,18 +292,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.8412,
-              "lon": -85.658,
-              "ring": "outer",
-              "time": "2026-05-29T20:12:42Z",
-              "residual_us": 8.2,
-              "stations": 6
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
@@ -349,18 +315,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.8412,
-              "lon": -85.658,
-              "ring": "outer",
-              "time": "2026-05-29T20:12:42Z",
-              "residual_us": 8.2,
-              "stations": 6
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
@@ -381,66 +338,16 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.8412,
-              "lon": -85.658,
-              "ring": "outer",
-              "time": "2026-05-29T20:12:42Z",
-              "residual_us": 8.2,
-              "stations": 6
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 5,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.469109535217285,
-              "lon": -84.49797821044922,
-              "ring": "outer",
-              "time": "2026-05-29T12:20:02+00:00",
-              "energy_j": 3.428501331637738e-14,
-              "area_m2": 269037078.078125
-            },
-            {
-              "lat": 10.571571350097656,
-              "lon": -84.4812240600586,
-              "ring": "outer",
-              "time": "2026-05-29T20:20:17+00:00",
-              "energy_j": 1.4328457516046576e-13,
-              "area_m2": 336487099.921875
-            },
-            {
-              "lat": 10.566661834716797,
-              "lon": -84.54041290283203,
-              "ring": "outer",
-              "time": "2026-05-30T05:25:01+00:00",
-              "energy_j": 1.2028466761538289e-13,
-              "area_m2": 605829381.71875
-            },
-            {
-              "lat": 10.596631050109863,
-              "lon": -84.47113037109375,
-              "ring": "outer",
-              "time": "2026-05-29T12:41:31+00:00",
-              "energy_j": 6.28282625567648e-13,
-              "area_m2": 942316481.640625
-            },
-            {
-              "lat": 10.538434028625488,
-              "lon": -84.49618530273438,
-              "ring": "outer",
-              "time": "2026-05-29T14:38:38+00:00",
-              "energy_j": 7.428485252521715e-14,
-              "area_m2": 470929338.03125
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -1512,9 +1419,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 43.7814,
+              "lon": 127.842,
+              "ring": "outer",
+              "time": "2026-06-12T20:55:34Z",
+              "residual_us": 7.7,
+              "stations": 8
+            }
+          ]
         },
         "glm": {
           "available": true,
