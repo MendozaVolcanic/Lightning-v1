@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-06-16T18:01:03.901758+00:00",
+  "scan_utc": "2026-06-16T18:05:47.957011+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 1,
-  "yellow_alerts": 0,
-  "green_alerts": 56,
+  "yellow_alerts": 1,
+  "green_alerts": 55,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,8 +13,8 @@
       "lat": 14.473,
       "lon": -90.88,
       "inner_strokes": 1,
-      "outer_strokes": 0,
-      "alert": "RED",
+      "outer_strokes": 3,
+      "alert": "YELLOW",
       "stroke_positions": [
         {
           "lat": 14.4651,
@@ -31,6 +31,30 @@
           "time": "2026-06-16T17:56:41Z",
           "residual_us": 10.7,
           "stations": 6
+        },
+        {
+          "lat": 14.4225,
+          "lon": -90.6819,
+          "ring": "outer",
+          "time": "2026-06-16T17:59:29Z",
+          "residual_us": 6.2,
+          "stations": 5
+        },
+        {
+          "lat": 14.5699,
+          "lon": -91.097,
+          "ring": "outer",
+          "time": "2026-06-16T18:00:46Z",
+          "residual_us": 8.2,
+          "stations": 5
+        },
+        {
+          "lat": 14.3315,
+          "lon": -90.7237,
+          "ring": "outer",
+          "time": "2026-06-16T18:01:54Z",
+          "residual_us": 11.8,
+          "stations": 7
         }
       ]
     },
@@ -39,10 +63,26 @@
       "wwlln_id": "1402-10-",
       "lat": 14.465,
       "lon": -90.743,
-      "inner_strokes": 0,
-      "outer_strokes": 2,
-      "alert": "GREEN",
+      "inner_strokes": 2,
+      "outer_strokes": 1,
+      "alert": "RED",
       "stroke_positions": [
+        {
+          "lat": 14.4225,
+          "lon": -90.6819,
+          "ring": "inner",
+          "time": "2026-06-16T17:59:29Z",
+          "residual_us": 6.2,
+          "stations": 5
+        },
+        {
+          "lat": 14.3315,
+          "lon": -90.7237,
+          "ring": "inner",
+          "time": "2026-06-16T18:01:54Z",
+          "residual_us": 11.8,
+          "stations": 7
+        },
         {
           "lat": 14.4651,
           "lon": -90.974,
@@ -58,6 +98,14 @@
           "time": "2026-06-16T17:56:41Z",
           "residual_us": 10.7,
           "stations": 6
+        },
+        {
+          "lat": 14.5699,
+          "lon": -91.097,
+          "ring": "outer",
+          "time": "2026-06-16T18:00:46Z",
+          "residual_us": 8.2,
+          "stations": 5
         }
       ]
     },
@@ -67,17 +115,9 @@
       "lat": 14.33,
       "lon": -90.4,
       "inner_strokes": 0,
-      "outer_strokes": 3,
+      "outer_strokes": 5,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 13.4813,
-          "lon": -90.3014,
-          "ring": "outer",
-          "time": "2026-06-16T17:01:13Z",
-          "residual_us": 7.4,
-          "stations": 8
-        },
         {
           "lat": 14.4651,
           "lon": -90.974,
@@ -93,6 +133,30 @@
           "time": "2026-06-16T17:56:41Z",
           "residual_us": 10.7,
           "stations": 6
+        },
+        {
+          "lat": 14.4225,
+          "lon": -90.6819,
+          "ring": "outer",
+          "time": "2026-06-16T17:59:29Z",
+          "residual_us": 6.2,
+          "stations": 5
+        },
+        {
+          "lat": 14.5699,
+          "lon": -91.097,
+          "ring": "outer",
+          "time": "2026-06-16T18:00:46Z",
+          "residual_us": 8.2,
+          "stations": 5
+        },
+        {
+          "lat": 14.3315,
+          "lon": -90.7237,
+          "ring": "outer",
+          "time": "2026-06-16T18:01:54Z",
+          "residual_us": 11.8,
+          "stations": 7
         }
       ]
     },
@@ -122,9 +186,18 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.2251,
+          "lon": -85.8909,
+          "ring": "outer",
+          "time": "2026-06-16T18:03:14Z",
+          "residual_us": 23.4,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -132,7 +205,7 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_strokes": 0,
-      "outer_strokes": 1,
+      "outer_strokes": 3,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -142,6 +215,22 @@
           "time": "2026-06-16T17:22:50Z",
           "residual_us": 7.0,
           "stations": 5
+        },
+        {
+          "lat": 10.1602,
+          "lon": -85.897,
+          "ring": "outer",
+          "time": "2026-06-16T18:03:14Z",
+          "residual_us": 15.6,
+          "stations": 8
+        },
+        {
+          "lat": 10.2251,
+          "lon": -85.8909,
+          "ring": "outer",
+          "time": "2026-06-16T18:03:14Z",
+          "residual_us": 23.4,
+          "stations": 8
         }
       ]
     },
