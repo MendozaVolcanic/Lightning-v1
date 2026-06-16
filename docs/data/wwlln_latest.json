@@ -1,21 +1,30 @@
 {
-  "scan_utc": "2026-06-16T17:20:49.073296+00:00",
+  "scan_utc": "2026-06-16T17:25:59.963974+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
       "wwlln_id": "1402-09-",
       "lat": 14.473,
       "lon": -90.88,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 14.4651,
+          "lon": -90.974,
+          "ring": "inner",
+          "time": "2026-06-16T17:20:14Z",
+          "residual_us": 10.0,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,9 +32,18 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4651,
+          "lon": -90.974,
+          "ring": "outer",
+          "time": "2026-06-16T17:20:14Z",
+          "residual_us": 10.0,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Agua",
@@ -33,7 +51,7 @@
       "lat": 14.33,
       "lon": -90.4,
       "inner_strokes": 0,
-      "outer_strokes": 3,
+      "outer_strokes": 4,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -58,6 +76,14 @@
           "ring": "outer",
           "time": "2026-06-16T17:01:13Z",
           "residual_us": 7.4,
+          "stations": 8
+        },
+        {
+          "lat": 14.4651,
+          "lon": -90.974,
+          "ring": "outer",
+          "time": "2026-06-16T17:20:14Z",
+          "residual_us": 10.0,
           "stations": 8
         }
       ]
@@ -98,9 +124,18 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.2868,
+          "lon": -84.7127,
+          "ring": "outer",
+          "time": "2026-06-16T17:22:50Z",
+          "residual_us": 7.0,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
