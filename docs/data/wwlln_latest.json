@@ -1,21 +1,30 @@
 {
-  "scan_utc": "2026-06-18T18:00:52.043356+00:00",
+  "scan_utc": "2026-06-18T18:05:46.234113+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
       "wwlln_id": "1402-09-",
       "lat": 14.473,
       "lon": -90.88,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 14.4368,
+          "lon": -91.0527,
+          "ring": "inner",
+          "time": "2026-06-18T18:03:24Z",
+          "residual_us": 15.9,
+          "stations": 13
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,9 +32,18 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4368,
+          "lon": -91.0527,
+          "ring": "outer",
+          "time": "2026-06-18T18:03:24Z",
+          "residual_us": 15.9,
+          "stations": 13
+        }
+      ]
     },
     {
       "volcano": "Agua",
@@ -33,9 +51,18 @@
       "lat": 14.33,
       "lon": -90.4,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4368,
+          "lon": -91.0527,
+          "ring": "outer",
+          "time": "2026-06-18T18:03:24Z",
+          "residual_us": 15.9,
+          "stations": 13
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
