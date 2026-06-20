@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-06-20T06:55:39.013733+00:00",
+  "scan_utc": "2026-06-20T07:00:48.244276+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -471,10 +471,27 @@
       "wwlln_id": "1508-052",
       "lat": -44.08,
       "lon": -72.88,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -44.1553,
+          "lon": -72.8974,
+          "ring": "inner",
+          "time": "2026-06-20T06:57:22Z",
+          "residual_us": 28.0,
+          "stations": 6
+        },
+        {
+          "lat": -44.3955,
+          "lon": -73.1144,
+          "ring": "outer",
+          "time": "2026-06-20T06:55:05Z",
+          "residual_us": 23.6,
+          "stations": 10
+        }
+      ]
     },
     {
       "volcano": "Mentolat",
@@ -482,9 +499,26 @@
       "lat": -44.7,
       "lon": -73.08,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 2,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -44.3955,
+          "lon": -73.1144,
+          "ring": "outer",
+          "time": "2026-06-20T06:55:05Z",
+          "residual_us": 23.6,
+          "stations": 10
+        },
+        {
+          "lat": -44.1553,
+          "lon": -72.8974,
+          "ring": "outer",
+          "time": "2026-06-20T06:57:22Z",
+          "residual_us": 28.0,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Cay",
@@ -492,9 +526,18 @@
       "lat": -45.059,
       "lon": -72.984,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -44.3955,
+          "lon": -73.1144,
+          "ring": "outer",
+          "time": "2026-06-20T06:55:05Z",
+          "residual_us": 23.6,
+          "stations": 10
+        }
+      ]
     },
     {
       "volcano": "Maca",
@@ -502,9 +545,18 @@
       "lat": -45.1,
       "lon": -73.17,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -44.3955,
+          "lon": -73.1144,
+          "ring": "outer",
+          "time": "2026-06-20T06:55:05Z",
+          "residual_us": 23.6,
+          "stations": 10
+        }
+      ]
     },
     {
       "volcano": "Hudson",
