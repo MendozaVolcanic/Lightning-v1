@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-07-25T05:25:36.776170+00:00",
+  "scan_utc": "2026-07-25T05:30:34.851354+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 1,
+  "red_alerts": 0,
   "yellow_alerts": 0,
-  "green_alerts": 56,
+  "green_alerts": 57,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -33,9 +33,26 @@
       "lat": 14.466,
       "lon": -90.743,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 2,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 13.843064308166504,
+          "lon": -90.17182922363281,
+          "ring": "outer",
+          "time": "2026-07-25T02:34:44+00:00",
+          "energy_j": 1.9285073613062466e-14,
+          "area_m2": 283076449.140625
+        },
+        {
+          "lat": 13.827191352844238,
+          "lon": -90.1974105834961,
+          "ring": "outer",
+          "time": "2026-07-25T01:42:50+00:00",
+          "energy_j": 4.528496909880832e-14,
+          "area_m2": 495345635.53125
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -177,20 +194,20 @@
       "alert": "GREEN",
       "flash_positions": [
         {
-          "lat": -34.3559684753418,
-          "lon": -70.31255340576172,
-          "ring": "outer",
-          "time": "2026-07-25T09:37:34+00:00",
-          "energy_j": 6.028260918761017e-12,
-          "area_m2": 1875324249.859375
-        },
-        {
           "lat": -34.30303192138672,
           "lon": -70.3320541381836,
           "ring": "outer",
           "time": "2026-07-25T01:34:43+00:00",
           "energy_j": 1.681278392740355e-12,
           "area_m2": 1179612372.96875
+        },
+        {
+          "lat": -34.31294631958008,
+          "lon": -70.33544158935547,
+          "ring": "outer",
+          "time": "2026-07-24T20:34:16+00:00",
+          "energy_j": 2.9792731750672055e-12,
+          "area_m2": 1527239408.625
         }
       ]
     },
@@ -200,25 +217,9 @@
       "lat": -34.808,
       "lon": -70.349,
       "inner_flashes": 0,
-      "outer_flashes": 3,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": -35.22060775756836,
-          "lon": -70.7069320678711,
-          "ring": "outer",
-          "time": "2026-07-25T03:28:57+00:00",
-          "energy_j": 4.742832446136149e-13,
-          "area_m2": 634976336.859375
-        },
-        {
-          "lat": -34.3559684753418,
-          "lon": -70.31255340576172,
-          "ring": "outer",
-          "time": "2026-07-25T09:37:34+00:00",
-          "energy_j": 6.028260918761017e-12,
-          "area_m2": 1875324249.859375
-        },
         {
           "lat": -34.30303192138672,
           "lon": -70.3320541381836,
@@ -226,6 +227,14 @@
           "time": "2026-07-25T01:34:43+00:00",
           "energy_j": 1.681278392740355e-12,
           "area_m2": 1179612372.96875
+        },
+        {
+          "lat": -34.31294631958008,
+          "lon": -70.33544158935547,
+          "ring": "outer",
+          "time": "2026-07-24T20:34:16+00:00",
+          "energy_j": 2.9792731750672055e-12,
+          "area_m2": 1527239408.625
         }
       ]
     },
@@ -234,19 +243,10 @@
       "wwlln_id": "1507-04-",
       "lat": -35.242,
       "lon": -70.572,
-      "inner_flashes": 1,
+      "inner_flashes": 0,
       "outer_flashes": 0,
-      "alert": "RED",
-      "flash_positions": [
-        {
-          "lat": -35.22060775756836,
-          "lon": -70.7069320678711,
-          "ring": "inner",
-          "time": "2026-07-25T03:28:57+00:00",
-          "energy_j": 4.742832446136149e-13,
-          "area_m2": 634976336.859375
-        }
-      ]
+      "alert": "GREEN",
+      "flash_positions": []
     },
     {
       "volcano": "Descabezado Grande",
@@ -254,18 +254,9 @@
       "lat": -35.604,
       "lon": -70.748,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -35.22060775756836,
-          "lon": -70.7069320678711,
-          "ring": "outer",
-          "time": "2026-07-25T03:28:57+00:00",
-          "energy_j": 4.742832446136149e-13,
-          "area_m2": 634976336.859375
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Tatara-San Pedro",
@@ -273,18 +264,9 @@
       "lat": -35.998,
       "lon": -70.845,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -35.22060775756836,
-          "lon": -70.7069320678711,
-          "ring": "outer",
-          "time": "2026-07-25T03:28:57+00:00",
-          "energy_j": 4.742832446136149e-13,
-          "area_m2": 634976336.859375
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Laguna del Maule",
@@ -292,18 +274,9 @@
       "lat": -36.071,
       "lon": -70.498,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -35.22060775756836,
-          "lon": -70.7069320678711,
-          "ring": "outer",
-          "time": "2026-07-25T03:28:57+00:00",
-          "energy_j": 4.742832446136149e-13,
-          "area_m2": 634976336.859375
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Nevado de Longavi",
