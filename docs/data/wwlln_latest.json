@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-07-26T08:35:29.976772+00:00",
+  "scan_utc": "2026-07-26T08:40:31.610844+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,9 +13,18 @@
       "lat": 14.473,
       "lon": -90.88,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4318,
+          "lon": -90.363,
+          "ring": "outer",
+          "time": "2026-07-26T08:35:31Z",
+          "residual_us": 24.7,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,19 +32,36 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4318,
+          "lon": -90.363,
+          "ring": "outer",
+          "time": "2026-07-26T08:35:31Z",
+          "residual_us": 24.7,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Agua",
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "inner_strokes": 0,
-      "outer_strokes": 3,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 2,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 14.4318,
+          "lon": -90.363,
+          "ring": "inner",
+          "time": "2026-07-26T08:35:31Z",
+          "residual_us": 24.7,
+          "stations": 6
+        },
         {
           "lat": 13.6065,
           "lon": -89.8834,
