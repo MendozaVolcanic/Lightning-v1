@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-07-26T17:05:39.575097+00:00",
+  "scan_utc": "2026-07-26T17:10:39.279257+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -203,9 +203,18 @@
       "lat": -35.604,
       "lon": -70.748,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -36.05994415283203,
+          "lon": -71.0699691772461,
+          "ring": "outer",
+          "time": "2026-07-27T00:27:28+00:00",
+          "energy_j": 1.6716217955363004e-11,
+          "area_m2": 2628719629.59375
+        }
+      ]
     },
     {
       "volcano": "Tatara-San Pedro",
@@ -213,9 +222,18 @@
       "lat": -35.998,
       "lon": -70.845,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -36.05994415283203,
+          "lon": -71.0699691772461,
+          "ring": "outer",
+          "time": "2026-07-27T00:27:28+00:00",
+          "energy_j": 1.6716217955363004e-11,
+          "area_m2": 2628719629.59375
+        }
+      ]
     },
     {
       "volcano": "Laguna del Maule",
@@ -223,19 +241,37 @@
       "lat": -36.071,
       "lon": -70.498,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -36.05994415283203,
+          "lon": -71.0699691772461,
+          "ring": "outer",
+          "time": "2026-07-27T00:27:28+00:00",
+          "energy_j": 1.6716217955363004e-11,
+          "area_m2": 2628719629.59375
+        }
+      ]
     },
     {
       "volcano": "Nevado de Longavi",
       "wwlln_id": "1507-063",
       "lat": -36.2,
       "lon": -71.17,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -36.05994415283203,
+          "lon": -71.0699691772461,
+          "ring": "inner",
+          "time": "2026-07-27T00:27:28+00:00",
+          "energy_j": 1.6716217955363004e-11,
+          "area_m2": 2628719629.59375
+        }
+      ]
     },
     {
       "volcano": "Nevados de Chillan",
