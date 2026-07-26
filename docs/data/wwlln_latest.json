@@ -1,21 +1,29 @@
 {
-  "scan_utc": "2026-07-26T18:55:33.410763+00:00",
+  "scan_utc": "2026-07-26T19:00:42.400759+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
       "wwlln_id": "1402-09-",
       "lat": 14.473,
       "lon": -90.88,
-      "inner_strokes": 0,
-      "outer_strokes": 2,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 1,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 14.4527,
+          "lon": -90.9833,
+          "ring": "inner",
+          "time": "2026-07-26T18:57:38Z",
+          "residual_us": 13.8,
+          "stations": 8
+        },
         {
           "lat": 14.955,
           "lon": -91.6623,
@@ -40,7 +48,7 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 1,
+      "outer_strokes": 2,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -50,6 +58,14 @@
           "time": "2026-07-26T18:51:09Z",
           "residual_us": 15.4,
           "stations": 6
+        },
+        {
+          "lat": 14.4527,
+          "lon": -90.9833,
+          "ring": "outer",
+          "time": "2026-07-26T18:57:38Z",
+          "residual_us": 13.8,
+          "stations": 8
         }
       ]
     },
@@ -59,9 +75,18 @@
       "lat": 14.33,
       "lon": -90.4,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4527,
+          "lon": -90.9833,
+          "ring": "outer",
+          "time": "2026-07-26T18:57:38Z",
+          "residual_us": 13.8,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -569,7 +594,7 @@
       "lat": 44.08,
       "lon": 128.83,
       "inner_strokes": 0,
-      "outer_strokes": 3,
+      "outer_strokes": 4,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -595,6 +620,14 @@
           "time": "2026-07-26T18:53:04Z",
           "residual_us": 21.6,
           "stations": 7
+        },
+        {
+          "lat": 44.2735,
+          "lon": 127.717,
+          "ring": "outer",
+          "time": "2026-07-26T18:55:40Z",
+          "residual_us": 5.4,
+          "stations": 6
         }
       ]
     },
