@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-07-17T09:45:35.489807+00:00",
+  "scan_utc": "2026-07-31T09:46:10.127907+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-07-17T09:45:33.828974+00:00",
+      "scan_utc": "2026-07-31T09:45:38.743478+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-07-17T09:45:35.124104+00:00",
+      "scan_utc": "2026-07-31T09:45:40.389732+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -75,9 +75,50 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 5,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.4927,
+              "lon": -90.1426,
+              "ring": "outer",
+              "time": "2026-07-31T09:15:44Z",
+              "residual_us": 6.8,
+              "stations": 13
+            },
+            {
+              "lat": 13.4794,
+              "lon": -90.0884,
+              "ring": "outer",
+              "time": "2026-07-31T09:18:16Z",
+              "residual_us": 10.3,
+              "stations": 8
+            },
+            {
+              "lat": 13.5002,
+              "lon": -90.0423,
+              "ring": "outer",
+              "time": "2026-07-31T09:21:23Z",
+              "residual_us": 8.3,
+              "stations": 6
+            },
+            {
+              "lat": 13.4508,
+              "lon": -90.2406,
+              "ring": "outer",
+              "time": "2026-07-31T09:40:28Z",
+              "residual_us": 18.9,
+              "stations": 7
+            },
+            {
+              "lat": 13.4419,
+              "lon": -90.2839,
+              "ring": "outer",
+              "time": "2026-07-31T09:40:28Z",
+              "residual_us": 8.1,
+              "stations": 8
+            }
+          ]
         },
         "glm": {
           "available": true,
