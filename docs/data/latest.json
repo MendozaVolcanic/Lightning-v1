@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-01T16:16:07.329376+00:00",
+  "scan_utc": "2026-08-01T16:21:03.548363+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-01T16:15:35.506990+00:00",
+      "scan_utc": "2026-08-01T16:20:33.300081+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-01T16:15:36.760739+00:00",
+      "scan_utc": "2026-08-01T16:20:34.534322+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -151,18 +151,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.810834884643555,
-              "lon": -84.64019775390625,
-              "ring": "outer",
-              "time": "2026-08-01T09:51:29+00:00",
-              "energy_j": 5.2851298899685465e-15,
-              "area_m2": 67450021.84375
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -183,18 +174,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.810834884643555,
-              "lon": -84.64019775390625,
-              "ring": "outer",
-              "time": "2026-08-01T09:51:29+00:00",
-              "energy_j": 5.2851298899685465e-15,
-              "area_m2": 67450021.84375
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -284,9 +266,18 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -19.37228775024414,
+              "lon": -68.02083587646484,
+              "ring": "outer",
+              "time": "2026-08-01T15:16:50+00:00",
+              "energy_j": 5.728492086146025e-14,
+              "area_m2": 427132604.390625
+            }
+          ]
         }
       }
     },
