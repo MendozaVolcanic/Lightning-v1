@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-01T05:31:20.284420+00:00",
+  "scan_utc": "2026-08-01T05:36:09.176611+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-01T05:30:45.924907+00:00",
+      "scan_utc": "2026-08-01T05:35:38.508612+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-01T05:30:50.342252+00:00",
+      "scan_utc": "2026-08-01T05:35:40.059353+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -195,18 +195,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.6861,
-              "lon": -84.6824,
-              "ring": "outer",
-              "time": "2026-08-01T04:33:58Z",
-              "residual_us": 18.3,
-              "stations": 6
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
@@ -227,18 +218,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 10.6861,
-              "lon": -84.6824,
-              "ring": "outer",
-              "time": "2026-08-01T04:33:58Z",
-              "residual_us": 18.3,
-              "stations": 6
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
@@ -1317,9 +1299,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 44.2854,
+              "lon": 127.6317,
+              "ring": "outer",
+              "time": "2026-08-01T05:33:14Z",
+              "residual_us": 13.1,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
