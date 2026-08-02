@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-02T01:05:33.585827+00:00",
+  "scan_utc": "2026-08-02T01:10:40.058666+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -53,9 +53,18 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 10.742510795593262,
+          "lon": -85.19306945800781,
+          "ring": "outer",
+          "time": "2026-08-02T07:31:02+00:00",
+          "energy_j": 4.82849570394713e-14,
+          "area_m2": 270257892.953125
+        }
+      ]
     },
     {
       "volcano": "Orosi (CRI)",
@@ -63,19 +72,37 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 10.742510795593262,
+          "lon": -85.19306945800781,
+          "ring": "outer",
+          "time": "2026-08-02T07:31:02+00:00",
+          "energy_j": 4.82849570394713e-14,
+          "area_m2": 270257892.953125
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
       "wwlln_id": "1405-02-",
       "lat": 10.83,
       "lon": -85.324,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": 10.742510795593262,
+          "lon": -85.19306945800781,
+          "ring": "inner",
+          "time": "2026-08-02T07:31:02+00:00",
+          "energy_j": 4.82849570394713e-14,
+          "area_m2": 270257892.953125
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
@@ -213,18 +240,9 @@
       "lat": -35.998,
       "lon": -70.845,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -36.53609848022461,
-          "lon": -71.45919799804688,
-          "ring": "outer",
-          "time": "2026-08-02T04:06:40+00:00",
-          "energy_j": 7.9128197034367e-13,
-          "area_m2": 1259117941.703125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Laguna del Maule",
@@ -242,18 +260,9 @@
       "lat": -36.2,
       "lon": -71.17,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -36.53609848022461,
-          "lon": -71.45919799804688,
-          "ring": "outer",
-          "time": "2026-08-02T04:06:40+00:00",
-          "energy_j": 7.9128197034367e-13,
-          "area_m2": 1259117941.703125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Nevados de Chillan",
@@ -261,18 +270,9 @@
       "lat": -37.411,
       "lon": -71.352,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -36.53609848022461,
-          "lon": -71.45919799804688,
-          "ring": "outer",
-          "time": "2026-08-02T04:06:40+00:00",
-          "energy_j": 7.9128197034367e-13,
-          "area_m2": 1259117941.703125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Antuco",
@@ -280,18 +280,9 @@
       "lat": -37.419,
       "lon": -71.341,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -36.53609848022461,
-          "lon": -71.45919799804688,
-          "ring": "outer",
-          "time": "2026-08-02T04:06:40+00:00",
-          "energy_j": 7.9128197034367e-13,
-          "area_m2": 1259117941.703125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Copahue",
