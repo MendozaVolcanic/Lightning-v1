@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-04T15:35:35.073026+00:00",
+  "scan_utc": "2026-08-04T15:40:37.708938+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,19 +13,37 @@
       "lat": 14.501,
       "lon": -90.876,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 14.301931381225586,
+          "lon": -90.85235595703125,
+          "ring": "outer",
+          "time": "2026-08-04T22:14:26+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 71265068.328125
+        }
+      ]
     },
     {
       "volcano": "Fuego",
       "wwlln_id": "1402-10-",
       "lat": 14.473,
       "lon": -90.881,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": 14.301931381225586,
+          "lon": -90.85235595703125,
+          "ring": "inner",
+          "time": "2026-08-04T22:14:26+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 71265068.328125
+        }
+      ]
     },
     {
       "volcano": "Agua",
@@ -33,9 +51,18 @@
       "lat": 14.466,
       "lon": -90.743,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 14.301931381225586,
+          "lon": -90.85235595703125,
+          "ring": "outer",
+          "time": "2026-08-04T22:14:26+00:00",
+          "energy_j": 5.2851298899685465e-15,
+          "area_m2": 71265068.328125
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
