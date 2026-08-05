@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-05T06:46:04.252333+00:00",
+  "scan_utc": "2026-08-05T06:51:04.030205+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-05T06:45:34.199834+00:00",
+      "scan_utc": "2026-08-05T06:50:33.169092+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-05T06:45:35.513900+00:00",
+      "scan_utc": "2026-08-05T06:50:35.992614+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -121,9 +121,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.6311,
+              "lon": -85.2893,
+              "ring": "outer",
+              "time": "2026-08-05T06:44:33Z",
+              "residual_us": 30.0,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -144,7 +153,7 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 2,
           "alert": "GREEN",
           "positions": [
             {
@@ -154,6 +163,14 @@
               "time": "2026-08-05T06:17:33Z",
               "residual_us": 28.7,
               "stations": 7
+            },
+            {
+              "lat": 10.6311,
+              "lon": -85.2893,
+              "ring": "outer",
+              "time": "2026-08-05T06:44:33Z",
+              "residual_us": 30.0,
+              "stations": 5
             }
           ]
         },
@@ -180,14 +197,6 @@
           "alert": "GREEN",
           "positions": [
             {
-              "lat": 10.2738,
-              "lon": -84.8022,
-              "ring": "outer",
-              "time": "2026-08-05T05:45:50Z",
-              "residual_us": 29.2,
-              "stations": 5
-            },
-            {
               "lat": 10.096,
               "lon": -85.0609,
               "ring": "outer",
@@ -210,6 +219,14 @@
               "time": "2026-08-05T06:18:09Z",
               "residual_us": 23.0,
               "stations": 6
+            },
+            {
+              "lat": 10.6311,
+              "lon": -85.2893,
+              "ring": "outer",
+              "time": "2026-08-05T06:44:33Z",
+              "residual_us": 30.0,
+              "stations": 5
             }
           ]
         },
