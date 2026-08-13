@@ -15,11 +15,26 @@ on:
       - 'requirements.txt'
       - '.github/workflows/lightning.yml'
 
-# Evita que dos runs concurrentes interfieran en el git commit/push.
-# `cancel-in-progress: false` para no perder datos a medio escribir.
-concurrency:
-  group: lightning-scan
-  cancel-in-progress: false
+# IMPORTANTE: la concurrencia va a nivel de JOB, no de workflow.
+#
+# Incidente 2026-08-06 → 2026-08-13 (7 días sin datos): con un único grupo
+# de concurrencia a nivel de workflow, un deployment de Pages que quedó
+# colgado en estado `waiting` mantuvo el run vivo indefinidamente. Como
+# GitHub sólo admite un run pendiente por grupo, los 199 runs siguientes
+# (uno cada 5 min) se cancelaron sin ejecutar un solo step. El scraper
+# nunca falló: quedó rehén del deploy.
+#
+# `timeout-minutes` no protege contra esto: ese reloj cuenta tiempo de
+# ejecución, y un job detenido en la compuerta del environment todavía no
+# está ejecutando. El job figuró "corriendo" 7 días con timeout de 8 min.
+#
+# Por eso el scan y el deploy tienen ahora grupos separados:
+#   - scan   → serializado (cancel-in-progress: false) para no corromper
+#              el git commit/push a medio escribir.
+#   - deploy → desechable (cancel-in-progress: true): si un deploy se
+#              cuelga, el del run siguiente lo cancela a los 5 min. Un
+#              deploy perdido no cuesta nada — el próximo scan republica
+#              docs/ completo. Un scan perdido sí: es un hueco en la serie.
 
 # Fuerza actions/checkout@v4 + actions/setup-python@v5 sobre Node 24
 # antes del cutover automático de GitHub (16-jun-2026). Removible
@@ -27,24 +42,20 @@ concurrency:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-permissions:
-  contents: write   # commit/push de datos al repo
-  pages: write      # deploy a GitHub Pages
-  id-token: write   # OIDC requerido por actions/deploy-pages
-
 jobs:
+  # ── Job 1: adquisición de datos ──────────────────────────────────────────
+  # Nunca depende del estado de Pages. Su producto es el commit al repo;
+  # el artifact para Pages es un subproducto.
   lightning-scan:
     runs-on: ubuntu-latest
     timeout-minutes: 8
 
-    # Despliega el contenido de docs/ a GitHub Pages al final del job.
-    # Reemplaza al builder legacy "Deploy from a branch", que fallaba con
-    # 401 intermitente por falta de control de concurrencia bajo pushes
-    # cada 5 min. Aquí el deploy va dentro del workflow serializado
-    # (concurrency: lightning-scan, cancel-in-progress: false) → sin solape.
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write   # commit/push de datos al repo
+
+    concurrency:
+      group: lightning-scan
+      cancel-in-progress: false
 
     steps:
       - uses: actions/checkout@v4
@@ -89,9 +100,9 @@ jobs:
             git push origin main || true
           fi
 
-      # ── Deploy a GitHub Pages (reemplaza al builder legacy) ───────────────
-      # Usa el docs/ recién generado en disco (no re-checkout) → siempre
-      # despliega los datos más frescos del scrape actual.
+      # Empaqueta el docs/ recién generado en disco (no re-checkout) → el
+      # artifact lleva siempre los datos más frescos del scrape actual.
+      # El deploy en sí ocurre en el job siguiente.
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -100,6 +111,36 @@ jobs:
         with:
           path: docs
 
+  # ── Job 2: publicación ───────────────────────────────────────────────────
+  # Aislado del scan. Si se cuelga o falla, los datos ya están commiteados
+  # en el repo y el scan siguiente corre igual. Reemplaza al builder legacy
+  # "Deploy from a branch", que fallaba con 401 intermitente bajo pushes
+  # cada 5 min.
+  deploy-pages:
+    needs: lightning-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      pages: write      # deploy a GitHub Pages
+      id-token: write   # OIDC requerido por actions/deploy-pages
+
+    # Desechable a propósito: un deploy colgado se cancela solo cuando
+    # llega el del run siguiente. Ver nota del incidente arriba.
+    concurrency:
+      group: lightning-deploy
+      cancel-in-progress: true
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Acota el sondeo del estado del deployment a 5 min. Sin esto,
+          # un deployment que queda en `waiting` hace que la action espere
+          # su default de 10 min por iteración. Falla ruidoso > cuelga mudo.
+          timeout: 300000
