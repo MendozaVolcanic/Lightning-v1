@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-14T01:30:33.684595+00:00",
+  "scan_utc": "2026-08-14T01:35:29.295408+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -334,25 +334,9 @@
       "lat": -33.4,
       "lon": -69.8,
       "inner_strokes": 0,
-      "outer_strokes": 17,
+      "outer_strokes": 15,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": -33.627,
-          "lon": -70.7834,
-          "ring": "outer",
-          "time": "2026-08-14T00:32:42Z",
-          "residual_us": 27.4,
-          "stations": 6
-        },
-        {
-          "lat": -33.5196,
-          "lon": -70.469,
-          "ring": "outer",
-          "time": "2026-08-14T00:32:42Z",
-          "residual_us": 23.0,
-          "stations": 6
-        },
         {
           "lat": -33.526,
           "lon": -70.4475,
@@ -481,25 +465,9 @@
       "lat": -33.782,
       "lon": -69.897,
       "inner_strokes": 0,
-      "outer_strokes": 17,
+      "outer_strokes": 15,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": -33.627,
-          "lon": -70.7834,
-          "ring": "outer",
-          "time": "2026-08-14T00:32:42Z",
-          "residual_us": 27.4,
-          "stations": 6
-        },
-        {
-          "lat": -33.5196,
-          "lon": -70.469,
-          "ring": "outer",
-          "time": "2026-08-14T00:32:42Z",
-          "residual_us": 23.0,
-          "stations": 6
-        },
         {
           "lat": -33.526,
           "lon": -70.4475,
@@ -667,7 +635,7 @@
       "lat": -35.989,
       "lon": -70.849,
       "inner_strokes": 0,
-      "outer_strokes": 1,
+      "outer_strokes": 2,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -677,6 +645,14 @@
           "time": "2026-08-14T00:47:57Z",
           "residual_us": 10.2,
           "stations": 5
+        },
+        {
+          "lat": -36.6847,
+          "lon": -71.3834,
+          "ring": "outer",
+          "time": "2026-08-14T01:29:19Z",
+          "residual_us": 14.0,
+          "stations": 6
         }
       ]
     },
@@ -709,20 +685,20 @@
       "alert": "GREEN",
       "stroke_positions": [
         {
-          "lat": -36.5741,
-          "lon": -71.8699,
-          "ring": "outer",
-          "time": "2026-08-14T00:29:23Z",
-          "residual_us": 10.2,
-          "stations": 6
-        },
-        {
           "lat": -36.1142,
           "lon": -71.5789,
           "ring": "outer",
           "time": "2026-08-14T00:47:57Z",
           "residual_us": 10.2,
           "stations": 5
+        },
+        {
+          "lat": -36.6847,
+          "lon": -71.3834,
+          "ring": "outer",
+          "time": "2026-08-14T01:29:19Z",
+          "residual_us": 14.0,
+          "stations": 6
         }
       ]
     },
@@ -731,16 +707,16 @@
       "wwlln_id": "1507-07-",
       "lat": -36.863,
       "lon": -71.377,
-      "inner_strokes": 0,
-      "outer_strokes": 2,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 0,
+      "alert": "RED",
       "stroke_positions": [
         {
-          "lat": -36.5741,
-          "lon": -71.8699,
-          "ring": "outer",
-          "time": "2026-08-14T00:29:23Z",
-          "residual_us": 10.2,
+          "lat": -36.6847,
+          "lon": -71.3834,
+          "ring": "inner",
+          "time": "2026-08-14T01:29:19Z",
+          "residual_us": 14.0,
           "stations": 6
         },
         {
@@ -759,9 +735,18 @@
       "lat": -37.406,
       "lon": -71.349,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -36.6847,
+          "lon": -71.3834,
+          "ring": "outer",
+          "time": "2026-08-14T01:29:19Z",
+          "residual_us": 14.0,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Copahue",
