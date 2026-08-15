@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-15T15:20:59.949193+00:00",
+  "scan_utc": "2026-08-15T15:25:50.839191+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-15T15:20:28.450763+00:00",
+      "scan_utc": "2026-08-15T15:25:30.009448+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-15T15:20:30.790504+00:00",
+      "scan_utc": "2026-08-15T15:25:31.154529+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -192,9 +192,18 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.412083625793457,
+              "lon": -84.61998748779297,
+              "ring": "outer",
+              "time": "2026-08-15T18:39:30+00:00",
+              "energy_j": 1.32850977317365e-14,
+              "area_m2": 201892259.953125
+            }
+          ]
         }
       }
     },
@@ -392,18 +401,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -33.6159,
-              "lon": -70.4218,
-              "ring": "outer",
-              "time": "2026-08-15T14:19:41Z",
-              "residual_us": 9.5,
-              "stations": 5
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
@@ -424,18 +424,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -33.6159,
-              "lon": -70.4218,
-              "ring": "outer",
-              "time": "2026-08-15T14:19:41Z",
-              "residual_us": 9.5,
-              "stations": 5
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
