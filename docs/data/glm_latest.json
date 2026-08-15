@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-15T03:10:31.058896+00:00",
+  "scan_utc": "2026-08-15T03:15:33.001941+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -182,9 +182,9 @@
       "wwlln_id": "1507-03-",
       "lat": -34.808,
       "lon": -70.349,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 1,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "flash_positions": [
         {
           "lat": -34.67932891845703,
@@ -193,6 +193,14 @@
           "time": "2026-08-15T02:41:40+00:00",
           "energy_j": 1.528508969217849e-14,
           "area_m2": 279414004.515625
+        },
+        {
+          "lat": -34.745601654052734,
+          "lon": -70.53740692138672,
+          "ring": "inner",
+          "time": "2026-08-14T20:20:28+00:00",
+          "energy_j": 2.6285045474609426e-14,
+          "area_m2": 419807715.140625
         }
       ]
     },
@@ -202,7 +210,7 @@
       "lat": -35.242,
       "lon": -70.572,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
         {
@@ -212,6 +220,14 @@
           "time": "2026-08-15T02:41:40+00:00",
           "energy_j": 1.528508969217849e-14,
           "area_m2": 279414004.515625
+        },
+        {
+          "lat": -34.745601654052734,
+          "lon": -70.53740692138672,
+          "ring": "outer",
+          "time": "2026-08-14T20:20:28+00:00",
+          "energy_j": 2.6285045474609426e-14,
+          "area_m2": 419807715.140625
         }
       ]
     },
@@ -221,9 +237,18 @@
       "lat": -35.604,
       "lon": -70.748,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -34.745601654052734,
+          "lon": -70.53740692138672,
+          "ring": "outer",
+          "time": "2026-08-14T20:20:28+00:00",
+          "energy_j": 2.6285045474609426e-14,
+          "area_m2": 419807715.140625
+        }
+      ]
     },
     {
       "volcano": "Tatara-San Pedro",
