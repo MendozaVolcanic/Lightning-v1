@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-01T13:56:03.635304+00:00",
+  "scan_utc": "2026-08-15T14:01:03.167594+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-01T13:55:31.885448+00:00",
+      "scan_utc": "2026-08-15T14:00:36.400219+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-01T13:55:33.784464+00:00",
+      "scan_utc": "2026-08-15T14:00:38.639615+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -374,16 +374,42 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.3445,
+              "lon": -70.7404,
+              "ring": "outer",
+              "time": "2026-08-15T13:18:36Z",
+              "residual_us": 5.7,
+              "stations": 5
+            },
+            {
+              "lat": -33.9448,
+              "lon": -70.486,
+              "ring": "outer",
+              "time": "2026-08-15T13:49:10Z",
+              "residual_us": 10.4,
+              "stations": 6
+            }
+          ]
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.97611999511719,
+              "lon": -70.55261993408203,
+              "ring": "outer",
+              "time": "2026-08-15T06:28:02+00:00",
+              "energy_j": 1.182846756549409e-13,
+              "area_m2": 345032804.046875
+            }
+          ]
         }
       }
     },
@@ -397,16 +423,42 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.3445,
+              "lon": -70.7404,
+              "ring": "outer",
+              "time": "2026-08-15T13:18:36Z",
+              "residual_us": 5.7,
+              "stations": 5
+            },
+            {
+              "lat": -33.9448,
+              "lon": -70.486,
+              "ring": "outer",
+              "time": "2026-08-15T13:49:10Z",
+              "residual_us": 10.4,
+              "stations": 6
+            }
+          ]
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.97611999511719,
+              "lon": -70.55261993408203,
+              "ring": "outer",
+              "time": "2026-08-15T06:28:02+00:00",
+              "energy_j": 1.182846756549409e-13,
+              "area_m2": 345032804.046875
+            }
+          ]
         }
       }
     },
@@ -420,16 +472,34 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.9448,
+              "lon": -70.486,
+              "ring": "outer",
+              "time": "2026-08-15T13:49:10Z",
+              "residual_us": 10.4,
+              "stations": 6
+            }
+          ]
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.97611999511719,
+              "lon": -70.55261993408203,
+              "ring": "outer",
+              "time": "2026-08-15T06:28:02+00:00",
+              "energy_j": 1.182846756549409e-13,
+              "area_m2": 345032804.046875
+            }
+          ]
         }
       }
     },
