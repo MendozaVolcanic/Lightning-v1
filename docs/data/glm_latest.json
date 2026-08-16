@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-16T15:45:34.463580+00:00",
+  "scan_utc": "2026-08-16T15:50:32.742954+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -169,19 +169,37 @@
       "lat": -21.307,
       "lon": -68.179,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -21.718605041503906,
+          "lon": -68.35340118408203,
+          "ring": "outer",
+          "time": "2026-08-16T15:11:47+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 67907827.421875
+        }
+      ]
     },
     {
       "volcano": "San Pedro",
       "wwlln_id": "1505-07-",
       "lat": -21.885,
       "lon": -68.407,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -21.718605041503906,
+          "lon": -68.35340118408203,
+          "ring": "inner",
+          "time": "2026-08-16T15:11:47+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 67907827.421875
+        }
+      ]
     },
     {
       "volcano": "Lascar",
