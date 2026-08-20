@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-20T16:20:32.230711+00:00",
+  "scan_utc": "2026-08-20T16:25:36.169603+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
@@ -43,18 +43,9 @@
       "lat": 11.538,
       "lon": -85.622,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 12.410307884216309,
-          "lon": -85.46691131591797,
-          "ring": "outer",
-          "time": "2026-08-20T22:32:00+00:00",
-          "energy_j": 1.32850977317365e-14,
-          "area_m2": 204791695.28125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Maderas (NIC)",
@@ -62,9 +53,18 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 11.865711212158203,
+          "lon": -84.70665740966797,
+          "ring": "outer",
+          "time": "2026-08-20T11:12:34+00:00",
+          "energy_j": 7.285121850410535e-15,
+          "area_m2": 135663052.984375
+        }
+      ]
     },
     {
       "volcano": "Orosi (CRI)",
@@ -95,20 +95,20 @@
       "alert": "GREEN",
       "flash_positions": [
         {
-          "lat": 11.104286193847656,
-          "lon": -84.64659881591797,
-          "ring": "outer",
-          "time": "2026-08-20T21:30:37+00:00",
-          "energy_j": 2.8528400435184694e-13,
-          "area_m2": 945063315.109375
-        },
-        {
           "lat": 10.162124633789062,
           "lon": -84.75373077392578,
           "ring": "outer",
           "time": "2026-08-20T09:08:38+00:00",
           "energy_j": 7.285121850410535e-15,
           "area_m2": 201739658.09375
+        },
+        {
+          "lat": 11.104286193847656,
+          "lon": -84.64659881591797,
+          "ring": "outer",
+          "time": "2026-08-20T21:30:37+00:00",
+          "energy_j": 2.8528400435184694e-13,
+          "area_m2": 945063315.109375
         }
       ]
     },
