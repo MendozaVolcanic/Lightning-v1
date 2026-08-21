@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-21T11:30:37.833426+00:00",
+  "scan_utc": "2026-08-21T11:35:29.706835+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
@@ -63,9 +63,18 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.7378,
+          "lon": -84.8513,
+          "ring": "outer",
+          "time": "2026-08-21T11:32:38Z",
+          "residual_us": 8.8,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -73,9 +82,18 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.7378,
+          "lon": -84.8513,
+          "ring": "outer",
+          "time": "2026-08-21T11:32:38Z",
+          "residual_us": 8.8,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
@@ -542,18 +560,10 @@
       "wwlln_id": "1005-04-",
       "lat": 44.08,
       "lon": 128.83,
-      "inner_strokes": 3,
-      "outer_strokes": 10,
+      "inner_strokes": 2,
+      "outer_strokes": 7,
       "alert": "YELLOW",
       "stroke_positions": [
-        {
-          "lat": 44.1207,
-          "lon": 128.8312,
-          "ring": "inner",
-          "time": "2026-08-21T10:31:17Z",
-          "residual_us": 12.7,
-          "stations": 6
-        },
         {
           "lat": 44.0685,
           "lon": 128.8105,
@@ -568,46 +578,6 @@
           "ring": "inner",
           "time": "2026-08-21T10:38:17Z",
           "residual_us": 16.9,
-          "stations": 5
-        },
-        {
-          "lat": 44.1001,
-          "lon": 128.5578,
-          "ring": "outer",
-          "time": "2026-08-21T10:30:34Z",
-          "residual_us": 15.5,
-          "stations": 8
-        },
-        {
-          "lat": 44.6373,
-          "lon": 128.7919,
-          "ring": "outer",
-          "time": "2026-08-21T10:30:47Z",
-          "residual_us": 4.5,
-          "stations": 9
-        },
-        {
-          "lat": 44.4936,
-          "lon": 128.5911,
-          "ring": "outer",
-          "time": "2026-08-21T10:32:32Z",
-          "residual_us": 18.3,
-          "stations": 5
-        },
-        {
-          "lat": 44.2874,
-          "lon": 128.939,
-          "ring": "outer",
-          "time": "2026-08-21T10:32:32Z",
-          "residual_us": 10.5,
-          "stations": 7
-        },
-        {
-          "lat": 44.3186,
-          "lon": 129.0225,
-          "ring": "outer",
-          "time": "2026-08-21T10:33:29Z",
-          "residual_us": 7.3,
           "stations": 5
         },
         {
@@ -672,6 +642,14 @@
           "ring": "outer",
           "time": "2026-08-21T11:26:30Z",
           "residual_us": 24.7,
+          "stations": 5
+        },
+        {
+          "lat": 44.2543,
+          "lon": 129.9206,
+          "ring": "outer",
+          "time": "2026-08-21T11:32:08Z",
+          "residual_us": 25.5,
           "stations": 5
         }
       ]
