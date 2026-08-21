@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-21T09:20:36.293893+00:00",
+  "scan_utc": "2026-08-21T09:25:32.724038+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -659,10 +659,18 @@
       "wwlln_id": "1005-04-",
       "lat": 44.08,
       "lon": 128.83,
-      "inner_strokes": 0,
-      "outer_strokes": 20,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 25,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 44.2036,
+          "lon": 128.6827,
+          "ring": "inner",
+          "time": "2026-08-21T09:23:48Z",
+          "residual_us": 6.2,
+          "stations": 5
+        },
         {
           "lat": 44.4847,
           "lon": 128.1643,
@@ -822,6 +830,54 @@
           "time": "2026-08-21T09:18:44Z",
           "residual_us": 22.5,
           "stations": 9
+        },
+        {
+          "lat": 44.1992,
+          "lon": 128.5626,
+          "ring": "outer",
+          "time": "2026-08-21T09:21:02Z",
+          "residual_us": 9.6,
+          "stations": 5
+        },
+        {
+          "lat": 44.1993,
+          "lon": 128.5667,
+          "ring": "outer",
+          "time": "2026-08-21T09:21:02Z",
+          "residual_us": 14.0,
+          "stations": 5
+        },
+        {
+          "lat": 44.8342,
+          "lon": 128.8696,
+          "ring": "outer",
+          "time": "2026-08-21T09:22:27Z",
+          "residual_us": 12.1,
+          "stations": 7
+        },
+        {
+          "lat": 44.8361,
+          "lon": 128.7547,
+          "ring": "outer",
+          "time": "2026-08-21T09:22:27Z",
+          "residual_us": 13.9,
+          "stations": 5
+        },
+        {
+          "lat": 43.5439,
+          "lon": 129.1557,
+          "ring": "outer",
+          "time": "2026-08-21T09:23:19Z",
+          "residual_us": 28.6,
+          "stations": 5
+        },
+        {
+          "lat": 44.2396,
+          "lon": 128.4293,
+          "ring": "outer",
+          "time": "2026-08-21T09:23:52Z",
+          "residual_us": 16.2,
+          "stations": 5
         }
       ]
     },
