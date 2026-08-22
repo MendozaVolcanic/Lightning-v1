@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-22T13:00:40.742911+00:00",
+  "scan_utc": "2026-08-22T13:05:30.895269+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 2,
   "yellow_alerts": 1,
-  "green_alerts": 56,
+  "green_alerts": 54,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -43,9 +43,18 @@
       "lat": 11.538,
       "lon": -85.622,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.9199,
+          "lon": -85.459,
+          "ring": "outer",
+          "time": "2026-08-22T13:02:23Z",
+          "residual_us": 25.7,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Maderas (NIC)",
@@ -53,29 +62,56 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 10.9199,
+          "lon": -85.459,
+          "ring": "outer",
+          "time": "2026-08-22T13:02:23Z",
+          "residual_us": 25.7,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Orosi (CRI)",
       "wwlln_id": "1405-01-",
       "lat": 10.98,
       "lon": -85.473,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 10.9199,
+          "lon": -85.459,
+          "ring": "inner",
+          "time": "2026-08-22T13:02:23Z",
+          "residual_us": 25.7,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
       "wwlln_id": "1405-02-",
       "lat": 10.83,
       "lon": -85.324,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 10.9199,
+          "lon": -85.459,
+          "ring": "inner",
+          "time": "2026-08-22T13:02:23Z",
+          "residual_us": 25.7,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
@@ -543,7 +579,7 @@
       "lat": 44.08,
       "lon": 128.83,
       "inner_strokes": 1,
-      "outer_strokes": 15,
+      "outer_strokes": 16,
       "alert": "YELLOW",
       "stroke_positions": [
         {
@@ -681,6 +717,14 @@
           "time": "2026-08-22T12:48:35Z",
           "residual_us": 10.3,
           "stations": 5
+        },
+        {
+          "lat": 43.464,
+          "lon": 128.0734,
+          "ring": "outer",
+          "time": "2026-08-22T13:01:26Z",
+          "residual_us": 9.4,
+          "stations": 6
         }
       ]
     },
