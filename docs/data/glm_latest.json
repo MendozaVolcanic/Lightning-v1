@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-25T02:32:18.851149+00:00",
+  "scan_utc": "2026-08-25T02:35:37.145111+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -152,10 +152,19 @@
       "wwlln_id": "1505-10-",
       "lat": -23.367,
       "lon": -67.736,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -23.291927337646484,
+          "lon": -67.70533752441406,
+          "ring": "inner",
+          "time": "2026-08-25T01:11:30+00:00",
+          "energy_j": 2.028506959328346e-14,
+          "area_m2": 277277578.484375
+        }
+      ]
     },
     {
       "volcano": "Tupungatito",
