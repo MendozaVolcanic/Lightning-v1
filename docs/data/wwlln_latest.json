@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-26T18:28:07.700614+00:00",
+  "scan_utc": "2026-08-26T18:30:38.399595+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -263,9 +263,18 @@
       "lat": -37.85,
       "lon": -71.17,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -38.5094,
+          "lon": -71.616,
+          "ring": "outer",
+          "time": "2026-08-26T18:26:27Z",
+          "residual_us": 4.5,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Callaqui",
@@ -273,19 +282,37 @@
       "lat": -37.92,
       "lon": -71.45,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -38.5094,
+          "lon": -71.616,
+          "ring": "outer",
+          "time": "2026-08-26T18:26:27Z",
+          "residual_us": 4.5,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Lonquimay",
       "wwlln_id": "1507-10-",
       "lat": -38.377,
       "lon": -71.58,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -38.5094,
+          "lon": -71.616,
+          "ring": "inner",
+          "time": "2026-08-26T18:26:27Z",
+          "residual_us": 4.5,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Llaima",
@@ -293,9 +320,18 @@
       "lat": -38.692,
       "lon": -71.729,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -38.5094,
+          "lon": -71.616,
+          "ring": "outer",
+          "time": "2026-08-26T18:26:27Z",
+          "residual_us": 4.5,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Sollipulli",
@@ -303,9 +339,18 @@
       "lat": -38.97,
       "lon": -71.52,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -38.5094,
+          "lon": -71.616,
+          "ring": "outer",
+          "time": "2026-08-26T18:26:27Z",
+          "residual_us": 4.5,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Villarrica",
@@ -523,17 +568,9 @@
       "lat": -41.1,
       "lon": -72.493,
       "inner_strokes": 0,
-      "outer_strokes": 16,
+      "outer_strokes": 15,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": -40.7235,
-          "lon": -73.5326,
-          "ring": "outer",
-          "time": "2026-08-26T17:26:17Z",
-          "residual_us": 16.3,
-          "stations": 11
-        },
         {
           "lat": -40.9577,
           "lon": -73.5601,
