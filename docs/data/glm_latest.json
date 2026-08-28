@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-28T08:30:44.952734+00:00",
+  "scan_utc": "2026-08-28T08:35:41.196969+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
@@ -73,9 +73,18 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 10.520552635192871,
+          "lon": -84.64209747314453,
+          "ring": "outer",
+          "time": "2026-08-28T04:01:11+00:00",
+          "energy_j": 1.1232806357770401e-12,
+          "area_m2": 2492293567.3125
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
@@ -498,7 +507,7 @@
       "wwlln_id": "1508-052",
       "lat": -44.081,
       "lon": -72.857,
-      "inner_flashes": 1,
+      "inner_flashes": 2,
       "outer_flashes": 0,
       "alert": "RED",
       "flash_positions": [
@@ -509,6 +518,14 @@
           "time": "2026-08-28T13:41:18+00:00",
           "energy_j": 3.830269754235272e-12,
           "area_m2": 1707614806.40625
+        },
+        {
+          "lat": -44.013038635253906,
+          "lon": -72.74095916748047,
+          "ring": "inner",
+          "time": "2026-08-28T00:11:48+00:00",
+          "energy_j": 1.3942795464169296e-12,
+          "area_m2": 1065923987.734375
         }
       ]
     },
@@ -518,7 +535,7 @@
       "lat": -44.7,
       "lon": -73.082,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
         {
@@ -528,6 +545,14 @@
           "time": "2026-08-28T13:41:18+00:00",
           "energy_j": 3.830269754235272e-12,
           "area_m2": 1707614806.40625
+        },
+        {
+          "lat": -44.013038635253906,
+          "lon": -72.74095916748047,
+          "ring": "outer",
+          "time": "2026-08-28T00:11:48+00:00",
+          "energy_j": 1.3942795464169296e-12,
+          "area_m2": 1065923987.734375
         }
       ]
     },
