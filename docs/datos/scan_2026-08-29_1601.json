@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-15T16:01:00.422889+00:00",
+  "scan_utc": "2026-08-29T16:01:09.257481+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-15T16:00:34.735927+00:00",
+      "scan_utc": "2026-08-29T16:00:42.071214+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-15T16:00:36.147662+00:00",
+      "scan_utc": "2026-08-29T16:00:44.209074+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -627,9 +627,26 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -37.8159,
+              "lon": -72.4269,
+              "ring": "outer",
+              "time": "2026-08-29T15:26:57Z",
+              "residual_us": 6.2,
+              "stations": 6
+            },
+            {
+              "lat": -37.8957,
+              "lon": -72.3931,
+              "ring": "outer",
+              "time": "2026-08-29T15:28:17Z",
+              "residual_us": 6.8,
+              "stations": 6
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -650,9 +667,26 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 2,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -37.8159,
+              "lon": -72.4269,
+              "ring": "outer",
+              "time": "2026-08-29T15:26:57Z",
+              "residual_us": 6.2,
+              "stations": 6
+            },
+            {
+              "lat": -37.8957,
+              "lon": -72.3931,
+              "ring": "outer",
+              "time": "2026-08-29T15:28:17Z",
+              "residual_us": 6.8,
+              "stations": 6
+            }
+          ]
         },
         "glm": {
           "available": true,
