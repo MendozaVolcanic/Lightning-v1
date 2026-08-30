@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-08-30T02:50:36.059920+00:00",
+  "scan_utc": "2026-08-30T02:55:35.124146+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -542,10 +542,18 @@
       "wwlln_id": "1005-04-",
       "lat": 44.08,
       "lon": 128.83,
-      "inner_strokes": 0,
-      "outer_strokes": 3,
-      "alert": "GREEN",
+      "inner_strokes": 1,
+      "outer_strokes": 2,
+      "alert": "YELLOW",
       "stroke_positions": [
+        {
+          "lat": 44.2153,
+          "lon": 128.9338,
+          "ring": "inner",
+          "time": "2026-08-30T02:53:05Z",
+          "residual_us": 23.8,
+          "stations": 7
+        },
         {
           "lat": 44.3112,
           "lon": 128.9342,
