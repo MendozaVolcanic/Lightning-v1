@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-08-18T15:06:20.661453+00:00",
+  "scan_utc": "2026-09-01T15:06:13.315352+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 1,
-  "green_alerts": 56,
+  "yellow_alerts": 0,
+  "green_alerts": 57,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-18T15:05:54.554841+00:00",
+      "scan_utc": "2026-09-01T15:05:47.301232+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-18T15:05:55.977375+00:00",
+      "scan_utc": "2026-09-01T15:05:49.062199+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -105,18 +105,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 11.121907234191895,
-              "lon": -85.48414611816406,
-              "ring": "outer",
-              "time": "2026-08-18T08:10:13+00:00",
-              "energy_j": 6.285125870189541e-15,
-              "area_m2": 67755225.5625
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -137,18 +128,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 11.121907234191895,
-              "lon": -85.48414611816406,
-              "ring": "outer",
-              "time": "2026-08-18T08:10:13+00:00",
-              "energy_j": 6.285125870189541e-15,
-              "area_m2": 67755225.5625
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -157,7 +139,7 @@
       "wwlln_id": "1405-01-",
       "lat": 10.98,
       "lon": -85.473,
-      "alert": "YELLOW",
+      "alert": "GREEN",
       "sources": {
         "wwlln": {
           "available": true,
@@ -168,17 +150,25 @@
         },
         "glm": {
           "available": true,
-          "inner": 1,
-          "outer": 0,
-          "alert": "RED",
+          "inner": 0,
+          "outer": 2,
+          "alert": "GREEN",
           "positions": [
             {
-              "lat": 11.121907234191895,
-              "lon": -85.48414611816406,
-              "ring": "inner",
-              "time": "2026-08-18T08:10:13+00:00",
-              "energy_j": 6.285125870189541e-15,
-              "area_m2": 67755225.5625
+              "lat": 10.886523246765137,
+              "lon": -84.6896743774414,
+              "ring": "outer",
+              "time": "2026-09-01T19:30:32+00:00",
+              "energy_j": 2.3285057533946443e-14,
+              "area_m2": 202350065.53125
+            },
+            {
+              "lat": 10.877822875976562,
+              "lon": -84.69164276123047,
+              "ring": "outer",
+              "time": "2026-09-01T20:29:38+00:00",
+              "energy_j": 8.28511783063153e-15,
+              "area_m2": 134900043.6875
             }
           ]
         }
@@ -201,16 +191,24 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 2,
           "alert": "GREEN",
           "positions": [
             {
-              "lat": 11.121907234191895,
-              "lon": -85.48414611816406,
+              "lat": 10.886523246765137,
+              "lon": -84.6896743774414,
               "ring": "outer",
-              "time": "2026-08-18T08:10:13+00:00",
-              "energy_j": 6.285125870189541e-15,
-              "area_m2": 67755225.5625
+              "time": "2026-09-01T19:30:32+00:00",
+              "energy_j": 2.3285057533946443e-14,
+              "area_m2": 202350065.53125
+            },
+            {
+              "lat": 10.877822875976562,
+              "lon": -84.69164276123047,
+              "ring": "outer",
+              "time": "2026-09-01T20:29:38+00:00",
+              "energy_j": 8.28511783063153e-15,
+              "area_m2": 134900043.6875
             }
           ]
         }
