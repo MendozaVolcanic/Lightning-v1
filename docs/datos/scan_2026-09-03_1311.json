@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-20T13:11:04.399262+00:00",
+  "scan_utc": "2026-09-03T13:11:27.485999+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-20T13:10:34.062321+00:00",
+      "scan_utc": "2026-09-03T13:10:55.978343+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-20T13:10:35.940997+00:00",
+      "scan_utc": "2026-09-03T13:10:57.527180+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -144,9 +144,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.4901,
+              "lon": -84.7287,
+              "ring": "outer",
+              "time": "2026-09-03T12:48:60Z",
+              "residual_us": 6.8,
+              "stations": 6
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -167,25 +176,25 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
-          "alert": "GREEN",
-          "positions": []
-        },
-        "glm": {
-          "available": true,
-          "inner": 0,
           "outer": 1,
           "alert": "GREEN",
           "positions": [
             {
-              "lat": 10.324955940246582,
-              "lon": -84.65206909179688,
+              "lat": 10.4901,
+              "lon": -84.7287,
               "ring": "outer",
-              "time": "2026-08-20T16:20:54+00:00",
-              "energy_j": 5.322830114664325e-13,
-              "area_m2": 1815962126.5625
+              "time": "2026-09-03T12:48:60Z",
+              "residual_us": 6.8,
+              "stations": 6
             }
           ]
+        },
+        "glm": {
+          "available": true,
+          "inner": 0,
+          "outer": 0,
+          "alert": "GREEN",
+          "positions": []
         }
       }
     },
