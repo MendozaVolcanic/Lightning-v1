@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-09-06T10:50:48.810389+00:00",
+  "scan_utc": "2026-09-06T10:55:45.472934+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -43,9 +43,18 @@
       "lat": 11.538,
       "lon": -85.622,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 11.047292709350586,
+          "lon": -85.62815856933594,
+          "ring": "outer",
+          "time": "2026-09-06T05:40:32+00:00",
+          "energy_j": 3.6728367472996847e-13,
+          "area_m2": 813673114.1875
+        }
+      ]
     },
     {
       "volcano": "Maderas (NIC)",
@@ -53,19 +62,37 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 11.047292709350586,
+          "lon": -85.62815856933594,
+          "ring": "outer",
+          "time": "2026-09-06T05:40:32+00:00",
+          "energy_j": 3.6728367472996847e-13,
+          "area_m2": 813673114.1875
+        }
+      ]
     },
     {
       "volcano": "Orosi (CRI)",
       "wwlln_id": "1405-01-",
       "lat": 10.98,
       "lon": -85.473,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": 11.047292709350586,
+          "lon": -85.62815856933594,
+          "ring": "inner",
+          "time": "2026-09-06T05:40:32+00:00",
+          "energy_j": 3.6728367472996847e-13,
+          "area_m2": 813673114.1875
+        }
+      ]
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -73,9 +100,18 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": 11.047292709350586,
+          "lon": -85.62815856933594,
+          "ring": "outer",
+          "time": "2026-09-06T05:40:32+00:00",
+          "energy_j": 3.6728367472996847e-13,
+          "area_m2": 813673114.1875
+        }
+      ]
     },
     {
       "volcano": "Taapaca",
