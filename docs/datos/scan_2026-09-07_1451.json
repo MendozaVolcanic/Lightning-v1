@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-08-24T14:51:00.592854+00:00",
+  "scan_utc": "2026-09-07T14:51:22.372100+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 1,
-  "green_alerts": 56,
+  "yellow_alerts": 0,
+  "green_alerts": 57,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-08-24T14:50:35.192026+00:00",
+      "scan_utc": "2026-09-07T14:50:51.592864+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-08-24T14:50:36.485744+00:00",
+      "scan_utc": "2026-09-07T14:50:53.030347+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -174,18 +174,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 11.336304664611816,
-              "lon": -84.5765380859375,
-              "ring": "outer",
-              "time": "2026-08-24T06:22:43+00:00",
-              "energy_j": 4.285133909747552e-15,
-              "area_m2": 67602623.703125
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -355,7 +346,7 @@
       "wwlln_id": "1505-10-",
       "lat": -23.37,
       "lon": -67.73,
-      "alert": "YELLOW",
+      "alert": "GREEN",
       "sources": {
         "wwlln": {
           "available": true,
@@ -366,19 +357,10 @@
         },
         "glm": {
           "available": true,
-          "inner": 1,
+          "inner": 0,
           "outer": 0,
-          "alert": "RED",
-          "positions": [
-            {
-              "lat": -23.368913650512695,
-              "lon": -67.77584838867188,
-              "ring": "inner",
-              "time": "2026-08-24T08:39:17+00:00",
-              "energy_j": 9.028478820875306e-14,
-              "area_m2": 208148936.1875
-            }
-          ]
+          "alert": "GREEN",
+          "positions": []
         }
       }
     },
@@ -1335,74 +1317,9 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 8,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -8.7913,
-              "lon": 158.8152,
-              "ring": "outer",
-              "time": "2026-08-24T14:07:35Z",
-              "residual_us": 13.4,
-              "stations": 9
-            },
-            {
-              "lat": -8.8018,
-              "lon": 158.8304,
-              "ring": "outer",
-              "time": "2026-08-24T14:07:35Z",
-              "residual_us": 17.1,
-              "stations": 9
-            },
-            {
-              "lat": -8.63,
-              "lon": 158.7173,
-              "ring": "outer",
-              "time": "2026-08-24T14:07:35Z",
-              "residual_us": 2.9,
-              "stations": 5
-            },
-            {
-              "lat": -8.7085,
-              "lon": 158.7623,
-              "ring": "outer",
-              "time": "2026-08-24T14:08:23Z",
-              "residual_us": 9.4,
-              "stations": 6
-            },
-            {
-              "lat": -8.6934,
-              "lon": 158.7379,
-              "ring": "outer",
-              "time": "2026-08-24T14:13:48Z",
-              "residual_us": 10.5,
-              "stations": 7
-            },
-            {
-              "lat": -8.7383,
-              "lon": 158.776,
-              "ring": "outer",
-              "time": "2026-08-24T14:13:48Z",
-              "residual_us": 9.8,
-              "stations": 7
-            },
-            {
-              "lat": -8.6898,
-              "lon": 158.7221,
-              "ring": "outer",
-              "time": "2026-08-24T14:21:59Z",
-              "residual_us": 14.9,
-              "stations": 8
-            },
-            {
-              "lat": -8.7497,
-              "lon": 158.8022,
-              "ring": "outer",
-              "time": "2026-08-24T14:23:30Z",
-              "residual_us": 13.2,
-              "stations": 7
-            }
-          ]
+          "positions": []
         },
         "glm": {
           "available": true,
