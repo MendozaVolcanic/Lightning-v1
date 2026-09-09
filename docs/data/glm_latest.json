@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-09-09T19:30:55.998392+00:00",
+  "scan_utc": "2026-09-09T19:35:55.564960+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 2,
+  "green_alerts": 55,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,26 +13,9 @@
       "lat": 14.501,
       "lon": -90.876,
       "inner_flashes": 0,
-      "outer_flashes": 2,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 14.966753959655762,
-          "lon": -90.18952178955078,
-          "ring": "outer",
-          "time": "2026-09-10T03:36:27+00:00",
-          "energy_j": 1.1285105771294512e-14,
-          "area_m2": 142530136.65625
-        },
-        {
-          "lat": 14.97246265411377,
-          "lon": -90.25862884521484,
-          "ring": "outer",
-          "time": "2026-09-10T02:05:27+00:00",
-          "energy_j": 1.6428449074510664e-13,
-          "area_m2": 427743011.828125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Fuego",
@@ -40,26 +23,9 @@
       "lat": 14.473,
       "lon": -90.881,
       "inner_flashes": 0,
-      "outer_flashes": 2,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 14.966753959655762,
-          "lon": -90.18952178955078,
-          "ring": "outer",
-          "time": "2026-09-10T03:36:27+00:00",
-          "energy_j": 1.1285105771294512e-14,
-          "area_m2": 142530136.65625
-        },
-        {
-          "lat": 14.97246265411377,
-          "lon": -90.25862884521484,
-          "ring": "outer",
-          "time": "2026-09-10T02:05:27+00:00",
-          "energy_j": 1.6428449074510664e-13,
-          "area_m2": 427743011.828125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Agua",
@@ -67,26 +33,9 @@
       "lat": 14.466,
       "lon": -90.743,
       "inner_flashes": 0,
-      "outer_flashes": 2,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 14.966753959655762,
-          "lon": -90.18952178955078,
-          "ring": "outer",
-          "time": "2026-09-10T03:36:27+00:00",
-          "energy_j": 1.1285105771294512e-14,
-          "area_m2": 142530136.65625
-        },
-        {
-          "lat": 14.97246265411377,
-          "lon": -90.25862884521484,
-          "ring": "outer",
-          "time": "2026-09-10T02:05:27+00:00",
-          "energy_j": 1.6428449074510664e-13,
-          "area_m2": 427743011.828125
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Concepcion (NIC)",
@@ -114,18 +63,9 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 10.433989524841309,
-          "lon": -84.77224731445312,
-          "ring": "outer",
-          "time": "2026-09-09T11:34:57+00:00",
-          "energy_j": 1.9285073613062466e-14,
-          "area_m2": 67297419.984375
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -133,38 +73,63 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": 10.433989524841309,
-          "lon": -84.77224731445312,
-          "ring": "outer",
-          "time": "2026-09-09T11:34:57+00:00",
-          "energy_j": 1.9285073613062466e-14,
-          "area_m2": 67297419.984375
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Taapaca",
       "wwlln_id": "1505-011",
       "lat": -18.109,
       "lon": -69.506,
-      "inner_flashes": 0,
-      "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "inner_flashes": 1,
+      "outer_flashes": 1,
+      "alert": "YELLOW",
+      "flash_positions": [
+        {
+          "lat": -18.08123207092285,
+          "lon": -69.52545166015625,
+          "ring": "inner",
+          "time": "2026-09-09T14:23:56+00:00",
+          "energy_j": 9.285113810852524e-15,
+          "area_m2": 70044253.453125
+        },
+        {
+          "lat": -18.085603713989258,
+          "lon": -69.1397705078125,
+          "ring": "outer",
+          "time": "2026-09-09T12:45:47+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 70196855.3125
+        }
+      ]
     },
     {
       "volcano": "Parinacota",
       "wwlln_id": "1505-012",
       "lat": -18.171,
       "lon": -69.145,
-      "inner_flashes": 0,
-      "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "inner_flashes": 1,
+      "outer_flashes": 1,
+      "alert": "YELLOW",
+      "flash_positions": [
+        {
+          "lat": -18.08123207092285,
+          "lon": -69.52545166015625,
+          "ring": "outer",
+          "time": "2026-09-09T14:23:56+00:00",
+          "energy_j": 9.285113810852524e-15,
+          "area_m2": 70044253.453125
+        },
+        {
+          "lat": -18.085603713989258,
+          "lon": -69.1397705078125,
+          "ring": "inner",
+          "time": "2026-09-09T12:45:47+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 70196855.3125
+        }
+      ]
     },
     {
       "volcano": "Guallatiri",
@@ -172,9 +137,26 @@
       "lat": -18.428,
       "lon": -69.085,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 2,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -18.08123207092285,
+          "lon": -69.52545166015625,
+          "ring": "outer",
+          "time": "2026-09-09T14:23:56+00:00",
+          "energy_j": 9.285113810852524e-15,
+          "area_m2": 70044253.453125
+        },
+        {
+          "lat": -18.085603713989258,
+          "lon": -69.1397705078125,
+          "ring": "outer",
+          "time": "2026-09-09T12:45:47+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 70196855.3125
+        }
+      ]
     },
     {
       "volcano": "Isluga",
@@ -252,18 +234,9 @@
       "lat": -34.808,
       "lon": -70.349,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -34.61540222167969,
-          "lon": -70.50778198242188,
-          "ring": "outer",
-          "time": "2026-09-10T03:16:47+00:00",
-          "energy_j": 4.428497311858732e-14,
-          "area_m2": 349153054.25
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Planchon-Peteroa",
@@ -271,18 +244,9 @@
       "lat": -35.242,
       "lon": -70.572,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -34.61540222167969,
-          "lon": -70.50778198242188,
-          "ring": "outer",
-          "time": "2026-09-10T03:16:47+00:00",
-          "energy_j": 4.428497311858732e-14,
-          "area_m2": 349153054.25
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Descabezado Grande",
