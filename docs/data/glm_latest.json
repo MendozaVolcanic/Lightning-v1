@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-09-10T18:20:50.453774+00:00",
+  "scan_utc": "2026-09-10T18:23:17.788039+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -83,19 +83,37 @@
       "lat": -18.109,
       "lon": -69.506,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -18.083938598632812,
+          "lon": -69.29560089111328,
+          "ring": "outer",
+          "time": "2026-09-11T03:02:42+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 70044253.453125
+        }
+      ]
     },
     {
       "volcano": "Parinacota",
       "wwlln_id": "1505-012",
       "lat": -18.171,
       "lon": -69.145,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -18.083938598632812,
+          "lon": -69.29560089111328,
+          "ring": "inner",
+          "time": "2026-09-11T03:02:42+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 70044253.453125
+        }
+      ]
     },
     {
       "volcano": "Guallatiri",
@@ -103,9 +121,18 @@
       "lat": -18.428,
       "lon": -69.085,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -18.083938598632812,
+          "lon": -69.29560089111328,
+          "ring": "outer",
+          "time": "2026-09-11T03:02:42+00:00",
+          "energy_j": 2.2851419493055637e-15,
+          "area_m2": 70044253.453125
+        }
+      ]
     },
     {
       "volcano": "Isluga",
