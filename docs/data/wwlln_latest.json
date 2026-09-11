@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-09-11T08:50:54.918229+00:00",
+  "scan_utc": "2026-09-11T08:55:50.384466+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -726,17 +726,9 @@
       "lat": 11.446,
       "lon": -85.515,
       "inner_strokes": 0,
-      "outer_strokes": 90,
+      "outer_strokes": 89,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 11.0261,
-          "lon": -84.8112,
-          "ring": "outer",
-          "time": "2026-09-11T07:49:07Z",
-          "residual_us": 24.0,
-          "stations": 6
-        },
         {
           "lat": 11.0758,
           "lon": -84.9579,
@@ -1457,41 +1449,9 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_strokes": 0,
-      "outer_strokes": 94,
+      "outer_strokes": 90,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 11.1258,
-          "lon": -84.5802,
-          "ring": "outer",
-          "time": "2026-09-11T07:49:07Z",
-          "residual_us": 12.6,
-          "stations": 9
-        },
-        {
-          "lat": 11.0261,
-          "lon": -84.8112,
-          "ring": "outer",
-          "time": "2026-09-11T07:49:07Z",
-          "residual_us": 24.0,
-          "stations": 6
-        },
-        {
-          "lat": 11.1031,
-          "lon": -84.6288,
-          "ring": "outer",
-          "time": "2026-09-11T07:51:17Z",
-          "residual_us": 8.8,
-          "stations": 15
-        },
-        {
-          "lat": 11.0785,
-          "lon": -84.6287,
-          "ring": "outer",
-          "time": "2026-09-11T07:51:17Z",
-          "residual_us": 8.6,
-          "stations": 9
-        },
         {
           "lat": 11.0758,
           "lon": -84.9579,
@@ -2220,49 +2180,9 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_strokes": 0,
-      "outer_strokes": 95,
+      "outer_strokes": 90,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 11.1621,
-          "lon": -84.5712,
-          "ring": "outer",
-          "time": "2026-09-11T07:49:07Z",
-          "residual_us": 5.2,
-          "stations": 8
-        },
-        {
-          "lat": 11.1258,
-          "lon": -84.5802,
-          "ring": "outer",
-          "time": "2026-09-11T07:49:07Z",
-          "residual_us": 12.6,
-          "stations": 9
-        },
-        {
-          "lat": 11.0261,
-          "lon": -84.8112,
-          "ring": "outer",
-          "time": "2026-09-11T07:49:07Z",
-          "residual_us": 24.0,
-          "stations": 6
-        },
-        {
-          "lat": 11.1031,
-          "lon": -84.6288,
-          "ring": "outer",
-          "time": "2026-09-11T07:51:17Z",
-          "residual_us": 8.8,
-          "stations": 15
-        },
-        {
-          "lat": 11.0785,
-          "lon": -84.6287,
-          "ring": "outer",
-          "time": "2026-09-11T07:51:17Z",
-          "residual_us": 8.6,
-          "stations": 9
-        },
         {
           "lat": 11.0758,
           "lon": -84.9579,
@@ -3091,19 +3011,37 @@
       "lat": -34.814,
       "lon": -70.352,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -35.1448,
+          "lon": -70.6848,
+          "ring": "outer",
+          "time": "2026-09-11T08:53:58Z",
+          "residual_us": 28.4,
+          "stations": 12
+        }
+      ]
     },
     {
       "volcano": "Planchon-Peteroa",
       "wwlln_id": "1507-04-",
       "lat": -35.24,
       "lon": -70.57,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -35.1448,
+          "lon": -70.6848,
+          "ring": "inner",
+          "time": "2026-09-11T08:53:58Z",
+          "residual_us": 28.4,
+          "stations": 12
+        }
+      ]
     },
     {
       "volcano": "Descabezado Grande",
@@ -3111,9 +3049,18 @@
       "lat": -35.58,
       "lon": -70.75,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -35.1448,
+          "lon": -70.6848,
+          "ring": "outer",
+          "time": "2026-09-11T08:53:58Z",
+          "residual_us": 28.4,
+          "stations": 12
+        }
+      ]
     },
     {
       "volcano": "Tatara-San Pedro",
@@ -3121,9 +3068,18 @@
       "lat": -35.989,
       "lon": -70.849,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -35.1448,
+          "lon": -70.6848,
+          "ring": "outer",
+          "time": "2026-09-11T08:53:58Z",
+          "residual_us": 28.4,
+          "stations": 12
+        }
+      ]
     },
     {
       "volcano": "Laguna del Maule",
@@ -3131,9 +3087,18 @@
       "lat": -36.02,
       "lon": -70.58,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -35.1448,
+          "lon": -70.6848,
+          "ring": "outer",
+          "time": "2026-09-11T08:53:58Z",
+          "residual_us": 28.4,
+          "stations": 12
+        }
+      ]
     },
     {
       "volcano": "Nevado de Longavi",
