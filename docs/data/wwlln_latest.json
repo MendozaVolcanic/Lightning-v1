@@ -1,10 +1,10 @@
 {
-  "scan_utc": "2026-09-13T08:05:49.963241+00:00",
+  "scan_utc": "2026-09-13T08:10:44.573194+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 1,
-  "yellow_alerts": 0,
+  "red_alerts": 0,
+  "yellow_alerts": 1,
   "green_alerts": 56,
   "volcanoes": [
     {
@@ -578,8 +578,8 @@
       "lat": 44.08,
       "lon": 128.83,
       "inner_strokes": 1,
-      "outer_strokes": 0,
-      "alert": "RED",
+      "outer_strokes": 1,
+      "alert": "YELLOW",
       "stroke_positions": [
         {
           "lat": 44.0443,
@@ -596,6 +596,14 @@
           "time": "2026-09-13T07:59:13Z",
           "residual_us": 8.6,
           "stations": 6
+        },
+        {
+          "lat": 44.0236,
+          "lon": 129.9921,
+          "ring": "outer",
+          "time": "2026-09-13T08:08:54Z",
+          "residual_us": 20.4,
+          "stations": 12
         }
       ]
     },
