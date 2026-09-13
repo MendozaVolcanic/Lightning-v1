@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-09-13T07:15:44.544095+00:00",
+  "scan_utc": "2026-09-13T07:20:44.873529+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
@@ -13,9 +13,18 @@
       "lat": 14.473,
       "lon": -90.88,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.3287,
+          "lon": -91.6611,
+          "ring": "outer",
+          "time": "2026-09-13T07:14:58Z",
+          "residual_us": 13.5,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -543,17 +552,9 @@
       "lat": 44.08,
       "lon": 128.83,
       "inner_strokes": 0,
-      "outer_strokes": 3,
+      "outer_strokes": 2,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 44.5212,
-          "lon": 129.2602,
-          "ring": "outer",
-          "time": "2026-09-13T06:17:21Z",
-          "residual_us": 8.0,
-          "stations": 7
-        },
         {
           "lat": 43.5309,
           "lon": 128.0341,
