@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-09-13T07:56:20.869720+00:00",
+  "scan_utc": "2026-09-13T08:00:50.750125+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -577,10 +577,19 @@
       "wwlln_id": "1005-04-",
       "lat": 44.08,
       "lon": 128.83,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 44.0443,
+          "lon": 129.0609,
+          "ring": "inner",
+          "time": "2026-09-13T07:55:12Z",
+          "residual_us": 5.9,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Kishb Harrat (SAU)",
