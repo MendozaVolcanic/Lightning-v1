@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-09-18T08:45:36.541990+00:00",
+  "scan_utc": "2026-09-18T08:50:37.819619+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -82,10 +82,27 @@
       "wwlln_id": "1505-011",
       "lat": -18.1,
       "lon": -69.5,
-      "inner_strokes": 0,
+      "inner_strokes": 2,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -17.9817,
+          "lon": -69.4177,
+          "ring": "inner",
+          "time": "2026-09-18T08:47:56Z",
+          "residual_us": 19.3,
+          "stations": 10
+        },
+        {
+          "lat": -18.0066,
+          "lon": -69.502,
+          "ring": "inner",
+          "time": "2026-09-18T08:47:56Z",
+          "residual_us": 17.5,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Parinacota",
@@ -93,9 +110,26 @@
       "lat": -18.17,
       "lon": -69.15,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 2,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -17.9817,
+          "lon": -69.4177,
+          "ring": "outer",
+          "time": "2026-09-18T08:47:56Z",
+          "residual_us": 19.3,
+          "stations": 10
+        },
+        {
+          "lat": -18.0066,
+          "lon": -69.502,
+          "ring": "outer",
+          "time": "2026-09-18T08:47:56Z",
+          "residual_us": 17.5,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Guallatiri",
@@ -103,9 +137,26 @@
       "lat": -18.42,
       "lon": -69.092,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 2,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -17.9817,
+          "lon": -69.4177,
+          "ring": "outer",
+          "time": "2026-09-18T08:47:56Z",
+          "residual_us": 19.3,
+          "stations": 10
+        },
+        {
+          "lat": -18.0066,
+          "lon": -69.502,
+          "ring": "outer",
+          "time": "2026-09-18T08:47:56Z",
+          "residual_us": 17.5,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Isluga",
