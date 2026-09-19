@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-09-19T05:51:10.928278+00:00",
+  "scan_utc": "2026-09-19T05:56:06.560962+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 1,
-  "green_alerts": 56,
+  "yellow_alerts": 0,
+  "green_alerts": 57,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-09-19T05:50:40.938758+00:00",
+      "scan_utc": "2026-09-19T05:55:36.076904+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-09-19T05:50:42.258257+00:00",
+      "scan_utc": "2026-09-19T05:55:37.871541+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -433,7 +433,7 @@
       "wwlln_id": "1507-03-",
       "lat": -34.814,
       "lon": -70.352,
-      "alert": "YELLOW",
+      "alert": "GREEN",
       "sources": {
         "wwlln": {
           "available": true,
@@ -444,18 +444,10 @@
         },
         "glm": {
           "available": true,
-          "inner": 1,
+          "inner": 0,
           "outer": 1,
-          "alert": "YELLOW",
+          "alert": "GREEN",
           "positions": [
-            {
-              "lat": -34.63964080810547,
-              "lon": -70.27774047851562,
-              "ring": "inner",
-              "time": "2026-09-19T04:10:40+00:00",
-              "energy_j": 1.7285081652620478e-14,
-              "area_m2": 139630701.328125
-            },
             {
               "lat": -34.15766906738281,
               "lon": -69.97216033935547,
@@ -485,18 +477,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -34.63964080810547,
-              "lon": -70.27774047851562,
-              "ring": "outer",
-              "time": "2026-09-19T04:10:40+00:00",
-              "energy_j": 1.7285081652620478e-14,
-              "area_m2": 139630701.328125
-            }
-          ]
+          "positions": []
         }
       }
     },
