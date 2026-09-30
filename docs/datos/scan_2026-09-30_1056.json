@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-09-16T10:55:48.803630+00:00",
+  "scan_utc": "2026-09-30T10:56:02.910394+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-09-16T10:55:36.106354+00:00",
+      "scan_utc": "2026-09-30T10:55:41.824596+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-09-16T10:55:37.133217+00:00",
+      "scan_utc": "2026-09-30T10:55:43.466904+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -29,9 +29,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.9951,
+              "lon": -91.5028,
+              "ring": "outer",
+              "time": "2026-09-30T10:02:08Z",
+              "residual_us": 13.4,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -52,9 +61,18 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.9951,
+              "lon": -91.5028,
+              "ring": "outer",
+              "time": "2026-09-30T10:02:08Z",
+              "residual_us": 13.4,
+              "stations": 5
+            }
+          ]
         },
         "glm": {
           "available": true,
@@ -75,9 +93,42 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 4,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 13.483,
+              "lon": -90.1294,
+              "ring": "outer",
+              "time": "2026-09-30T09:55:32Z",
+              "residual_us": 4.3,
+              "stations": 6
+            },
+            {
+              "lat": 13.4766,
+              "lon": -90.1253,
+              "ring": "outer",
+              "time": "2026-09-30T09:55:32Z",
+              "residual_us": 21.6,
+              "stations": 10
+            },
+            {
+              "lat": 13.561,
+              "lon": -90.6117,
+              "ring": "outer",
+              "time": "2026-09-30T09:55:32Z",
+              "residual_us": 11.8,
+              "stations": 7
+            },
+            {
+              "lat": 13.4682,
+              "lon": -90.137,
+              "ring": "outer",
+              "time": "2026-09-30T09:58:15Z",
+              "residual_us": 10.9,
+              "stations": 11
+            }
+          ]
         },
         "glm": {
           "available": true,
