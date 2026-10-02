@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-02T14:45:58.226550+00:00",
+  "scan_utc": "2026-10-02T14:50:49.062113+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -189,10 +189,27 @@
       "wwlln_id": "1507-01-",
       "lat": -33.408,
       "lon": -69.822,
-      "inner_flashes": 0,
-      "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "inner_flashes": 1,
+      "outer_flashes": 1,
+      "alert": "YELLOW",
+      "flash_positions": [
+        {
+          "lat": -33.46634292602539,
+          "lon": -69.88678741455078,
+          "ring": "inner",
+          "time": "2026-10-02T11:07:31+00:00",
+          "energy_j": 7.428485252521715e-14,
+          "area_m2": 272394318.984375
+        },
+        {
+          "lat": -33.74037170410156,
+          "lon": -69.54502868652344,
+          "ring": "outer",
+          "time": "2026-10-02T21:11:27+00:00",
+          "energy_j": 4.128498517792434e-14,
+          "area_m2": 273767735.71875
+        }
+      ]
     },
     {
       "volcano": "San Jose",
@@ -200,9 +217,26 @@
       "lat": -33.787,
       "lon": -69.897,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 2,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -33.46634292602539,
+          "lon": -69.88678741455078,
+          "ring": "outer",
+          "time": "2026-10-02T11:07:31+00:00",
+          "energy_j": 7.428485252521715e-14,
+          "area_m2": 272394318.984375
+        },
+        {
+          "lat": -33.74037170410156,
+          "lon": -69.54502868652344,
+          "ring": "outer",
+          "time": "2026-10-02T21:11:27+00:00",
+          "energy_j": 4.128498517792434e-14,
+          "area_m2": 273767735.71875
+        }
+      ]
     },
     {
       "volcano": "Tinguiririca",
