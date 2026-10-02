@@ -1,10 +1,10 @@
 {
-  "scan_utc": "2026-10-02T14:50:47.714719+00:00",
+  "scan_utc": "2026-10-02T14:55:47.702207+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
-  "yellow_alerts": 1,
+  "red_alerts": 1,
+  "yellow_alerts": 0,
   "green_alerts": 56,
   "volcanoes": [
     {
@@ -33,7 +33,7 @@
       "lat": 14.33,
       "lon": -90.4,
       "inner_strokes": 0,
-      "outer_strokes": 2,
+      "outer_strokes": 3,
       "alert": "GREEN",
       "stroke_positions": [
         {
@@ -51,6 +51,14 @@
           "time": "2026-10-02T14:46:00Z",
           "residual_us": 12.9,
           "stations": 10
+        },
+        {
+          "lat": 13.5185,
+          "lon": -90.2795,
+          "ring": "outer",
+          "time": "2026-10-02T14:53:13Z",
+          "residual_us": 5.4,
+          "stations": 6
         }
       ]
     },
@@ -180,17 +188,9 @@
       "lat": -33.4,
       "lon": -69.8,
       "inner_strokes": 0,
-      "outer_strokes": 4,
+      "outer_strokes": 3,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": -33.6722,
-          "lon": -70.0121,
-          "ring": "outer",
-          "time": "2026-10-02T13:50:44Z",
-          "residual_us": 7.5,
-          "stations": 6
-        },
         {
           "lat": -33.9443,
           "lon": -69.7405,
@@ -222,18 +222,10 @@
       "wwlln_id": "1507-02-",
       "lat": -33.782,
       "lon": -69.897,
-      "inner_strokes": 1,
-      "outer_strokes": 2,
-      "alert": "YELLOW",
+      "inner_strokes": 0,
+      "outer_strokes": 3,
+      "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": -33.6722,
-          "lon": -70.0121,
-          "ring": "inner",
-          "time": "2026-10-02T13:50:44Z",
-          "residual_us": 7.5,
-          "stations": 6
-        },
         {
           "lat": -33.9443,
           "lon": -69.7405,
@@ -506,9 +498,50 @@
       "lat": -42.377,
       "lon": -72.578,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 5,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -43.1452,
+          "lon": -72.6191,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 16.6,
+          "stations": 7
+        },
+        {
+          "lat": -43.1532,
+          "lon": -72.4932,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.1,
+          "stations": 5
+        },
+        {
+          "lat": -43.1584,
+          "lon": -72.5056,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 0.4,
+          "stations": 6
+        },
+        {
+          "lat": -43.1589,
+          "lon": -72.4892,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.8,
+          "stations": 5
+        },
+        {
+          "lat": -43.1583,
+          "lon": -72.6034,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 14.7,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Michinmahuida",
@@ -516,9 +549,50 @@
       "lat": -42.793,
       "lon": -72.439,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 5,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -43.1452,
+          "lon": -72.6191,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 16.6,
+          "stations": 7
+        },
+        {
+          "lat": -43.1532,
+          "lon": -72.4932,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.1,
+          "stations": 5
+        },
+        {
+          "lat": -43.1584,
+          "lon": -72.5056,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 0.4,
+          "stations": 6
+        },
+        {
+          "lat": -43.1589,
+          "lon": -72.4892,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.8,
+          "stations": 5
+        },
+        {
+          "lat": -43.1583,
+          "lon": -72.6034,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 14.7,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Chaiten",
@@ -526,26 +600,99 @@
       "lat": -42.833,
       "lon": -72.646,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 5,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -43.1452,
+          "lon": -72.6191,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 16.6,
+          "stations": 7
+        },
+        {
+          "lat": -43.1532,
+          "lon": -72.4932,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.1,
+          "stations": 5
+        },
+        {
+          "lat": -43.1584,
+          "lon": -72.5056,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 0.4,
+          "stations": 6
+        },
+        {
+          "lat": -43.1589,
+          "lon": -72.4892,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.8,
+          "stations": 5
+        },
+        {
+          "lat": -43.1583,
+          "lon": -72.6034,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 14.7,
+          "stations": 6
+        }
+      ]
     },
     {
       "volcano": "Corcovado",
       "wwlln_id": "1508-05-",
       "lat": -43.18,
       "lon": -72.8,
-      "inner_strokes": 0,
+      "inner_strokes": 2,
       "outer_strokes": 1,
-      "alert": "GREEN",
+      "alert": "RED",
       "stroke_positions": [
         {
-          "lat": -43.5119,
-          "lon": -73.6318,
+          "lat": -43.1452,
+          "lon": -72.6191,
+          "ring": "inner",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 16.6,
+          "stations": 7
+        },
+        {
+          "lat": -43.1583,
+          "lon": -72.6034,
+          "ring": "inner",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 14.7,
+          "stations": 6
+        },
+        {
+          "lat": -43.1532,
+          "lon": -72.4932,
           "ring": "outer",
-          "time": "2026-10-02T13:52:34Z",
-          "residual_us": 9.8,
-          "stations": 10
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.1,
+          "stations": 5
+        },
+        {
+          "lat": -43.1584,
+          "lon": -72.5056,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 0.4,
+          "stations": 6
+        },
+        {
+          "lat": -43.1589,
+          "lon": -72.4892,
+          "ring": "outer",
+          "time": "2026-10-02T14:52:00Z",
+          "residual_us": 3.8,
+          "stations": 5
         }
       ]
     },
@@ -555,18 +702,9 @@
       "lat": -44.08,
       "lon": -72.88,
       "inner_strokes": 0,
-      "outer_strokes": 1,
+      "outer_strokes": 0,
       "alert": "GREEN",
-      "stroke_positions": [
-        {
-          "lat": -43.5119,
-          "lon": -73.6318,
-          "ring": "outer",
-          "time": "2026-10-02T13:52:34Z",
-          "residual_us": 9.8,
-          "stations": 10
-        }
-      ]
+      "stroke_positions": []
     },
     {
       "volcano": "Mentolat",
