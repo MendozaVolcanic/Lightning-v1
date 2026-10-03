@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-03T15:25:50.523279+00:00",
+  "scan_utc": "2026-10-03T15:30:53.381299+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -532,10 +532,19 @@
       "wwlln_id": "0507-04-",
       "lat": -16.25,
       "lon": 168.12,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -16.3587,
+          "lon": 168.1405,
+          "ring": "inner",
+          "time": "2026-10-03T15:27:53Z",
+          "residual_us": 14.2,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Jingbo (CHN)",
