@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-10-05T17:51:08.728018+00:00",
+  "scan_utc": "2026-10-05T17:56:20.204851+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 0,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-10-05T17:50:46.124903+00:00",
+      "scan_utc": "2026-10-05T17:55:47.231593+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-10-05T17:50:48.147313+00:00",
+      "scan_utc": "2026-10-05T17:55:49.595961+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -139,7 +139,7 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 7,
+          "outer": 9,
           "alert": "GREEN",
           "positions": [
             {
@@ -197,23 +197,31 @@
               "time": "2026-10-05T17:48:04Z",
               "residual_us": 14.5,
               "stations": 6
+            },
+            {
+              "lat": 11.3484,
+              "lon": -84.6441,
+              "ring": "outer",
+              "time": "2026-10-05T17:49:39Z",
+              "residual_us": 10.1,
+              "stations": 9
+            },
+            {
+              "lat": 11.3237,
+              "lon": -84.6371,
+              "ring": "outer",
+              "time": "2026-10-05T17:51:08Z",
+              "residual_us": 9.4,
+              "stations": 9
             }
           ]
         },
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 3,
+          "outer": 2,
           "alert": "GREEN",
           "positions": [
-            {
-              "lat": 11.443124771118164,
-              "lon": -84.64798736572266,
-              "ring": "outer",
-              "time": "2026-10-06T01:44:17+00:00",
-              "energy_j": 3.5028374306621157e-13,
-              "area_m2": 3248435780.515625
-            },
             {
               "lat": 11.495429039001465,
               "lon": -84.69818878173828,
@@ -244,7 +252,7 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 7,
+          "outer": 10,
           "alert": "GREEN",
           "positions": [
             {
@@ -302,95 +310,30 @@
               "time": "2026-10-05T17:48:04Z",
               "residual_us": 14.5,
               "stations": 6
-            }
-          ]
-        },
-        "glm": {
-          "available": true,
-          "inner": 0,
-          "outer": 1,
-          "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 11.36066722869873,
-              "lon": -84.77935791015625,
-              "ring": "outer",
-              "time": "2026-10-05T15:01:13+00:00",
-              "energy_j": 2.72284056608974e-13,
-              "area_m2": 2097817760.828125
-            }
-          ]
-        }
-      }
-    },
-    {
-      "volcano": "Rincon de la Vieja (CRI)",
-      "wwlln_id": "1405-02-",
-      "lat": 10.83,
-      "lon": -85.324,
-      "alert": "GREEN",
-      "sources": {
-        "wwlln": {
-          "available": true,
-          "inner": 0,
-          "outer": 7,
-          "alert": "GREEN",
-          "positions": [
-            {
-              "lat": 11.3862,
-              "lon": -84.6624,
-              "ring": "outer",
-              "time": "2026-10-05T17:34:47Z",
-              "residual_us": 12.1,
-              "stations": 8
             },
             {
-              "lat": 11.3752,
-              "lon": -84.6837,
+              "lat": 11.3484,
+              "lon": -84.6441,
               "ring": "outer",
-              "time": "2026-10-05T17:34:47Z",
-              "residual_us": 9.7,
-              "stations": 7
-            },
-            {
-              "lat": 11.3926,
-              "lon": -84.6958,
-              "ring": "outer",
-              "time": "2026-10-05T17:34:47Z",
-              "residual_us": 8.5,
+              "time": "2026-10-05T17:49:39Z",
+              "residual_us": 10.1,
               "stations": 9
             },
             {
-              "lat": 11.2307,
-              "lon": -84.6494,
+              "lat": 11.2123,
+              "lon": -84.6037,
               "ring": "outer",
-              "time": "2026-10-05T17:38:46Z",
-              "residual_us": 8.7,
-              "stations": 7
-            },
-            {
-              "lat": 11.215,
-              "lon": -84.7322,
-              "ring": "outer",
-              "time": "2026-10-05T17:38:46Z",
-              "residual_us": 15.0,
+              "time": "2026-10-05T17:49:39Z",
+              "residual_us": 3.4,
               "stations": 6
             },
             {
-              "lat": 11.4206,
-              "lon": -84.7199,
+              "lat": 11.3237,
+              "lon": -84.6371,
               "ring": "outer",
-              "time": "2026-10-05T17:48:04Z",
-              "residual_us": 8.7,
-              "stations": 13
-            },
-            {
-              "lat": 11.1993,
-              "lon": -84.7181,
-              "ring": "outer",
-              "time": "2026-10-05T17:48:04Z",
-              "residual_us": 14.5,
-              "stations": 6
+              "time": "2026-10-05T17:51:08Z",
+              "residual_us": 9.4,
+              "stations": 9
             }
           ]
         },
@@ -409,12 +352,141 @@
               "area_m2": 2097817760.828125
             },
             {
+              "lat": 11.26230239868164,
+              "lon": -84.60820007324219,
+              "ring": "outer",
+              "time": "2026-10-05T11:37:59+00:00",
+              "energy_j": 6.128490478234423e-14,
+              "area_m2": 1081184173.671875
+            }
+          ]
+        }
+      }
+    },
+    {
+      "volcano": "Rincon de la Vieja (CRI)",
+      "wwlln_id": "1405-02-",
+      "lat": 10.83,
+      "lon": -85.324,
+      "alert": "GREEN",
+      "sources": {
+        "wwlln": {
+          "available": true,
+          "inner": 0,
+          "outer": 10,
+          "alert": "GREEN",
+          "positions": [
+            {
+              "lat": 11.3862,
+              "lon": -84.6624,
+              "ring": "outer",
+              "time": "2026-10-05T17:34:47Z",
+              "residual_us": 12.1,
+              "stations": 8
+            },
+            {
+              "lat": 11.3752,
+              "lon": -84.6837,
+              "ring": "outer",
+              "time": "2026-10-05T17:34:47Z",
+              "residual_us": 9.7,
+              "stations": 7
+            },
+            {
+              "lat": 11.3926,
+              "lon": -84.6958,
+              "ring": "outer",
+              "time": "2026-10-05T17:34:47Z",
+              "residual_us": 8.5,
+              "stations": 9
+            },
+            {
+              "lat": 11.2307,
+              "lon": -84.6494,
+              "ring": "outer",
+              "time": "2026-10-05T17:38:46Z",
+              "residual_us": 8.7,
+              "stations": 7
+            },
+            {
+              "lat": 11.215,
+              "lon": -84.7322,
+              "ring": "outer",
+              "time": "2026-10-05T17:38:46Z",
+              "residual_us": 15.0,
+              "stations": 6
+            },
+            {
+              "lat": 11.4206,
+              "lon": -84.7199,
+              "ring": "outer",
+              "time": "2026-10-05T17:48:04Z",
+              "residual_us": 8.7,
+              "stations": 13
+            },
+            {
+              "lat": 11.1993,
+              "lon": -84.7181,
+              "ring": "outer",
+              "time": "2026-10-05T17:48:04Z",
+              "residual_us": 14.5,
+              "stations": 6
+            },
+            {
+              "lat": 11.3484,
+              "lon": -84.6441,
+              "ring": "outer",
+              "time": "2026-10-05T17:49:39Z",
+              "residual_us": 10.1,
+              "stations": 9
+            },
+            {
+              "lat": 11.2123,
+              "lon": -84.6037,
+              "ring": "outer",
+              "time": "2026-10-05T17:49:39Z",
+              "residual_us": 3.4,
+              "stations": 6
+            },
+            {
+              "lat": 11.3237,
+              "lon": -84.6371,
+              "ring": "outer",
+              "time": "2026-10-05T17:51:08Z",
+              "residual_us": 9.4,
+              "stations": 9
+            }
+          ]
+        },
+        "glm": {
+          "available": true,
+          "inner": 0,
+          "outer": 3,
+          "alert": "GREEN",
+          "positions": [
+            {
+              "lat": 11.36066722869873,
+              "lon": -84.77935791015625,
+              "ring": "outer",
+              "time": "2026-10-05T15:01:13+00:00",
+              "energy_j": 2.72284056608974e-13,
+              "area_m2": 2097817760.828125
+            },
+            {
               "lat": 11.30785083770752,
               "lon": -84.57936096191406,
               "ring": "outer",
               "time": "2026-10-05T17:00:49+00:00",
               "energy_j": 1.512845430022337e-13,
               "area_m2": 1959865679.953125
+            },
+            {
+              "lat": 11.26230239868164,
+              "lon": -84.60820007324219,
+              "ring": "outer",
+              "time": "2026-10-05T11:37:59+00:00",
+              "energy_j": 6.128490478234423e-14,
+              "area_m2": 1081184173.671875
             }
           ]
         }
