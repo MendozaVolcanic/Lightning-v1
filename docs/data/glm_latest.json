@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-06T08:31:01.143839+00:00",
+  "scan_utc": "2026-10-06T08:35:56.691726+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -163,19 +163,37 @@
       "lat": -33.408,
       "lon": -69.822,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -33.6635627746582,
+          "lon": -69.8296127319336,
+          "ring": "outer",
+          "time": "2026-10-06T12:30:42+00:00",
+          "energy_j": 2.72284056608974e-13,
+          "area_m2": 751564157.421875
+        }
+      ]
     },
     {
       "volcano": "San Jose",
       "wwlln_id": "1507-02-",
       "lat": -33.787,
       "lon": -69.897,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -33.6635627746582,
+          "lon": -69.8296127319336,
+          "ring": "inner",
+          "time": "2026-10-06T12:30:42+00:00",
+          "energy_j": 2.72284056608974e-13,
+          "area_m2": 751564157.421875
+        }
+      ]
     },
     {
       "volcano": "Tinguiririca",
