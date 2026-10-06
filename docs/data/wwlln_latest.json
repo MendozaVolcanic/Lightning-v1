@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-10-06T10:05:54.062874+00:00",
+  "scan_utc": "2026-10-06T10:10:49.150743+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
@@ -23,9 +23,18 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.5086,
+          "lon": -89.9263,
+          "ring": "outer",
+          "time": "2026-10-06T10:04:59Z",
+          "residual_us": 11.5,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Agua",
@@ -36,14 +45,6 @@
       "outer_strokes": 11,
       "alert": "GREEN",
       "stroke_positions": [
-        {
-          "lat": 13.5737,
-          "lon": -90.2605,
-          "ring": "outer",
-          "time": "2026-10-06T09:07:52Z",
-          "residual_us": 18.7,
-          "stations": 5
-        },
         {
           "lat": 13.461,
           "lon": -90.1506,
@@ -122,6 +123,14 @@
           "ring": "outer",
           "time": "2026-10-06T09:58:45Z",
           "residual_us": 8.4,
+          "stations": 8
+        },
+        {
+          "lat": 14.5086,
+          "lon": -89.9263,
+          "ring": "outer",
+          "time": "2026-10-06T10:04:59Z",
+          "residual_us": 11.5,
           "stations": 8
         }
       ]
