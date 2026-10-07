@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-07T14:25:49.879084+00:00",
+  "scan_utc": "2026-10-07T14:30:56.837318+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 2,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 55,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -473,29 +473,56 @@
       "lat": -44.7,
       "lon": -73.082,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -44.96617889404297,
+          "lon": -73.13894653320312,
+          "ring": "outer",
+          "time": "2026-10-07T20:27:42+00:00",
+          "energy_j": 1.32850977317365e-14,
+          "area_m2": 144208757.109375
+        }
+      ]
     },
     {
       "volcano": "Cay",
       "wwlln_id": "1508-055",
       "lat": -45.059,
       "lon": -72.984,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -44.96617889404297,
+          "lon": -73.13894653320312,
+          "ring": "inner",
+          "time": "2026-10-07T20:27:42+00:00",
+          "energy_j": 1.32850977317365e-14,
+          "area_m2": 144208757.109375
+        }
+      ]
     },
     {
       "volcano": "Maca",
       "wwlln_id": "1508-056",
       "lat": -45.1,
       "lon": -73.174,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -44.96617889404297,
+          "lon": -73.13894653320312,
+          "ring": "inner",
+          "time": "2026-10-07T20:27:42+00:00",
+          "energy_j": 1.32850977317365e-14,
+          "area_m2": 144208757.109375
+        }
+      ]
     },
     {
       "volcano": "Hudson",
