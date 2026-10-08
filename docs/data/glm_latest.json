@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-08T09:40:49.240224+00:00",
+  "scan_utc": "2026-10-08T09:45:49.776970+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -163,7 +163,7 @@
       "lat": -33.408,
       "lon": -69.822,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
         {
@@ -173,6 +173,14 @@
           "time": "2026-10-08T04:29:14+00:00",
           "energy_j": 1.7285081652620478e-14,
           "area_m2": 136883867.859375
+        },
+        {
+          "lat": -33.82503890991211,
+          "lon": -70.04652404785156,
+          "ring": "outer",
+          "time": "2026-10-08T04:34:44+00:00",
+          "energy_j": 6.62848846834492e-14,
+          "area_m2": 410956807.296875
         }
       ]
     },
@@ -181,9 +189,9 @@
       "wwlln_id": "1507-02-",
       "lat": -33.787,
       "lon": -69.897,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 1,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "flash_positions": [
         {
           "lat": -33.845767974853516,
@@ -192,6 +200,14 @@
           "time": "2026-10-08T04:29:14+00:00",
           "energy_j": 1.7285081652620478e-14,
           "area_m2": 136883867.859375
+        },
+        {
+          "lat": -33.82503890991211,
+          "lon": -70.04652404785156,
+          "ring": "inner",
+          "time": "2026-10-08T04:34:44+00:00",
+          "energy_j": 6.62848846834492e-14,
+          "area_m2": 410956807.296875
         }
       ]
     },
