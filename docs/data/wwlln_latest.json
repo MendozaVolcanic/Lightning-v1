@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-10T18:30:41.143945+00:00",
+  "scan_utc": "2026-10-10T18:35:37.832829+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 1,
-  "green_alerts": 56,
+  "green_alerts": 55,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -13,9 +13,34 @@
       "lat": 14.473,
       "lon": -90.88,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 3,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4818,
+          "lon": -90.5435,
+          "ring": "outer",
+          "time": "2026-10-10T18:31:53Z",
+          "residual_us": 21.6,
+          "stations": 9
+        },
+        {
+          "lat": 14.4191,
+          "lon": -90.5564,
+          "ring": "outer",
+          "time": "2026-10-10T18:33:19Z",
+          "residual_us": 16.1,
+          "stations": 8
+        },
+        {
+          "lat": 14.3713,
+          "lon": -90.4212,
+          "ring": "outer",
+          "time": "2026-10-10T18:33:34Z",
+          "residual_us": 10.2,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Fuego",
@@ -23,19 +48,69 @@
       "lat": 14.465,
       "lon": -90.743,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 3,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": 14.4818,
+          "lon": -90.5435,
+          "ring": "outer",
+          "time": "2026-10-10T18:31:53Z",
+          "residual_us": 21.6,
+          "stations": 9
+        },
+        {
+          "lat": 14.4191,
+          "lon": -90.5564,
+          "ring": "outer",
+          "time": "2026-10-10T18:33:19Z",
+          "residual_us": 16.1,
+          "stations": 8
+        },
+        {
+          "lat": 14.3713,
+          "lon": -90.4212,
+          "ring": "outer",
+          "time": "2026-10-10T18:33:34Z",
+          "residual_us": 10.2,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Agua",
       "wwlln_id": "1402-111",
       "lat": 14.33,
       "lon": -90.4,
-      "inner_strokes": 0,
+      "inner_strokes": 2,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": 14.4191,
+          "lon": -90.5564,
+          "ring": "inner",
+          "time": "2026-10-10T18:33:19Z",
+          "residual_us": 16.1,
+          "stations": 8
+        },
+        {
+          "lat": 14.3713,
+          "lon": -90.4212,
+          "ring": "inner",
+          "time": "2026-10-10T18:33:34Z",
+          "residual_us": 10.2,
+          "stations": 8
+        },
+        {
+          "lat": 14.4818,
+          "lon": -90.5435,
+          "ring": "outer",
+          "time": "2026-10-10T18:31:53Z",
+          "residual_us": 21.6,
+          "stations": 9
+        }
+      ]
     },
     {
       "volcano": "Concepcion (NIC)",
