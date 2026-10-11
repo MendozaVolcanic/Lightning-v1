@@ -1,10 +1,10 @@
 {
-  "scan_utc": "2026-10-11T17:55:44.951544+00:00",
+  "scan_utc": "2026-10-11T18:00:52.482517+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 1,
-  "yellow_alerts": 0,
+  "red_alerts": 0,
+  "yellow_alerts": 1,
   "green_alerts": 56,
   "volcanoes": [
     {
@@ -273,8 +273,8 @@
       "lat": -33.782,
       "lon": -69.897,
       "inner_strokes": 2,
-      "outer_strokes": 1,
-      "alert": "RED",
+      "outer_strokes": 2,
+      "alert": "YELLOW",
       "stroke_positions": [
         {
           "lat": -33.7846,
@@ -315,6 +315,14 @@
           "time": "2026-10-11T17:42:05Z",
           "residual_us": 10.7,
           "stations": 7
+        },
+        {
+          "lat": -34.3135,
+          "lon": -70.3433,
+          "ring": "outer",
+          "time": "2026-10-11T17:58:23Z",
+          "residual_us": 8.7,
+          "stations": 7
         }
       ]
     },
@@ -324,9 +332,18 @@
       "lat": -34.814,
       "lon": -70.352,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -34.3135,
+          "lon": -70.3433,
+          "ring": "outer",
+          "time": "2026-10-11T17:58:23Z",
+          "residual_us": 8.7,
+          "stations": 7
+        }
+      ]
     },
     {
       "volcano": "Planchon-Peteroa",
