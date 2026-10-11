@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-11T18:25:47.273121+00:00",
+  "scan_utc": "2026-10-11T18:30:48.546336+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -163,102 +163,15 @@
       "lat": -33.408,
       "lon": -69.822,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -33.72405242919922,
-          "lon": -70.1800765991211,
-          "ring": "outer",
-          "time": "2026-10-11T12:44:28+00:00",
-          "energy_j": 5.132830878422336e-13,
-          "area_m2": 752174564.859375
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "San Jose",
       "wwlln_id": "1507-02-",
       "lat": -33.787,
       "lon": -69.897,
-      "inner_flashes": 0,
-      "outer_flashes": 4,
-      "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -34.35031509399414,
-          "lon": -70.29007720947266,
-          "ring": "outer",
-          "time": "2026-10-11T14:23:40+00:00",
-          "energy_j": 6.462825532116259e-13,
-          "area_m2": 622310382.53125
-        },
-        {
-          "lat": -33.72405242919922,
-          "lon": -70.1800765991211,
-          "ring": "outer",
-          "time": "2026-10-11T12:44:28+00:00",
-          "energy_j": 5.132830878422336e-13,
-          "area_m2": 752174564.859375
-        },
-        {
-          "lat": -34.40011978149414,
-          "lon": -70.26734924316406,
-          "ring": "outer",
-          "time": "2026-10-11T21:30:27+00:00",
-          "energy_j": 6.732824446775927e-13,
-          "area_m2": 692049432.265625
-        },
-        {
-          "lat": -34.4323844909668,
-          "lon": -70.18878173828125,
-          "ring": "outer",
-          "time": "2026-10-12T02:37:03+00:00",
-          "energy_j": 2.028506959328346e-14,
-          "area_m2": 138409886.453125
-        }
-      ]
-    },
-    {
-      "volcano": "Tinguiririca",
-      "wwlln_id": "1507-03-",
-      "lat": -34.808,
-      "lon": -70.349,
-      "inner_flashes": 0,
-      "outer_flashes": 3,
-      "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -34.35031509399414,
-          "lon": -70.29007720947266,
-          "ring": "outer",
-          "time": "2026-10-11T14:23:40+00:00",
-          "energy_j": 6.462825532116259e-13,
-          "area_m2": 622310382.53125
-        },
-        {
-          "lat": -34.40011978149414,
-          "lon": -70.26734924316406,
-          "ring": "outer",
-          "time": "2026-10-11T21:30:27+00:00",
-          "energy_j": 6.732824446775927e-13,
-          "area_m2": 692049432.265625
-        },
-        {
-          "lat": -34.4323844909668,
-          "lon": -70.18878173828125,
-          "ring": "outer",
-          "time": "2026-10-12T02:37:03+00:00",
-          "energy_j": 2.028506959328346e-14,
-          "area_m2": 138409886.453125
-        }
-      ]
-    },
-    {
-      "volcano": "Planchon-Peteroa",
-      "wwlln_id": "1507-04-",
-      "lat": -35.242,
-      "lon": -70.572,
       "inner_flashes": 0,
       "outer_flashes": 2,
       "alert": "GREEN",
@@ -282,14 +195,93 @@
       ]
     },
     {
+      "volcano": "Tinguiririca",
+      "wwlln_id": "1507-03-",
+      "lat": -34.808,
+      "lon": -70.349,
+      "inner_flashes": 1,
+      "outer_flashes": 2,
+      "alert": "YELLOW",
+      "flash_positions": [
+        {
+          "lat": -34.40011978149414,
+          "lon": -70.26734924316406,
+          "ring": "outer",
+          "time": "2026-10-11T21:30:27+00:00",
+          "energy_j": 6.732824446775927e-13,
+          "area_m2": 692049432.265625
+        },
+        {
+          "lat": -34.4323844909668,
+          "lon": -70.18878173828125,
+          "ring": "outer",
+          "time": "2026-10-12T02:37:03+00:00",
+          "energy_j": 2.028506959328346e-14,
+          "area_m2": 138409886.453125
+        },
+        {
+          "lat": -34.82405090332031,
+          "lon": -70.55730438232422,
+          "ring": "inner",
+          "time": "2026-10-11T17:28:48+00:00",
+          "energy_j": 3.828499723726136e-14,
+          "area_m2": 278803597.078125
+        }
+      ]
+    },
+    {
+      "volcano": "Planchon-Peteroa",
+      "wwlln_id": "1507-04-",
+      "lat": -35.242,
+      "lon": -70.572,
+      "inner_flashes": 0,
+      "outer_flashes": 3,
+      "alert": "GREEN",
+      "flash_positions": [
+        {
+          "lat": -34.40011978149414,
+          "lon": -70.26734924316406,
+          "ring": "outer",
+          "time": "2026-10-11T21:30:27+00:00",
+          "energy_j": 6.732824446775927e-13,
+          "area_m2": 692049432.265625
+        },
+        {
+          "lat": -34.4323844909668,
+          "lon": -70.18878173828125,
+          "ring": "outer",
+          "time": "2026-10-12T02:37:03+00:00",
+          "energy_j": 2.028506959328346e-14,
+          "area_m2": 138409886.453125
+        },
+        {
+          "lat": -34.82405090332031,
+          "lon": -70.55730438232422,
+          "ring": "outer",
+          "time": "2026-10-11T17:28:48+00:00",
+          "energy_j": 3.828499723726136e-14,
+          "area_m2": 278803597.078125
+        }
+      ]
+    },
+    {
       "volcano": "Descabezado Grande",
       "wwlln_id": "1507-05-",
       "lat": -35.604,
       "lon": -70.748,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -34.82405090332031,
+          "lon": -70.55730438232422,
+          "ring": "outer",
+          "time": "2026-10-11T17:28:48+00:00",
+          "energy_j": 3.828499723726136e-14,
+          "area_m2": 278803597.078125
+        }
+      ]
     },
     {
       "volcano": "Tatara-San Pedro",
@@ -387,18 +379,9 @@
       "lat": -38.981,
       "lon": -71.516,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -39.50049591064453,
-          "lon": -70.58377075195312,
-          "ring": "outer",
-          "time": "2026-10-11T17:21:38+00:00",
-          "energy_j": 7.428485252521715e-14,
-          "area_m2": 209980158.5
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Villarrica",
@@ -416,25 +399,9 @@
       "lat": -39.532,
       "lon": -71.703,
       "inner_flashes": 0,
-      "outer_flashes": 3,
+      "outer_flashes": 1,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": -39.51105880737305,
-          "lon": -70.56979370117188,
-          "ring": "outer",
-          "time": "2026-10-11T11:30:04+00:00",
-          "energy_j": 1.8172778460504102e-12,
-          "area_m2": 840683643.296875
-        },
-        {
-          "lat": -39.50049591064453,
-          "lon": -70.58377075195312,
-          "ring": "outer",
-          "time": "2026-10-11T17:21:38+00:00",
-          "energy_j": 7.428485252521715e-14,
-          "area_m2": 209980158.5
-        },
         {
           "lat": -39.528804779052734,
           "lon": -70.56172180175781,
@@ -451,25 +418,9 @@
       "lat": -39.628,
       "lon": -71.479,
       "inner_flashes": 0,
-      "outer_flashes": 3,
+      "outer_flashes": 1,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": -39.51105880737305,
-          "lon": -70.56979370117188,
-          "ring": "outer",
-          "time": "2026-10-11T11:30:04+00:00",
-          "energy_j": 1.8172778460504102e-12,
-          "area_m2": 840683643.296875
-        },
-        {
-          "lat": -39.50049591064453,
-          "lon": -70.58377075195312,
-          "ring": "outer",
-          "time": "2026-10-11T17:21:38+00:00",
-          "energy_j": 7.428485252521715e-14,
-          "area_m2": 209980158.5
-        },
         {
           "lat": -39.528804779052734,
           "lon": -70.56172180175781,
