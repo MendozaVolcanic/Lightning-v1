@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-10-13T03:40:57.549216+00:00",
+  "scan_utc": "2026-10-13T03:46:22.328478+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
   "yellow_alerts": 2,
@@ -7,13 +7,13 @@
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-10-13T03:40:44.271854+00:00",
+      "scan_utc": "2026-10-13T03:45:49.911912+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-10-13T03:40:45.888463+00:00",
+      "scan_utc": "2026-10-13T03:45:52.225822+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -178,7 +178,7 @@
         "wwlln": {
           "available": true,
           "inner": 1,
-          "outer": 1,
+          "outer": 2,
           "alert": "YELLOW",
           "positions": [
             {
@@ -204,6 +204,14 @@
               "time": "2026-10-13T03:19:30Z",
               "residual_us": 21.6,
               "stations": 6
+            },
+            {
+              "lat": 10.5702,
+              "lon": -84.8893,
+              "ring": "outer",
+              "time": "2026-10-13T03:40:24Z",
+              "residual_us": 25.1,
+              "stations": 5
             }
           ]
         },
@@ -236,14 +244,6 @@
               "time": "2026-10-13T03:01:50Z",
               "residual_us": 24.4,
               "stations": 5
-            },
-            {
-              "lat": 10.1966,
-              "lon": -84.772,
-              "ring": "outer",
-              "time": "2026-10-13T02:42:49Z",
-              "residual_us": 19.2,
-              "stations": 7
             },
             {
               "lat": 11.0128,
@@ -299,6 +299,14 @@
               "ring": "outer",
               "time": "2026-10-13T03:34:10Z",
               "residual_us": 20.2,
+              "stations": 5
+            },
+            {
+              "lat": 10.5702,
+              "lon": -84.8893,
+              "ring": "outer",
+              "time": "2026-10-13T03:40:24Z",
+              "residual_us": 25.1,
               "stations": 5
             }
           ]
