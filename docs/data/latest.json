@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-10-13T03:01:27.190009+00:00",
+  "scan_utc": "2026-10-13T03:05:56.307575+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 2,
+  "green_alerts": 55,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-10-13T03:00:54.939886+00:00",
+      "scan_utc": "2026-10-13T03:05:43.028085+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-10-13T03:00:56.944091+00:00",
+      "scan_utc": "2026-10-13T03:05:44.613647+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -98,7 +98,7 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 2,
           "alert": "GREEN",
           "positions": [
             {
@@ -108,6 +108,14 @@
               "time": "2026-10-13T02:51:07Z",
               "residual_us": 18.8,
               "stations": 6
+            },
+            {
+              "lat": 10.9871,
+              "lon": -85.3122,
+              "ring": "outer",
+              "time": "2026-10-13T03:01:50Z",
+              "residual_us": 24.4,
+              "stations": 5
             }
           ]
         },
@@ -130,7 +138,7 @@
         "wwlln": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 2,
           "alert": "GREEN",
           "positions": [
             {
@@ -140,6 +148,14 @@
               "time": "2026-10-13T02:51:07Z",
               "residual_us": 18.8,
               "stations": 6
+            },
+            {
+              "lat": 10.9871,
+              "lon": -85.3122,
+              "ring": "outer",
+              "time": "2026-10-13T03:01:50Z",
+              "residual_us": 24.4,
+              "stations": 5
             }
           ]
         },
@@ -157,14 +173,22 @@
       "wwlln_id": "1405-01-",
       "lat": 10.98,
       "lon": -85.473,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "sources": {
         "wwlln": {
           "available": true,
-          "inner": 0,
-          "outer": 3,
-          "alert": "GREEN",
+          "inner": 1,
+          "outer": 2,
+          "alert": "YELLOW",
           "positions": [
+            {
+              "lat": 10.9871,
+              "lon": -85.3122,
+              "ring": "inner",
+              "time": "2026-10-13T03:01:50Z",
+              "residual_us": 24.4,
+              "stations": 5
+            },
             {
               "lat": 10.8868,
               "lon": -84.5915,
@@ -205,28 +229,20 @@
       "wwlln_id": "1405-02-",
       "lat": 10.83,
       "lon": -85.324,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "sources": {
         "wwlln": {
           "available": true,
-          "inner": 0,
-          "outer": 15,
-          "alert": "GREEN",
+          "inner": 1,
+          "outer": 13,
+          "alert": "YELLOW",
           "positions": [
             {
-              "lat": 10.1228,
-              "lon": -84.8929,
-              "ring": "outer",
-              "time": "2026-10-13T01:59:01Z",
-              "residual_us": 5.1,
-              "stations": 5
-            },
-            {
-              "lat": 10.1846,
-              "lon": -84.7336,
-              "ring": "outer",
-              "time": "2026-10-13T02:00:54Z",
-              "residual_us": 9.9,
+              "lat": 10.9871,
+              "lon": -85.3122,
+              "ring": "inner",
+              "time": "2026-10-13T03:01:50Z",
+              "residual_us": 24.4,
               "stations": 5
             },
             {
@@ -332,6 +348,14 @@
               "time": "2026-10-13T02:51:07Z",
               "residual_us": 18.8,
               "stations": 6
+            },
+            {
+              "lat": 10.1115,
+              "lon": -84.8639,
+              "ring": "outer",
+              "time": "2026-10-13T02:59:27Z",
+              "residual_us": 8.6,
+              "stations": 5
             }
           ]
         },
