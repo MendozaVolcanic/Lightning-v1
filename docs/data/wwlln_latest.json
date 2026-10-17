@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-17T14:35:42.985489+00:00",
+  "scan_utc": "2026-10-17T14:40:49.703041+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -493,19 +493,53 @@
       "lat": -45.1,
       "lon": -73.17,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 2,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -45.9761,
+          "lon": -73.0723,
+          "ring": "outer",
+          "time": "2026-10-17T14:38:58Z",
+          "residual_us": 23.2,
+          "stations": 9
+        },
+        {
+          "lat": -45.9686,
+          "lon": -73.0464,
+          "ring": "outer",
+          "time": "2026-10-17T14:38:58Z",
+          "residual_us": 3.1,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Hudson",
       "wwlln_id": "1508-057",
       "lat": -45.9,
       "lon": -72.97,
-      "inner_strokes": 0,
+      "inner_strokes": 2,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -45.9761,
+          "lon": -73.0723,
+          "ring": "inner",
+          "time": "2026-10-17T14:38:58Z",
+          "residual_us": 23.2,
+          "stations": 9
+        },
+        {
+          "lat": -45.9686,
+          "lon": -73.0464,
+          "ring": "inner",
+          "time": "2026-10-17T14:38:58Z",
+          "residual_us": 3.1,
+          "stations": 5
+        }
+      ]
     },
     {
       "volcano": "Wai Sano (IDN)",
