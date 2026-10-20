@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-10-20T07:15:49.017225+00:00",
+  "scan_utc": "2026-10-20T07:20:47.868967+00:00",
   "source": "WWLLN",
   "window_hours": 1,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -114,26 +114,9 @@
       "lat": 10.98,
       "lon": -85.473,
       "inner_strokes": 0,
-      "outer_strokes": 2,
+      "outer_strokes": 0,
       "alert": "GREEN",
-      "stroke_positions": [
-        {
-          "lat": 10.2064,
-          "lon": -85.9048,
-          "ring": "outer",
-          "time": "2026-10-20T06:14:45Z",
-          "residual_us": 8.9,
-          "stations": 5
-        },
-        {
-          "lat": 10.2606,
-          "lon": -86.0148,
-          "ring": "outer",
-          "time": "2026-10-20T06:16:42Z",
-          "residual_us": 10.2,
-          "stations": 5
-        }
-      ]
+      "stroke_positions": []
     },
     {
       "volcano": "Rincon de la Vieja (CRI)",
@@ -141,26 +124,9 @@
       "lat": 10.83,
       "lon": -85.324,
       "inner_strokes": 0,
-      "outer_strokes": 2,
+      "outer_strokes": 0,
       "alert": "GREEN",
-      "stroke_positions": [
-        {
-          "lat": 10.2064,
-          "lon": -85.9048,
-          "ring": "outer",
-          "time": "2026-10-20T06:14:45Z",
-          "residual_us": 8.9,
-          "stations": 5
-        },
-        {
-          "lat": 10.2606,
-          "lon": -86.0148,
-          "ring": "outer",
-          "time": "2026-10-20T06:16:42Z",
-          "residual_us": 10.2,
-          "stations": 5
-        }
-      ]
+      "stroke_positions": []
     },
     {
       "volcano": "Taapaca",
@@ -664,10 +630,19 @@
       "wwlln_id": "0604-06-",
       "lat": -8.72,
       "lon": 120.02,
-      "inner_strokes": 0,
+      "inner_strokes": 1,
       "outer_strokes": 0,
-      "alert": "GREEN",
-      "stroke_positions": []
+      "alert": "RED",
+      "stroke_positions": [
+        {
+          "lat": -8.6232,
+          "lon": 119.8931,
+          "ring": "inner",
+          "time": "2026-10-20T07:15:51Z",
+          "residual_us": 10.1,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Ranakah (IDN)",
@@ -675,9 +650,18 @@
       "lat": -8.62,
       "lon": 120.52,
       "inner_strokes": 0,
-      "outer_strokes": 0,
+      "outer_strokes": 1,
       "alert": "GREEN",
-      "stroke_positions": []
+      "stroke_positions": [
+        {
+          "lat": -8.6232,
+          "lon": 119.8931,
+          "ring": "outer",
+          "time": "2026-10-20T07:15:51Z",
+          "residual_us": 10.1,
+          "stations": 8
+        }
+      ]
     },
     {
       "volcano": "Ambrym (VUT)",
