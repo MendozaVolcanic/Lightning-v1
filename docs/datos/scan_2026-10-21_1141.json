@@ -1,19 +1,19 @@
 {
-  "scan_utc": "2026-10-07T11:41:21.820940+00:00",
+  "scan_utc": "2026-10-21T11:41:14.921065+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 0,
-  "green_alerts": 57,
+  "yellow_alerts": 1,
+  "green_alerts": 56,
   "sources": {
     "wwlln": {
       "available": true,
-      "scan_utc": "2026-10-07T11:40:50.367329+00:00",
+      "scan_utc": "2026-10-21T11:40:46.503451+00:00",
       "window_hours": 1,
       "error": null
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-10-07T11:40:51.990640+00:00",
+      "scan_utc": "2026-10-21T11:40:47.872492+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -369,7 +369,7 @@
       "wwlln_id": "1507-01-",
       "lat": -33.4,
       "lon": -69.8,
-      "alert": "GREEN",
+      "alert": "YELLOW",
       "sources": {
         "wwlln": {
           "available": true,
@@ -380,10 +380,19 @@
         },
         "glm": {
           "available": true,
-          "inner": 0,
+          "inner": 1,
           "outer": 0,
-          "alert": "GREEN",
-          "positions": []
+          "alert": "RED",
+          "positions": [
+            {
+              "lat": -33.310726165771484,
+              "lon": -69.97586822509766,
+              "ring": "inner",
+              "time": "2026-10-21T16:46:58+00:00",
+              "energy_j": 6.285125870189541e-15,
+              "area_m2": 67907827.421875
+            }
+          ]
         }
       }
     },
@@ -404,9 +413,18 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": -33.310726165771484,
+              "lon": -69.97586822509766,
+              "ring": "outer",
+              "time": "2026-10-21T16:46:58+00:00",
+              "energy_j": 6.285125870189541e-15,
+              "area_m2": 67907827.421875
+            }
+          ]
         }
       }
     },
