@@ -1,9 +1,9 @@
 {
-  "scan_utc": "2026-11-05T17:51:16.472160+00:00",
+  "scan_utc": "2026-11-05T17:56:04.109689+00:00",
   "total_volcanoes": 57,
   "red_alerts": 0,
-  "yellow_alerts": 1,
-  "green_alerts": 56,
+  "yellow_alerts": 0,
+  "green_alerts": 57,
   "sources": {
     "wwlln": {
       "available": true,
@@ -13,7 +13,7 @@
     },
     "glm": {
       "available": true,
-      "scan_utc": "2026-11-05T17:50:46.877942+00:00",
+      "scan_utc": "2026-11-05T17:55:43.997008+00:00",
       "window_minutes": 15,
       "error": null
     }
@@ -1842,9 +1842,18 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.228167533874512,
+              "lon": -85.52916717529297,
+              "ring": "outer",
+              "time": "2026-11-05T14:57:05+00:00",
+              "energy_j": 4.2284981158145334e-14,
+              "area_m2": 135052645.546875
+            }
+          ]
         }
       }
     },
@@ -1865,9 +1874,18 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 0,
+          "outer": 1,
           "alert": "GREEN",
-          "positions": []
+          "positions": [
+            {
+              "lat": 10.228167533874512,
+              "lon": -85.52916717529297,
+              "ring": "outer",
+              "time": "2026-11-05T14:57:05+00:00",
+              "energy_j": 4.2284981158145334e-14,
+              "area_m2": 135052645.546875
+            }
+          ]
         }
       }
     },
@@ -1888,18 +1906,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -18.3453426361084,
-              "lon": -68.91751098632812,
-              "ring": "outer",
-              "time": "2026-11-05T14:46:26+00:00",
-              "energy_j": 1.1285105771294512e-14,
-              "area_m2": 70196855.3125
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -1920,18 +1929,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -18.3453426361084,
-              "lon": -68.91751098632812,
-              "ring": "outer",
-              "time": "2026-11-05T14:46:26+00:00",
-              "energy_j": 1.1285105771294512e-14,
-              "area_m2": 70196855.3125
-            }
-          ]
+          "positions": []
         }
       }
     },
@@ -1940,7 +1940,7 @@
       "wwlln_id": "1505-02-",
       "lat": -18.42,
       "lon": -69.092,
-      "alert": "YELLOW",
+      "alert": "GREEN",
       "sources": {
         "wwlln": {
           "available": true,
@@ -1951,19 +1951,10 @@
         },
         "glm": {
           "available": true,
-          "inner": 1,
+          "inner": 0,
           "outer": 0,
-          "alert": "RED",
-          "positions": [
-            {
-              "lat": -18.3453426361084,
-              "lon": -68.91751098632812,
-              "ring": "inner",
-              "time": "2026-11-05T14:46:26+00:00",
-              "energy_j": 1.1285105771294512e-14,
-              "area_m2": 70196855.3125
-            }
-          ]
+          "alert": "GREEN",
+          "positions": []
         }
       }
     },
@@ -1984,18 +1975,9 @@
         "glm": {
           "available": true,
           "inner": 0,
-          "outer": 1,
+          "outer": 0,
           "alert": "GREEN",
-          "positions": [
-            {
-              "lat": -18.3453426361084,
-              "lon": -68.91751098632812,
-              "ring": "outer",
-              "time": "2026-11-05T14:46:26+00:00",
-              "energy_j": 1.1285105771294512e-14,
-              "area_m2": 70196855.3125
-            }
-          ]
+          "positions": []
         }
       }
     },
