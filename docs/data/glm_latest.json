@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-11-12T06:45:42.241899+00:00",
+  "scan_utc": "2026-11-12T06:50:51.092521+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 1,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 56,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -103,19 +103,37 @@
       "lat": -18.428,
       "lon": -69.085,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -19.071388244628906,
+          "lon": -68.9392318725586,
+          "ring": "outer",
+          "time": "2026-11-12T03:32:19+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 70654660.890625
+        }
+      ]
     },
     {
       "volcano": "Isluga",
       "wwlln_id": "1505-03-",
       "lat": -19.167,
       "lon": -68.822,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -19.071388244628906,
+          "lon": -68.9392318725586,
+          "ring": "inner",
+          "time": "2026-11-12T03:32:19+00:00",
+          "energy_j": 3.285137929526558e-15,
+          "area_m2": 70654660.890625
+        }
+      ]
     },
     {
       "volcano": "Irruputuncu",
