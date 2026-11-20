@@ -40,7 +40,7 @@ VOLCANOES: dict[str, tuple[str, float, float]] = {
     "Tatara-San Pedro":        ("1507-062", -35.998, -70.845),
     "Laguna del Maule":        ("1507-061", -36.071, -70.498),
     "Nevado de Longavi":       ("1507-063", -36.200, -71.170),
-    "Nevados de Chillan":      ("1507-07-", -37.411, -71.352),
+    "Nevados de Chillan":      ("1507-07-", -36.868, -71.378),  # GVP 357070; hasta nov-2026 estaba en coords de Antuco
     "Antuco":                  ("1507-08-", -37.419, -71.341),
     "Copahue":                 ("1507-09-", -37.857, -71.168),
     "Callaqui":                ("1507-091", -37.926, -71.461),
