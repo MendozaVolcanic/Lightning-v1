@@ -29,10 +29,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 try:
+    import numpy as np
     import requests
     import xarray as xr
 except ImportError:
-    print("ERROR: pip install requests xarray netCDF4 h5netcdf")
+    print("ERROR: pip install numpy requests xarray h5netcdf")
     sys.exit(1)
 
 from volcanoes import VOLCANOES
@@ -154,15 +155,17 @@ def _download_and_parse(session: requests.Session, key: str) -> list[dict]:
 
     flashes: list[dict] = []
     try:
-        # xarray soporta archivos en memoria via io.BytesIO.
-        # decode_cf=False evita overflow de int en tiempos/atributos CF.
+        # Decodificación CF ACTIVA, a propósito. En GLM-L2-LCFA casi todo viene
+        # empaquetado en int16 con `_Unsigned = true`, `scale_factor`,
+        # `add_offset` y `_FillValue`, y los desfases de tiempo además traen
+        # `units = "seconds since <inicio del gránulo>"`. xarray aplica todo
+        # eso con los atributos del propio archivo, así que no hay constantes
+        # copiadas que puedan quedar viejas si NOAA cambia el empaque.
+        # Hasta nov-2026 se abría con decode_cf=False y el desfase se sumaba
+        # como entero crudo con signo: horas corridas hasta ~9 h. Con
+        # decode_cf=False también se ignoraba `_Unsigned` en energía y área.
         import io
-        ds = xr.open_dataset(
-            io.BytesIO(r.content),
-            engine="h5netcdf",
-            decode_cf=False,
-            decode_times=False,
-        )
+        ds = xr.open_dataset(io.BytesIO(r.content), engine="h5netcdf")
     except Exception as exc:
         print(f"[WARN] open {key}: {exc}")
         return []
@@ -172,50 +175,22 @@ def _download_and_parse(session: requests.Session, key: str) -> list[dict]:
             return []
         lats = ds["flash_lat"].values
         lons = ds["flash_lon"].values
-        energies = ds["flash_energy"].values if "flash_energy" in ds else [None] * len(lats)
-        areas    = ds["flash_area"].values   if "flash_area"   in ds else [None] * len(lats)
+        n = len(lats)
+        energies = ds["flash_energy"].values if "flash_energy" in ds else [None] * n
+        areas    = ds["flash_area"].values   if "flash_area"   in ds else [None] * n
+        times    = _flash_times(ds, key, n)
 
-        # product_time: segundos desde 2000-01-01 12:00:00 UTC (J2000)
-        try:
-            base = _decode_glm_time(ds["product_time"])
-        except Exception:
-            base = datetime.now(timezone.utc)
-
-        offsets = ds["flash_time_offset_of_first_event"].values if "flash_time_offset_of_first_event" in ds else [0] * len(lats)
-
-        # Si las variables tienen scale_factor/add_offset (decode_cf=False los dejó sin aplicar)
-        def _scaled(var_name: str, arr):
-            if var_name not in ds:
-                return arr
-            attrs = ds[var_name].attrs
-            sf = attrs.get("scale_factor", 1.0)
-            ao = attrs.get("add_offset",  0.0)
-            try:
-                return arr * float(sf) + float(ao)
-            except Exception:
-                return arr
-
-        lats     = _scaled("flash_lat", lats)
-        lons     = _scaled("flash_lon", lons)
-        energies = _scaled("flash_energy", energies) if "flash_energy" in ds else energies
-        areas    = _scaled("flash_area",   areas)    if "flash_area"   in ds else areas
-
-        for i in range(len(lats)):
+        for i in range(n):
             try:
                 lat = float(lats[i]); lon = float(lons[i])
             except (TypeError, ValueError):
                 continue
             if math.isnan(lat) or math.isnan(lon):
                 continue
-            try:
-                off_s = float(offsets[i])
-            except (TypeError, ValueError):
-                off_s = 0.0
-            t_iso = (base + timedelta(seconds=off_s)).isoformat(timespec="seconds")
             flashes.append({
                 "lat":      lat,
                 "lon":      lon,
-                "time":     t_iso,
+                "time":     times[i],
                 "energy_j": _safe_float(energies[i] if i < len(energies) else None),
                 "area_m2":  _safe_float(areas[i]    if i < len(areas)    else None),
             })
@@ -229,6 +204,28 @@ def _download_and_parse(session: requests.Session, key: str) -> list[dict]:
     return flashes
 
 
+def _flash_times(ds, key: str, n: int) -> list:
+    """
+    Hora UTC (ISO, al segundo) del primer evento de cada destello.
+
+    Con la decodificación CF, `flash_time_offset_of_first_event` llega como
+    datetime64 absoluto. Si no llegara así (variable ausente o `units` que
+    xarray no entiende), la hora queda en None: el panel la muestra sin hora y
+    no la filtra por ventana, lo que es preferible a publicar una hora inventada.
+    """
+    var = "flash_time_offset_of_first_event"
+    if var not in ds or not np.issubdtype(ds[var].dtype, np.datetime64):
+        print(f"[WARN] {key}: {var} no se decodificó como fecha; destellos sin hora")
+        return [None] * n
+    out = []
+    for t in ds[var].values.astype("datetime64[s]"):
+        if np.isnat(t):
+            out.append(None)
+        else:
+            out.append(t.item().replace(tzinfo=timezone.utc).isoformat(timespec="seconds"))
+    return out
+
+
 def _safe_float(v):
     if v is None:
         return None
@@ -237,16 +234,6 @@ def _safe_float(v):
     except (TypeError, ValueError):
         return None
     return None if math.isnan(f) else f
-
-
-def _decode_glm_time(var) -> datetime:
-    """GLM product_time: segundos desde 2000-01-01 12:00:00 UTC (J2000)."""
-    J2000 = datetime(2000, 1, 1, 12, 0, 0, tzinfo=timezone.utc)
-    try:
-        val = float(var.values)
-        return J2000 + timedelta(seconds=val)
-    except Exception:
-        return datetime.now(timezone.utc)
 
 
 def download_all_flashes(

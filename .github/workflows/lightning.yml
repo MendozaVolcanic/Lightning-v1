@@ -69,7 +69,7 @@ jobs:
         run: pip install -r requirements.txt && pip install pytest
 
       - name: Smoke tests (lógica pura)
-        run: python -m pytest tests/test_smoke.py -q
+        run: python -m pytest tests/ -q
 
       - name: Scan WWLLN
         run: python wwlln_scraper.py
