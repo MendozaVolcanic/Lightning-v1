@@ -1,11 +1,11 @@
 {
-  "scan_utc": "2026-11-26T10:40:38.679763+00:00",
+  "scan_utc": "2026-11-26T10:45:41.585534+00:00",
   "source": "GLM-G19",
   "window_minutes": 15,
   "total_volcanoes": 57,
-  "red_alerts": 0,
+  "red_alerts": 2,
   "yellow_alerts": 0,
-  "green_alerts": 57,
+  "green_alerts": 55,
   "volcanoes": [
     {
       "volcano": "Acatenango",
@@ -83,17 +83,9 @@
       "lat": -18.109,
       "lon": -69.506,
       "inner_flashes": 0,
-      "outer_flashes": 2,
+      "outer_flashes": 1,
       "alert": "GREEN",
       "flash_positions": [
-        {
-          "lat": -18.364585876464844,
-          "lon": -68.67427062988281,
-          "ring": "outer",
-          "time": "2026-11-26T10:27:05+00:00",
-          "energy_j": 1.2851459161450102e-15,
-          "area_m2": 70349456.0
-        },
         {
           "lat": -17.3315372467041,
           "lon": -69.7127685546875,
@@ -110,18 +102,9 @@
       "lat": -18.171,
       "lon": -69.145,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -18.364585876464844,
-          "lon": -68.67427062988281,
-          "ring": "outer",
-          "time": "2026-11-26T10:27:05+00:00",
-          "energy_j": 1.2851459161450102e-15,
-          "area_m2": 70349456.0
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Guallatiri",
@@ -129,18 +112,9 @@
       "lat": -18.428,
       "lon": -69.085,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -18.364585876464844,
-          "lon": -68.67427062988281,
-          "ring": "outer",
-          "time": "2026-11-26T10:27:05+00:00",
-          "energy_j": 1.2851459161450102e-15,
-          "area_m2": 70349456.0
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Isluga",
@@ -148,18 +122,9 @@
       "lat": -19.167,
       "lon": -68.822,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 0,
       "alert": "GREEN",
-      "flash_positions": [
-        {
-          "lat": -18.364585876464844,
-          "lon": -68.67427062988281,
-          "ring": "outer",
-          "time": "2026-11-26T10:27:05+00:00",
-          "energy_j": 1.2851459161450102e-15,
-          "area_m2": 70349456.0
-        }
-      ]
+      "flash_positions": []
     },
     {
       "volcano": "Irruputuncu",
@@ -405,7 +370,7 @@
       "lat": -38.712,
       "lon": -71.734,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
         {
@@ -415,6 +380,14 @@
           "time": "2026-11-26T10:36:13+00:00",
           "energy_j": 2.285142002245123e-15,
           "area_m2": 68213032.0
+        },
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "outer",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
         }
       ]
     },
@@ -424,7 +397,7 @@
       "lat": -38.981,
       "lon": -71.516,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
         {
@@ -434,6 +407,14 @@
           "time": "2026-11-26T10:36:13+00:00",
           "energy_j": 2.285142002245123e-15,
           "area_m2": 68213032.0
+        },
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "outer",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
         }
       ]
     },
@@ -442,20 +423,38 @@
       "wwlln_id": "1507-12-",
       "lat": -39.421,
       "lon": -71.939,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "inner",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
+        }
+      ]
     },
     {
       "volcano": "Quetrupillan",
       "wwlln_id": "1507-121",
       "lat": -39.532,
       "lon": -71.703,
-      "inner_flashes": 0,
+      "inner_flashes": 1,
       "outer_flashes": 0,
-      "alert": "GREEN",
-      "flash_positions": []
+      "alert": "RED",
+      "flash_positions": [
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "inner",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
+        }
+      ]
     },
     {
       "volcano": "Lanin",
@@ -463,7 +462,7 @@
       "lat": -39.628,
       "lon": -71.479,
       "inner_flashes": 0,
-      "outer_flashes": 1,
+      "outer_flashes": 2,
       "alert": "GREEN",
       "flash_positions": [
         {
@@ -473,6 +472,14 @@
           "time": "2026-11-26T10:32:08+00:00",
           "energy_j": 2.285142002245123e-15,
           "area_m2": 70502056.0
+        },
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "outer",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
         }
       ]
     },
@@ -482,9 +489,18 @@
       "lat": -39.934,
       "lon": -72.003,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "outer",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
+        }
+      ]
     },
     {
       "volcano": "Carran - Los Venados",
@@ -492,9 +508,18 @@
       "lat": -40.379,
       "lon": -72.105,
       "inner_flashes": 0,
-      "outer_flashes": 0,
+      "outer_flashes": 1,
       "alert": "GREEN",
-      "flash_positions": []
+      "flash_positions": [
+        {
+          "lat": -39.584495544433594,
+          "lon": -71.85810852050781,
+          "ring": "outer",
+          "time": "2026-11-26T10:39:59+00:00",
+          "energy_j": 2.285142002245123e-15,
+          "area_m2": 70044256.0
+        }
+      ]
     },
     {
       "volcano": "Puyehue - Cordon Caulle",
